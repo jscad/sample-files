@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='HalfMoonPrototype.x3d' name='title'/>
+    <meta content='Prototype for a group of HalfMoon fish in the Kelp forest.' name='description'/>
+    <meta content='Ildeniz Duman' name='creator'/>
+    <meta content='Scott Tufts' name='translator'/>
+    <meta content='1 June 1998' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Additional PositionInterpolator present but disabled.' name='warning'/>
+    <meta content='Wiggle causes texture flashing. TODO: move animation to example file.' name='warning'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonPrototype.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='HalfMoonPrototype.x3d'/>
+    <ProtoDeclare appinfo='HalfMoon fish' name='HalfMoon'>
+      <ProtoInterface>
+        <field accessType='inputOutput' name='skinTextureUrl' type='MFString' value='"HalfMoonScalesPatch.jpg"'/>
+        <field accessType='inputOutput' name='fishScale' type='SFVec3f' value='0.3 0.25 0.25'/>
+        <field accessType='inputOutput' name='fishColor' type='SFColor' value='0.7 0.7 0.7'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Transform DEF='MyHalfMoon'>
+          <IS>
+            <connect nodeField='scale' protoField='fishScale'/>
+          </IS>
+          <Shape>
+            <Appearance>
+              <Material DEF='FishColor'>
+                <IS>
+                  <connect nodeField='diffuseColor' protoField='fishColor'/>
+                </IS>
+              </Material>
+              <ImageTexture DEF='FishTexture'>
+                <IS>
+                  <connect nodeField='url' protoField='skinTextureUrl'/>
+                </IS>
+              </ImageTexture>
+            </Appearance>
+            <Extrusion DEF='Fish_Shape' creaseAngle='1.57' crossSection='-0.1 1.0 0.1 1 0.5 0.5 0.5 -0.5 0.1 -1 -0.1 -1 -0.5 -0.5 -0.5 0.5 -0.1 1' scale='0.03 0.03 0.3 0.3 0.2 0.4 0.1 0.5 0.1 0.15 0.03 0.4' spine='0 1.5 0 0 1.2 0 0 0.5 0 0 0.3 0 0 0 0 0 -0.3 0'/>
+          </Shape>
+          <Shape>
+            <Appearance DEF='Fin_Skin'>
+              <Material diffuseColor='0.5 0.5 0.5' transparency='0.2'/>
+            </Appearance>
+          </Shape>
+          <Transform translation='1.37 0.1 0.1'>
+            <Shape DEF='Eye'>
+              <Appearance>
+                <Material diffuseColor='0.5 0.5 0.5' shininess='1' specularColor='0.3 0.3 0.3'/>
+              </Appearance>
+              <Sphere radius='0.04'/>
+            </Shape>
+          </Transform>
+          <Transform translation='1.37 0.1 -0.1'>
+            <Shape USE='Eye'/>
+          </Transform>
+          <Transform scale='2.6 1 0.7' translation='1.46 0 0'>
+            <!-- Mouth -->
+            <Shape USE='Eye'/>
+          </Transform>
+          <Transform DEF='Left_Pectoral' translation='1.1 -0.15 -0.1'>
+            <Shape>
+              <Appearance USE='Fin_Skin'/>
+              <IndexedFaceSet coordIndex='0 1 2 -1' solid='false'>
+                <Coordinate point='0 0 0 0.2 0 0 -0.2 0 -0.2'/>
+              </IndexedFaceSet>
+            </Shape>
+          </Transform>
+          <Transform DEF='Right_Pectoral' translation='1.1 -0.15 0.1'>
+            <Shape>
+              <Appearance USE='Fin_Skin'/>
+              <IndexedFaceSet coordIndex='0 1 2 -1' solid='false'>
+                <Coordinate point='0 0 0 0.2 0 0 -0.2 0 0.2'/>
+              </IndexedFaceSet>
+            </Shape>
+          </Transform>
+          <Group DEF='AnimationGroup'>
+            <TimeSensor DEF='Timer' cycleInterval='5' loop='true'/>
+            <CoordinateInterpolator DEF='Waggler' key='0.0 0.15 0.28 0.4 0.55 0.7 0.85 1' keyValue='1.5 0 0 1.2 0 0 0.5 0 0 0.3 0 0 0 0 0 -0.3 0 0 1.5 0 0 1.20 0 0 0.5 0 .1 0.3 0 .2 0 0 0.25 -0.3 0 0.3 1.5 0 0 1.20 0 0 0.5 0 0 0.3 0 0 0 0 0 -0.3 0 0 1.5 0 0 1.2 0 0 0.5 0 -0.1 0.3 0 -0.2 0 0 -0.25 -0.3 0 -0.3 1.5 0 0 1.2 0 0 0.5 0 0 0.3 0 0 0 0 0 -0.3 0 0 1.5 0 0 1.2 0 0 0.5 0 0.1 0.3 0 0.2 0 0 0.25 -0.3 0 0.3 1.5 0 0 1.2 0 0 0.5 0 0 0.3 0 0 0 0 0 -0.3 0 0 1.5 0 0 1.2 0 0 0.5 0 -0.1 0.3 0 -0.2 0 0 -0.25 -0.3 0 -0.3'/>
+            <OrientationInterpolator DEF='Left_Pectoral_Rotation' key='0 0.3 0.7 1' keyValue='1 0 0 -0.52 1 0 0 0 1 0 0 0 1 0 0 -0.52'/>
+            <OrientationInterpolator DEF='Right_Pectoral_Rotation' key='0 0.3 0.7 1' keyValue='1 0 0 -0.52 1 0 0 0 1 0 0 0 1 0 0 -0.52'/>
+            <!-- orbiting time -->
+            <TimeSensor DEF='OrbitClock' cycleInterval='90' enabled='false' loop='true'/>
+            <OrientationInterpolator DEF='Orbit' key='0.0 0.25 0.5 0.750 1' keyValue='0 1 0 6.28 0 1 0 1.57 0 1 0 3.14 0 1 0 4.71 0 1 0 6.28'/>
+            <PositionInterpolator DEF='HalfMoonPath' key='0 0.125 0.25 0.375 0.5 0.625 0.75 0.875 1' keyValue='15 2 0 15 0 -10 0 -1 -10 -15 0 -10 -15 2 0 -15 0 10 0 -2 10 15 0 10 15 2 0'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Waggler'/>
+            <ROUTE fromField='value_changed' fromNode='Waggler' toField='set_spine' toNode='Fish_Shape'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Left_Pectoral_Rotation'/>
+            <ROUTE fromField='value_changed' fromNode='Left_Pectoral_Rotation' toField='set_rotation' toNode='Left_Pectoral'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Right_Pectoral_Rotation'/>
+            <ROUTE fromField='value_changed' fromNode='Right_Pectoral_Rotation' toField='set_rotation' toNode='Right_Pectoral'/>
+            <ROUTE fromField='fraction_changed' fromNode='OrbitClock' toField='set_fraction' toNode='Orbit'/>
+            <ROUTE fromField='fraction_changed' fromNode='OrbitClock' toField='set_fraction' toNode='HalfMoonPath'/>
+            <ROUTE fromField='value_changed' fromNode='Orbit' toField='set_rotation' toNode='MyHalfMoon'/>
+            <ROUTE fromField='value_changed' fromNode='HalfMoonPath' toField='set_translation' toNode='MyHalfMoon'/>
+          </Group>
+        </Transform>
+      </ProtoBody>
+    </ProtoDeclare>
+    <!-- ==================== -->
+    <ProtoInstance name='HalfMoon'/>
+  </Scene>
+</X3D>

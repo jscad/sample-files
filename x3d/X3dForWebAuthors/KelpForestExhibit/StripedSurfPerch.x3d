@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='StripedSurfPerch.x3d' name='title'/>
+    <meta content='Create a new fish type through configuration of the CircleFishLod prototype.' name='description'/>
+    <meta content='Ildeniz Duman' name='creator'/>
+    <meta content='Jeff Weekley' name='translator'/>
+    <meta content='1 May 1998' name='created'/>
+    <meta content='25 February 2001' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/StripedSurfPerch.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='StripedSurfPerch.x3d'/>
+    <ExternProtoDeclare appinfo='CircleFish prototype with LOD added' name='CircleFishLod' url='"CircleFishLodPrototype.x3d#CircleFishLod" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CircleFishLodPrototype.x3d#CircleFishLod" "CircleFishLodPrototype.wrl#CircleFishLod" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CircleFishLodPrototype.wrl#CircleFishLod"'>
+      <field accessType='inputOutput' name='skinTextureUrl' type='MFString'/>
+      <field accessType='inputOutput' name='fishScale' type='SFVec3f'/>
+      <field accessType='inputOutput' name='fishColor' type='SFColor'/>
+      <field accessType='inputOutput' name='finColor' type='SFColor'/>
+      <field accessType='inputOutput' name='positionKey' type='MFFloat'/>
+      <field accessType='inputOutput' name='positionKeyValue' type='MFVec3f'/>
+      <field accessType='inputOutput' name='orientationKey' type='MFFloat'/>
+      <field accessType='inputOutput' name='orientationKeyValue' type='MFRotation'/>
+      <field accessType='inputOutput' name='orbitTime' type='SFTime'/>
+    </ExternProtoDeclare>
+    <Viewpoint description='Striped SurfPerch' orientation='0.0 1.0 0.0 89.9' position='4.0 0.0 -1.0'/>
+    <ProtoInstance DEF='StripedSurfPerch' name='CircleFishLod'>
+      <fieldValue name='skinTextureUrl' value='"StripedSurfPerchPatch.jpg" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/StripedSurfPerchPatch.jpg"'/>
+      <fieldValue name='fishScale' value='0.39 0.26 0.2'/>
+      <fieldValue name='finColor' value='0.73 0.56 0.56'/>
+      <fieldValue name='positionKey' value='0 0.25 0.5 0.75 1'/>
+      <fieldValue name='positionKeyValue' value='0 0 -0.5 0.5 0 0 0 0 0.5 -0.5 0 0 0 0 -0.5'/>
+      <fieldValue name='orientationKey' value='0 0.25 0.5 0.75 1'/>
+      <fieldValue name='orientationKeyValue' value='0 1 0 -6.28 0 1 0 -3.14 0 1 0 0 0 1 0 3.14 0 1 0 6.28'/>
+      <fieldValue name='orbitTime' value='80.0'/>
+    </ProtoInstance>
+  </Scene>
+</X3D>

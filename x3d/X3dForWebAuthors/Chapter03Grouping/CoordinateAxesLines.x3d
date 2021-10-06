@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='CoordinateAxesLines.x3d' name='title'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='13 October 2013' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='X Y Z axis lines (red green blue, respectively) in X3D coordinate system, providing a simple reusable widget.' name='description'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxesNSEW.x3d' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxes.x3d' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Tools/Authoring/CoordinateAxesNSEW.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxesLines.x3d' name='identifier'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- See X3dForWebAuthors/Chapter06GeometryPointsLinesPolygons to learn more about IndexedLineSet, Coordinate and Color nodes -->
+    <WorldInfo title='CoordinateAxesLines.x3d'/>
+    <Shape>
+      <IndexedLineSet colorIndex='0 1 2' colorPerVertex='false' coordIndex='0 1 -1 0 2 -1 0 3 -1'>
+        <Coordinate point='0 0 0 1 0 0 0 1 0 0 0 1'/>
+        <Color color='1 0 0 0 1 0 0.2 0.2 1'/>
+      </IndexedLineSet>
+    </Shape>
+    <Viewpoint description='Oblique view' orientation='-0.59028 0.76927 0.2445 0.987861' position='6 6 6'/>
+    <Viewpoint description='View from X axis' orientation='0 1 0 1.570796' position='10 0 0'/>
+    <Viewpoint description='View from Y axis' orientation='1 0 0 -1.570796' position='0 10 0'/>
+    <Viewpoint description='View from Z axis'/>
+  </Scene>
+</X3D>

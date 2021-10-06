@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interactive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='CircleLinesSphereLatitude.x3d' name='title'/>
+    <meta content='Build a sphere outline by using multiple CircleLine circles as latitude rings, with actual semitransparent Sphere and axes added as a visualization hint.' name='description'/>
+    <meta content='Don Brutzman and Ben Cheng' name='creator'/>
+    <meta content='12 August 2013' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='CircleLinesSphereCalculations.jpg' name='drawing'/>
+    <meta content='CircleLinesExample.x3d' name='reference'/>
+    <meta content='CircleLinesSphereLongitude.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/CircleLinesSphereLatitude.x3d' name='identifier'/>
+    <meta content='X3D-Edit, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='CircleLinesSphereLatitude.x3d'/>
+    <Viewpoint description='CircleLines Example' position='0 0 4'/>
+    <Shape DEF='OuterHullVisualizationHint'>
+      <Sphere radius='0.995'/>
+      <Appearance>
+        <Material diffuseColor='1 1 1' transparency='0.4'/>
+      </Appearance>
+    </Shape>
+    <!-- CircleLines is an IndexedLineSet made out of 24 line segments -->
+    <Transform DEF='CircleEquator' rotation='1 0 0 1.570796'>
+      <Shape DEF='CircleLines'>
+        <IndexedLineSet coordIndex='0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 -1'>
+          <Coordinate point='0.000 1.000 0.0 0.259 0.966 0.0 0.500 0.866 0.0 0.707 0.707 0.0 0.866 0.500 0.0 0.966 0.259 0.0 1.000 0.000 0.0 0.966 -0.259 0.0 0.866 -0.500 0.0 0.707 -0.707 0.0 0.500 -0.866 0.0 0.259 -0.966 0.0 0.000 -1.000 0.0 -0.259 -0.966 0.0 -0.500 -0.866 0.0 -0.707 -0.707 0.0 -0.866 -0.500 0.0 -0.966 -0.259 0.0 -1.000 -0.000 0.0 -0.966 0.259 0.0 -0.866 0.500 0.0 -0.707 0.707 0.0 -0.500 0.866 0.0 -0.259 0.966 0.0 0 1 0 0 -1 0 1 0 0 -1 0 0'/>
+        </IndexedLineSet>
+        <Appearance DEF='CircleAppearance'>
+          <Material emissiveColor='1 .5 .2'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Group DEF='CircleLatitudes'>
+      <Transform scale='0.9682 0.9682 0.9682' translation='0 .25 0'>
+        <Transform USE='CircleEquator'/>
+      </Transform>
+      <Transform scale='0.8660 0.8660 0.8660' translation='0 .5 0'>
+        <Transform USE='CircleEquator'/>
+      </Transform>
+      <Transform scale='0.6614 0.6614 0.6614' translation='0 .75 0'>
+        <Transform USE='CircleEquator'/>
+      </Transform>
+      <Transform scale='0.3122 0.3122 0.3122' translation='0 .95 0'>
+        <Transform USE='CircleEquator'/>
+      </Transform>
+      <Shape DEF='TipTop'>
+        <PointSet>
+          <Coordinate point='0 1 0'/>
+        </PointSet>
+        <Appearance USE='CircleAppearance'/>
+      </Shape>
+    </Group>
+    <Transform rotation='1 0 0 3.141593'>
+      <Group USE='CircleLatitudes'/>
+    </Transform>
+    <!-- Authoring hint: these axes are aligned within local coordinate system -->
+    <Transform DEF='CoordinateAxesAdjustedScale'>
+      <Transform DEF='ScaleFeetToMeters' scale='0.4 0.4 0.4'>
+        <Inline DEF='CoordinateAxes' url='"../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d" "../../X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.wrl"'/>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ElevationGridNonPlanarQuadrilaterals.x3d' name='title'/>
+    <meta content='Show how a single nonplanar quadrilateral can be tesselated in 2 different ways.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='U.S. Naval Postgraduate School (NPS)' name='organization'/>
+    <meta content='28 August 2005' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter06GeometryPointsLinesPolygons/ElevationGridNonPlanarQuadrilaterals.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ElevationGridNonPlanarQuadrilaterals.x3d'/>
+    <NavigationInfo DEF='ExamineMode'/>
+    <NavigationInfo DEF='FlyPanNavigation' type='"FLY" "ANY"'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Book View' orientation='0 1 0 0.01' position='0.13 0.2 7.71'/>
+    <Viewpoint DEF='DefaultView' description='ElevationGrid tessellation examples' position='0 0.2 10'/>
+    <ROUTE fromField='isBound' fromNode='DefaultView' toField='set_bind' toNode='FlyPanNavigation'/>
+    <Transform translation='0 -0.75 0'>
+      <Transform DEF='FigureElevationGridBack' translation='-4 0 0'>
+        <!-- Note that the base of each piece of polygonal geometry is based at (1 0 1) -->
+        <Viewpoint description='Default brower ElevationGrid tessellation, front view' position='1.5 0.4 4'/>
+        <Transform center='1 0 1' rotation='0 1 0 3.2'>
+          <Group DEF='DefaultElevationGrid'>
+            <Shape DEF='ExampleElevationGridShape'>
+              <ElevationGrid height='0 0.5 0 0' solid='false'/>
+              <Appearance DEF='DiffuseRedAppearance'>
+                <Material diffuseColor='0.9 0.1 0.1' transparency='0.1'/>
+              </Appearance>
+            </Shape>
+            <Transform DEF='FigureLabelBrowserElevationGrid' translation='0.5 1 0.5'>
+              <Billboard>
+                <Shape>
+                  <Text string='"Browser" "ElevationGrid"'>
+                    <FontStyle DEF='CenterFS' justify='"MIDDLE" "MIDDLE"' size='0.25'/>
+                  </Text>
+                  <Appearance DEF='LabelAppearance'>
+                    <Material diffuseColor='0.2 0.1 0.8'/>
+                  </Appearance>
+                </Shape>
+              </Billboard>
+            </Transform>
+            <Group DEF='CommonFigureElements'>
+              <Shape DEF='QuadOutlineShape'>
+                <IndexedLineSet colorIndex='0 0 0 0' colorPerVertex='false' coordIndex='0 1 3 2 0 -1'>
+                  <!-- first iterate on x-axis, then z-xis -->
+                  <Coordinate DEF='QuadrilateralPoints' point='0 0 0 1 0.5 0 0 0 1 1 0 1 1 0 0'/>
+                  <Color DEF='White' color='1 1 1'/>
+                </IndexedLineSet>
+              </Shape>
+              <Shape DEF='FloorShape'>
+                <!-- setting all height values to zero is a simple way to get a square outline. A more efficient way is to use an IndexedFaceSet. -->
+                <ElevationGrid solid='false'/>
+                <Appearance DEF='TransparentGreyAppearance'>
+                  <Material diffuseColor='0 0 0' transparency='0.8'/>
+                </Appearance>
+              </Shape>
+              <Transform DEF='PointLabels' translation='0 -0.2 0'>
+                <Billboard>
+                  <Shape>
+                    <Text string='"h0"'>
+                      <FontStyle USE='CenterFS'/>
+                    </Text>
+                    <Appearance USE='LabelAppearance'/>
+                  </Shape>
+                </Billboard>
+                <Transform translation='1 0 0'>
+                  <Billboard>
+                    <Shape>
+                      <Text string='"h1"'>
+                        <FontStyle USE='CenterFS'/>
+                      </Text>
+                      <Appearance USE='LabelAppearance'/>
+                    </Shape>
+                  </Billboard>
+                </Transform>
+                <Transform translation='0 0 1'>
+                  <Billboard>
+                    <Shape>
+                      <Text string='"h2"'>
+                        <FontStyle USE='CenterFS'/>
+                      </Text>
+                      <Appearance USE='LabelAppearance'/>
+                    </Shape>
+                  </Billboard>
+                </Transform>
+                <Transform translation='1 0 1'>
+                  <Billboard>
+                    <Shape>
+                      <Text string='"h3"'>
+                        <FontStyle USE='CenterFS'/>
+                      </Text>
+                      <Appearance USE='LabelAppearance'/>
+                    </Shape>
+                  </Billboard>
+                </Transform>
+              </Transform>
+              <Shape DEF='QuadVerticalLineShape'>
+                <IndexedLineSet colorIndex='0 0 0 0' colorPerVertex='false' coordIndex='1 4 -1'>
+                  <Coordinate USE='QuadrilateralPoints'/>
+                  <Color USE='White'/>
+                </IndexedLineSet>
+              </Shape>
+            </Group>
+            <Shape DEF='QuadCrossDiagonalLineShape'>
+              <IndexedLineSet colorIndex='0 0 0 0' colorPerVertex='false' coordIndex='2 1 -1'>
+                <Coordinate USE='QuadrilateralPoints'/>
+                <Color USE='White'/>
+              </IndexedLineSet>
+            </Shape>
+            <Shape DEF='QuadCenterDiagonalLineShape'>
+              <IndexedLineSet colorIndex='0 0 0 0' colorPerVertex='false' coordIndex='0 3 -1'>
+                <Coordinate USE='QuadrilateralPoints'/>
+                <Color USE='White'/>
+              </IndexedLineSet>
+            </Shape>
+          </Group>
+        </Transform>
+      </Transform>
+      <Transform DEF='FigureElevationGridFront' translation='-1 0 0'>
+        <Viewpoint description='Default brower ElevationGrid tessellation, back view' position='0.5 0.4 4'/>
+        <Transform center='1 0 1' rotation='0 1 0 0.8'>
+          <Group USE='DefaultElevationGrid'/>
+        </Transform>
+      </Transform>
+      <Transform DEF='FigureIfsCenterDiagonal' translation='1 0 0'>
+        <Viewpoint description='Center-diagonal tessellation' position='0.5 0.4 4'/>
+        <Transform center='1 0 1' rotation='0 1 0 0.4'>
+          <Shape>
+            <IndexedFaceSet coordIndex='0 3 1 -1 0 2 3 -1'>
+              <Coordinate USE='QuadrilateralPoints'/>
+            </IndexedFaceSet>
+            <Appearance USE='DiffuseRedAppearance'/>
+          </Shape>
+          <Transform DEF='FigureLabelCenterDiagonalTessellation' translation='0.5 1 0.5'>
+            <Billboard>
+              <Shape>
+                <Text string='"Center Diagonal" "Tessellation"'>
+                  <FontStyle USE='CenterFS'/>
+                </Text>
+                <Appearance USE='LabelAppearance'/>
+              </Shape>
+            </Billboard>
+          </Transform>
+          <Group USE='CommonFigureElements'/>
+          <Shape USE='QuadCenterDiagonalLineShape'/>
+        </Transform>
+      </Transform>
+      <Transform DEF='FigureIfsCrossDiagonal' translation='3 0 0'>
+        <Viewpoint description='Cross-diagonal tessellation' position='0.5 0.4 4'/>
+        <Transform center='1 0 1'>
+          <Shape>
+            <IndexedFaceSet coordIndex='0 2 1 -1 2 3 1 -1'>
+              <Coordinate USE='QuadrilateralPoints'/>
+            </IndexedFaceSet>
+            <Appearance USE='DiffuseRedAppearance'/>
+          </Shape>
+          <Transform DEF='FigureLabelCrossDiagonalTessellation' translation='0.5 1 0.5'>
+            <Billboard>
+              <Shape>
+                <Text string='"Cross Diagonal" "Tessellation"'>
+                  <FontStyle USE='CenterFS'/>
+                </Text>
+                <Appearance USE='LabelAppearance'/>
+              </Shape>
+            </Billboard>
+          </Transform>
+          <Group USE='CommonFigureElements'/>
+          <Shape USE='QuadCrossDiagonalLineShape'/>
+        </Transform>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>

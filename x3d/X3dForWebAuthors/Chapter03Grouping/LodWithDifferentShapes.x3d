@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='LodWithDifferentShapes.x3d' name='title'/>
+    <meta content='Example to demonstrate LOD forceTransitions field for animating different shapes, navigate in/out or else check Viewpoints to see each separate Shape' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='21 July 2011' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='LOD.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright (c) 2005, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/LodWithDifferentShapes.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='LodWithDifferentShapes.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <NavigationInfo type='"FLY" "ANY"'/>
+    <Viewpoint description='LOD at 4m shows Box' position='0 0 4'/>
+    <Viewpoint description='LOD at 8m shows Cone' position='0 0 8'/>
+    <Viewpoint description='LOD at 12m shows Cylinder' position='0 0 12'/>
+    <Viewpoint description='LOD at 16m shows Sphere' position='0 0 16'/>
+    <LOD DEF='Switcher' forceTransitions='true' range='5 10 15'>
+      <Shape DEF='BoxShape'>
+        <Box/>
+        <Appearance>
+          <Material diffuseColor='1 0 0'/>
+        </Appearance>
+      </Shape>
+      <Shape DEF='ConeShape'>
+        <Cone/>
+        <Appearance>
+          <Material diffuseColor='1 1 0'/>
+        </Appearance>
+      </Shape>
+      <Shape DEF='CylinderShape'>
+        <Cylinder/>
+        <Appearance>
+          <Material diffuseColor='0 1 0'/>
+        </Appearance>
+      </Shape>
+      <Shape DEF='SphereShape'>
+        <Sphere/>
+        <Appearance>
+          <Material diffuseColor='0 0 1'/>
+        </Appearance>
+      </Shape>
+    </LOD>
+  </Scene>
+</X3D>

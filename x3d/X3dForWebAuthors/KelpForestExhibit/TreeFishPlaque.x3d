@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interactive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='TreeFishPlaque.x3d' name='title'/>
+    <meta content='Michael Collins' name='creator'/>
+    <meta content='18 February 2001' name='created'/>
+    <meta content='25 March 2020' name='modified'/>
+    <meta content='unfinished' name='warning'/>
+    <meta content='One fish plaque with lithograph on one side and actual picture on the back. Click on plaque to go to picture or click on buttons to change picture.' name='description'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/TreeFishPlaque.x3d' name='identifier'/>
+    <meta content='Treefish.jpg' name='Image'/>
+    <meta content='https://en.wikipedia.org/wiki/Treefish' name='reference'/>
+    <meta content='http://faculty.nps.edu/brutzman/kelp/fish.html#Treefish' name='reference'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='TreeFishPlaque.x3d'/>
+    <Viewpoint DEF='treefish' description='Tree Fish' position='0 0 4'/>
+    <!-- Fish Plaques -->
+    <Group>
+      <TouchSensor DEF='BlueRockfishTouchSensor' description='touch to rotate'/>
+      <TimeSensor DEF='BLUEROCKFISHCLOCK' cycleInterval='2'/>
+      <OrientationInterpolator DEF='BlueRockfishPathInterpolator' key='0.0 0.50 1.0' keyValue='0.0 1.0 0.0 0.0 0.0 1.0 0.0 1.57 0.0 1.0 0.0 3.14'/>
+      <Transform DEF='BLUEROCKFISH_TRANSFORM'>
+        <Shape>
+          <Box size='4 2 .1'/>
+          <Appearance>
+            <ImageTexture url='"TreeFish.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/TreeFish.jpg"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Group>
+        <Transform DEF='BASE_TRANSFORM' translation='0 0 -.3'>
+          <Shape>
+            <Box size='8 6 .3'/>
+            <Appearance>
+              <Material diffuseColor='.3 .3 .6'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <TouchSensor DEF='BaseTouchSensor' description='touch to rotate'/>
+        <Group>
+          <Transform translation='0 -2.6 0'>
+            <Shape>
+              <Box size='8 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform translation='0 2.6 0'>
+            <Shape>
+              <Box size='8 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform rotation='0 0 1 1.58' translation='3.6 0 0'>
+            <Shape>
+              <Box size='6.2 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform rotation='0 0 1 1.58' translation='-3.6 0 0'>
+            <Shape>
+              <Box size='6.2 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+      </Group>
+    </Group>
+  </Scene>
+</X3D>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interactive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='Switch.x3d' name='title'/>
+    <meta content='Example for Switch node' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='13 November 2005' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright (c) 2005, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/Switch.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='Switch.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Switch among multiple children' orientation='-0.668 -0.724 -0.174 0.7' position='-1.93 1.78 3.28'/>
+    <!-- Authors can manually change whichChoice values (from 0 through 3) to show each child shape -->
+    <Switch DEF='Switcher' whichChoice='0'>
+      <Shape DEF='BoxShape'>
+        <Appearance>
+          <Material diffuseColor='1 0 0'/>
+        </Appearance>
+        <Box/>
+      </Shape>
+      <Shape DEF='ConeShape'>
+        <Appearance>
+          <Material diffuseColor='1 1 0'/>
+        </Appearance>
+        <Cone/>
+      </Shape>
+      <Shape DEF='CylinderShape'>
+        <Appearance>
+          <Material diffuseColor='0 1 0'/>
+        </Appearance>
+        <Cylinder/>
+      </Shape>
+      <Shape DEF='SphereShape'>
+        <Appearance>
+          <Material diffuseColor='0 0 1'/>
+        </Appearance>
+        <Sphere/>
+      </Shape>
+    </Switch>
+    <Group DEF='AnimationGroup'>
+      <!-- Total cycleInterval="8" gives 2 seconds to each of the 4 colors -->
+      <!-- Authors can set enabled='true' loop='true' for a continuous animation -->
+      <TimeSensor DEF='Timer' cycleInterval='8' enabled='false' loop='true'/>
+      <IntegerSequencer DEF='Counter' key='0 .25 .5 .75 1' keyValue='0 1 2 3 0'/>
+      <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Counter'/>
+      <ROUTE fromField='value_changed' fromNode='Counter' toField='whichChoice' toNode='Switcher'/>
+    </Group>
+  </Scene>
+</X3D>

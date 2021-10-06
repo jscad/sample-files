@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='FishPrototype.x3d' name='title'/>
+    <meta content='This is a reusable prototype of a generic fish, which can be configured upon instancing to create customized fish.' name='description'/>
+    <meta content='Circular fish behavior is embedded in prototype, instead the circular path needs to be used in external files or possibly parameterized.' name='warning'/>
+    <meta content='Ildeniz Duman' name='creator'/>
+    <meta content='Scott Tufts' name='translator'/>
+    <meta content='1 June 1998' name='created'/>
+    <meta content='9 December 2001' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/FishPrototype.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='FishPrototype.x3d'/>
+    <ProtoDeclare name='Fish'>
+      <ProtoInterface>
+        <field accessType='inputOutput' name='skinTextureUrl' type='MFString'/>
+        <field accessType='inputOutput' name='fishScale' type='SFVec3f' value='1 1 1'/>
+        <field accessType='inputOutput' name='fishColor' type='SFColor' value='0.7 0.7 0.7'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Transform DEF='FishTransform'>
+          <IS>
+            <connect nodeField='scale' protoField='fishScale'/>
+          </IS>
+          <Transform DEF='Way'>
+            <Transform translation='4 0 0'>
+              <Transform rotation='1 0 0 1.57'>
+                <Shape>
+                  <Appearance>
+                    <Material DEF='FishColor'>
+                      <IS>
+                        <connect nodeField='diffuseColor' protoField='fishColor'/>
+                      </IS>
+                    </Material>
+                    <ImageTexture DEF='FishTexture'>
+                      <IS>
+                        <connect nodeField='url' protoField='skinTextureUrl'/>
+                      </IS>
+                    </ImageTexture>
+                  </Appearance>
+                  <Extrusion DEF='FishShape' creaseAngle='1.57' crossSection='1.00 0.00 0.92 -0.38 0.71 -0.71 0.38 -0.92 0.00 -1.00 -0.38 -0.92 -0.71 -0.71 -0.92 -0.38 -1.00 -0.00 -0.92 0.38 -0.71 0.71 -0.38 0.92 0.00 1.00 0.38 0.92 0.71 0.71 0.92 0.38 1.00 0.00' scale='0.03 0.03 0.1 0.15 0.4 0.7 0.5 0.75 0.4 0.55 0.2 0.3 0.05 0.1 0.03 0.6' spine='0 3.51 0 0 3.50 0 0 2.80 0 0 2.3 0 0 1.5 0 0 0.5 0 0 0 0 0 -0.6 0'/>
+                </Shape>
+                <Shape>
+                  <Appearance DEF='FinSkin'>
+                    <Material diffuseColor='0.7 0.7 0.7' transparency='0.3'/>
+                  </Appearance>
+                  <IndexedFaceSet coordIndex='0 1 2 3 -1' solid='false'>
+                    <Coordinate DEF='Pelvic' point='0 2.2 0.6 0 2.2 -0.7 0 0.3 -0.3 0 0.7 0.5'/>
+                  </IndexedFaceSet>
+                </Shape>
+                <Transform translation='0.3 2.8 -0.4'>
+                  <Shape DEF='Eye'>
+                    <Appearance>
+                      <Material diffuseColor='0.5 0.5 0.5' shininess='1' specularColor='0.3 0.3 0.3'/>
+                    </Appearance>
+                    <Sphere radius='0.08'/>
+                  </Shape>
+                </Transform>
+                <Transform translation='-0.3 2.8 -0.4'>
+                  <Shape USE='Eye'/>
+                </Transform>
+                <Transform scale='2.6 1 0.7' translation='0 3.44 -0.1'>
+                  <Shape USE='Eye'/>
+                </Transform>
+                <Transform DEF='LeftPectoral' translation='-0.3 2.7 0.1'>
+                  <Shape>
+                    <Appearance USE='FinSkin'/>
+                    <IndexedFaceSet coordIndex='0 1 2 -1' solid='false'>
+                      <Coordinate point='0 0 0 -0.5 -0.2 0.1 -0.25 0.2 0.25'/>
+                    </IndexedFaceSet>
+                  </Shape>
+                </Transform>
+                <Transform DEF='RightPectoral' translation='0.3 2.7 0.1'>
+                  <Shape>
+                    <Appearance USE='FinSkin'/>
+                    <IndexedFaceSet coordIndex='0 1 2 -1' solid='false'>
+                      <Coordinate point='0 0 0 0.5 -0.2 0.1 0.25 0.2 0.25'/>
+                    </IndexedFaceSet>
+                  </Shape>
+                </Transform>
+              </Transform>
+            </Transform>
+          </Transform>
+          <Group DEF='AnimationGroup'>
+            <TimeSensor DEF='RouteTImer' cycleInterval='50' loop='true'/>
+            <TimeSensor DEF='Timer' cycleInterval='1.5' loop='true'/>
+            <CoordinateInterpolator DEF='Waggler' key='0.0 0.5 1.0' keyValue='0 3.55 0 0 3.50 0 0 2.80 0 0 2.3 0 -0.05 1.5 0 0.1 0.5 0 0.2 0 0 0.3 -0.6 0 0 3.55 0 0 3.50 0 0 2.80 0 0 2.3 0 0.05 1.5 0 -0.1 0.5 0 -0.2 0 0 -0.3 -0.6 0 0 3.55 0 0 3.50 0 0 2.80 0 0 2.3 0 -0.05 1.5 0 0.1 0.5 0 0.2 0 0 0.3 -0.6 0'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Waggler'/>
+            <ROUTE fromField='value_changed' fromNode='Waggler' toField='set_spine' toNode='FishShape'/>
+            <CoordinateInterpolator DEF='Points' key='0.0 0.5 1.0' keyValue='0 2.2 0.6 0 2.2 -0.7 0.2 0.3 -0.3 0.2 0.7 0.5 0 2.2 0.6 0 2.2 -0.7 -0.2 0.3 -0.3 -0.2 0.7 0.5 0 2.2 0.6 0 2.2 -0.7 0.2 0.3 -0.3 0.2 0.7 0.5'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Points'/>
+            <ROUTE fromField='value_changed' fromNode='Points' toField='set_point' toNode='Pelvic'/>
+            <OrientationInterpolator DEF='LeftPectoralRotation' key='0 0.3 0.7 1' keyValue='0 1 0 0.523 0 1 0 0 0 1 0 0 0 1 0 0.523'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='LeftPectoralRotation'/>
+            <ROUTE fromField='value_changed' fromNode='LeftPectoralRotation' toField='set_rotation' toNode='LeftPectoral'/>
+            <OrientationInterpolator DEF='RightPectoralRotation' key='0 0.3 0.7 1' keyValue='0 1 0 -0.523 0 1 0 0 0 1 0 0 0 1 0 -0.523'/>
+            <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='RightPectoralRotation'/>
+            <ROUTE fromField='value_changed' fromNode='RightPectoralRotation' toField='set_rotation' toNode='RightPectoral'/>
+            <OrientationInterpolator DEF='Turn' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 -1.57 0 1 0 -3.14 0 1 0 -4.71 0 1 0 0'/>
+            <ROUTE fromField='fraction_changed' fromNode='RouteTImer' toField='set_fraction' toNode='Turn'/>
+            <ROUTE fromField='value_changed' fromNode='Turn' toField='set_rotation' toNode='Way'/>
+          </Group>
+        </Transform>
+      </ProtoBody>
+    </ProtoDeclare>
+    <!-- ==================== -->
+    <ProtoInstance name='Fish'/>
+  </Scene>
+</X3D>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <!-- The following component tag is needed since FillProperties node is not part of the default Immersive profile -->
+    <component level='3' name='Shape'/>
+    <meta content='FillPropertiesExample.x3d' name='title'/>
+    <meta content='Demonstrate various FillProperties values.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='20 August 2008' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='FillPropertiesHatchStyle.png' name='Image'/>
+    <meta content='FillPropertiesHatchStyleOctaga.png' name='Image'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/FillPropertiesExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='FillProperties.x3d'/>
+    <Viewpoint description='FillProperties hatchStyle examples' position='0 0 24'/>
+    <Transform DEF='OverallAdjustment'>
+      <Transform DEF='FirstRowBoxes' translation='0 7 0'>
+        <Transform translation='-9 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance1'>
+              <Material diffuseColor='1 0 0'/>
+              <FillProperties>
+                <!-- hatchStyle='1' horizontal equally-spaced parallel lines -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='-6 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance2'>
+              <Material diffuseColor='1 0.5 0'/>
+              <FillProperties hatchStyle='2'>
+                <!-- hatchStyle='2' vertical equally-spaced parallel lines -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='-3 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance3'>
+              <Material diffuseColor='1 1 0'/>
+              <FillProperties hatchStyle='3'>
+                <!-- hatchStyle='3' positive slope equally-spaced parallel lines -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance4'>
+              <Material diffuseColor='0 1 0'/>
+              <FillProperties hatchStyle='4'>
+                <!-- hatchStyle='4' negative slope equally-spaced parallel lines -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='3 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance5'>
+              <Material diffuseColor='0 0 1'/>
+              <FillProperties hatchStyle='5'>
+                <!-- hatchStyle='5' horizontal/vertical crosshatch -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='6 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance6'>
+              <Material diffuseColor='0 1 1'/>
+              <FillProperties hatchStyle='6'>
+                <!-- hatchStyle='6' positive slope / negative slope crosshatch -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Transform DEF='SecondRowText' translation='0 5 0'>
+        <Transform translation='-9 0 0'>
+          <Shape>
+            <Text string='"1"'>
+              <FontStyle DEF='Middle' justify='"MIDDLE" "MIDDLE"' size='2' style='BOLD'/>
+            </Text>
+            <Appearance USE='FillAppearance1'/>
+          </Shape>
+        </Transform>
+        <Transform translation='-6 0 0'>
+          <Shape>
+            <Text string='"2"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance2'/>
+          </Shape>
+        </Transform>
+        <Transform translation='-3 0 0'>
+          <Shape>
+            <Text string='"3"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance3'/>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Text string='"4"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance4'/>
+          </Shape>
+        </Transform>
+        <Transform translation='3 0 0'>
+          <Shape>
+            <Text string='"5"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance5'/>
+          </Shape>
+        </Transform>
+        <Transform translation='6 0 0'>
+          <Shape>
+            <Text string='"6"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance6'/>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Transform DEF='ThirdRowBoxes' translation='0 2 0'>
+        <Transform translation='-9 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance7'>
+              <Material diffuseColor='1 0 0'/>
+              <FillProperties hatchStyle='7'>
+                <!-- hatchStyle='7' (optional support) cast iron or malleable iron and general use for all materials -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='-6 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance8'>
+              <Material diffuseColor='1 0.5 0'/>
+              <FillProperties hatchStyle='8'>
+                <!-- hatchStyle='8' (optional support) steel -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='-3 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance9'>
+              <Material diffuseColor='1 1 0'/>
+              <FillProperties hatchStyle='9'>
+                <!-- hatchStyle='9' (optional support) bronze, brass, copper, and compositions -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance10'>
+              <Material diffuseColor='0 1 0'/>
+              <FillProperties hatchStyle='10'>
+                <!-- hatchStyle='10' (optional support) white metal, zinc, lead, babbit, and alloys -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='3 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance11'>
+              <Material diffuseColor='0 0 1'/>
+              <FillProperties hatchStyle='11'>
+                <!-- hatchStyle='11' (optional support) magnesium, aluminum, and aluminum alloys -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='6 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance12'>
+              <Material diffuseColor='0 1 1'/>
+              <FillProperties hatchStyle='12'>
+                <!-- hatchStyle='12' (optional support) rubber, plastic, and electrical insulation -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Transform DEF='FourthRowText'>
+        <Transform translation='-9 0 0'>
+          <Shape>
+            <Text string='"7"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance7'/>
+          </Shape>
+        </Transform>
+        <Transform translation='-6 0 0'>
+          <Shape>
+            <Text string='"8"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance8'/>
+          </Shape>
+        </Transform>
+        <Transform translation='-3 0 0'>
+          <Shape>
+            <Text string='"9"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance9'/>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Text string='"10"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance10'/>
+          </Shape>
+        </Transform>
+        <Transform translation='3 0 0'>
+          <Shape>
+            <Text string='"11"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance11'/>
+          </Shape>
+        </Transform>
+        <Transform translation='6 0 0'>
+          <Shape>
+            <Text string='"12"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance12'/>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Transform DEF='FifthRowBoxes' translation='0 -3 0'>
+        <Transform translation='-9 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance13'>
+              <Material diffuseColor='1 0 0'/>
+              <FillProperties hatchStyle='13'>
+                <!-- hatchStyle='13' (optional support) cork, felt, fabric, leather, and fibre -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='-6 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance14'>
+              <Material diffuseColor='1 0.5 0'/>
+              <FillProperties hatchStyle='14'>
+                <!-- hatchStyle='14' (optional support) thermal insulation -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='-3 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance15'>
+              <Material diffuseColor='1 1 0'/>
+              <FillProperties hatchStyle='15'>
+                <!-- hatchStyle='15' (optional support) titanium and refractory material -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance16'>
+              <Material diffuseColor='0 1 0'/>
+              <FillProperties hatchStyle='16'>
+                <!-- hatchStyle='16' (optional support) marble, slate, porcelain, glass, etc. -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='3 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance17'>
+              <Material diffuseColor='0 0 1'/>
+              <FillProperties hatchStyle='17'>
+                <!-- hatchStyle='17' (optional support) earth -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='6 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance18'>
+              <Material diffuseColor='0 1 1'/>
+              <FillProperties hatchStyle='18'>
+                <!-- hatchStyle='18' (optional support) sand -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <Transform translation='9 0 0'>
+          <Shape>
+            <Box/>
+            <Appearance DEF='FillAppearance19'>
+              <Material diffuseColor='0.3 0.3 0.3'/>
+              <FillProperties hatchStyle='19'>
+                <!-- hatchStyle='19' (optional support) repeating dot -->
+              </FillProperties>
+            </Appearance>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Transform DEF='SixthRowText' translation='0 -5 0'>
+        <Transform translation='-9 0 0'>
+          <Shape>
+            <Text string='"13"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance13'/>
+          </Shape>
+        </Transform>
+        <Transform translation='-6 0 0'>
+          <Shape>
+            <Text string='"14"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance14'/>
+          </Shape>
+        </Transform>
+        <Transform translation='-3 0 0'>
+          <Shape>
+            <Text string='"15"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance15'/>
+          </Shape>
+        </Transform>
+        <Transform>
+          <Shape>
+            <Text string='"16"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance16'/>
+          </Shape>
+        </Transform>
+        <Transform translation='3 0 0'>
+          <Shape>
+            <Text string='"17"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance17'/>
+          </Shape>
+        </Transform>
+        <Transform translation='6 0 0'>
+          <Shape>
+            <Text string='"18"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance18'/>
+          </Shape>
+        </Transform>
+        <Transform translation='9 0 0'>
+          <Shape>
+            <Text string='"19"'>
+              <FontStyle USE='Middle'/>
+            </Text>
+            <Appearance USE='FillAppearance19'/>
+          </Shape>
+        </Transform>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>

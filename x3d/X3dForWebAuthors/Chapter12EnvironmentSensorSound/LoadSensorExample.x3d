@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='LoadSensorExample.x3d' name='title'/>
+    <meta content='Simple test of LoadSensor node' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='17 July 2008' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='Copyright Don Brutzman and Leonard Daly 2008' name='rights'/>
+    <meta content='X3D LoadSensor example' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter12EnvironmentSensorSound/LoadSensorExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='LoadSensor.x3d'/>
+    <Viewpoint DEF='ViewAll' description='LoadSensor test' position='0 0 12'/>
+    <Inline DEF='HelloWorld' url='"../HelloWorld.x3d" "https://www.web3d.org/x3d/content/examples/HelloWorld.x3d"'/>
+    <LoadSensor DEF='InlineLoadSensor' timeOut='5'>
+      <Inline USE='HelloWorld' containerField='watchList'/>
+    </LoadSensor>
+    <Transform DEF='PivotTextSigns' translation='0 3 0'>
+      <!-- First sign indicates waiting... -->
+      <Shape>
+        <Text length='0' string='"LoadSensor waiting for HelloWorld scene..."'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.7' style='ITALIC'/>
+        </Text>
+        <Appearance>
+          <Material emissiveColor='0.878431 0.262745 0'/>
+        </Appearance>
+      </Shape>
+      <!-- Second sign indicates completed, initially rotated 90 degrees out of view -->
+      <Transform rotation='0 1 0 1.57'>
+        <Shape>
+          <Text length='0' string='"LoadSensor reports HelloWorld scene loading complete."'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.7' style='ITALIC'/>
+          </Text>
+          <Appearance>
+            <Material emissiveColor='0 0.278431 0.027451'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Transform>
+    <OrientationInterpolator DEF='SignRotationInterpolator' key='0 1' keyValue='0 1 0 0 0 1 0 -1.57'/>
+    <TimeSensor DEF='SignRotationClock' cycleInterval='0.8'/>
+    <ROUTE fromField='loadTime' fromNode='InlineLoadSensor' toField='set_startTime' toNode='SignRotationClock'/>
+    <ROUTE fromField='fraction_changed' fromNode='SignRotationClock' toField='set_fraction' toNode='SignRotationInterpolator'/>
+    <ROUTE fromField='value_changed' fromNode='SignRotationInterpolator' toField='set_rotation' toNode='PivotTextSigns'/>
+    <Script DEF='TraceScript'>
+      <field accessType='inputOnly' name='eventLoaded' type='SFBool'/>
+      <field accessType='inputOnly' name='loadTimeEvent' type='SFTime'/>
+      <![CDATA[
+ecmascript:
+function eventLoaded (value)
+{
+	Browser.println ('InlineLoadSensor isLoaded=' + value);
+}
+function loadTimeEvent (value)
+{
+	Browser.println ('InlineLoadSensor loadTime=' + value);
+}
+]]>
+    </Script>
+    <ROUTE fromField='isLoaded' fromNode='InlineLoadSensor' toField='eventLoaded' toNode='TraceScript'/>
+    <ROUTE fromField='loadTime' fromNode='InlineLoadSensor' toField='loadTimeEvent' toNode='TraceScript'/>
+  </Scene>
+</X3D>

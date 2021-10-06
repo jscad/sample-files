@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='MovieTextureAuthoringOptions.x3d' name='title'/>
+    <meta content='Provide examples of helpful MovieTexture usage' name='description'/>
+    <meta content='Don Brutzman and MV3204 class' name='creator'/>
+    <meta content='21 August 2008' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='MovieTexture examples' name='subject'/>
+    <meta content='MovieTextureFigure.png' name='Image'/>
+    <meta content='MovieTextureAuthoringOptions.png' name='Image'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/MovieTextureAuthoringOptions.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='MovieTextureAuthoringOptions.x3d'/>
+    <Viewpoint description='MovieTexture authoring options' position='0 0 18'/>
+    <Group DEF='TopGroupTextures'>
+      <!-- First row: standard definition -->
+      <Transform translation='-6 3 0'>
+        <!-- Flat-surface movie, with fixed position and orientation -->
+        <Viewpoint description='Movie #1, standard definition' position='0 0 5'/>
+        <Shape DEF='MovieShapeStandardDefinition'>
+          <IndexedFaceSet DEF='Quadrilateral320x240' coordIndex='0 1 2 3' solid='false'>
+            <Coordinate point='-1.6 -1.2 0 1.6 -1.2 0 1.6 1.2 0 -1.6 1.2 0'/>
+            <TextureCoordinate DEF='FullImageMapping' point='0 0 1 0 1 1 0 1'/>
+          </IndexedFaceSet>
+          <Appearance>
+            <MovieTexture DEF='X3dQuipMovieStandardDefinition' description='click to start movie, standard definition' repeatS='false' repeatT='false' url='"X3dQuipBrutzmanStandardDefinitionMPEG1.mpg" "X3dQuipBrutzmanStandardDefinitionMPEG1.mov" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionMPEG1.mpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionMPEG1.mov"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='0 3 0'>
+        <!-- movie under a Billboard to always face user -->
+        <Viewpoint description='Billboarded movie #2 offset view location, standard definition' orientation='0 1 0 0.8' position='4 0 4'/>
+        <Billboard axisOfRotation='0 0 0'>
+          <Shape USE='MovieShapeStandardDefinition'/>
+        </Billboard>
+      </Transform>
+      <TouchSensor DEF='MovieTouchStandardDefinition' description='click to start movie, standard definition'/>
+      <ROUTE fromField='touchTime' fromNode='MovieTouchStandardDefinition' toField='startTime' toNode='X3dQuipMovieStandardDefinition'/>
+    </Group>
+    <Transform DEF='TopGroupTextureLaunch' translation='6 3 0'>
+      <!-- Launch movie into external browser -->
+      <Viewpoint description='Image #3 launches movie externally, standard definition' position='0 0 5'/>
+      <Anchor description='Click to launch in external browser, standard definition' parameter='"target=_blank"' url='"X3dQuipBrutzmanStandardDefinitionMPEG1.mpg" "X3dQuipBrutzmanStandardDefinitionMPEG1.mov" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionMPEG1.mpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionMPEG1.mov"'>
+        <Shape>
+          <IndexedFaceSet USE='Quadrilateral320x240'/>
+          <Appearance>
+            <ImageTexture repeatS='false' repeatT='false' url='"X3dQuipBrutzmanStandardDefinitionInitialFrame.png" "X3dQuipBrutzmanStandardDefinitionInitialFrame.gif" "X3dQuipBrutzmanStandardDefinitionInitialFrame.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionInitialFrame.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionInitialFrame.gif" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanStandardDefinitionInitialFrame.jpg"'/>
+          </Appearance>
+        </Shape>
+      </Anchor>
+    </Transform>
+    <Transform DEF='CenterGroupText' translation='0 0.25 0'>
+      <!-- Text descriptions for user -->
+      <Transform translation='-6 0 0'>
+        <Shape>
+          <Text string='"Select to run" "MovieTexture"'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+          </Text>
+          <Appearance DEF='TextAppearance'>
+            <Material diffuseColor='0 0.7 0.7'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Billboard axisOfRotation='0 0 0'>
+        <Shape>
+          <Text string='"Billboarded"  "MovieTexture"'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+          </Text>
+          <Appearance USE='TextAppearance'/>
+        </Shape>
+      </Billboard>
+      <Transform translation='6 0 0'>
+        <Shape>
+          <Text string='"Select image" "to launch"'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+          </Text>
+          <Appearance USE='TextAppearance'/>
+        </Shape>
+      </Transform>
+    </Transform>
+    <Group DEF='BottomGroupTextures'>
+      <!-- Third row: high definition -->
+      <Transform translation='-6 -3 0'>
+        <Viewpoint description='Movie #4, high definition' position='0 0 5'/>
+        <Shape DEF='MovieShapeHighDefinition'>
+          <IndexedFaceSet DEF='Quadrilateral480x270' coordIndex='0 1 2 3' solid='false'>
+            <Coordinate point='-2.4 -1.35 0 2.4 -1.35 0 2.4 1.35 0 -2.4 1.35 0'/>
+            <TextureCoordinate USE='FullImageMapping'/>
+          </IndexedFaceSet>
+          <Appearance>
+            <MovieTexture DEF='X3dQuipMovieHighDefinition' description='click to start movie, high definition' repeatS='false' repeatT='false' url='"X3dQuipBrutzmanH264MPEG1Mash.mpg" "X3dQuipBrutzmanH264.mov" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264MPEG1Mash.mpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264.mov"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='0 -3 0'>
+        <!-- movie under a Billboard to always face user -->
+        <Viewpoint description='Billboarded movie #5 offset view location, high definition' orientation='0 1 0 0.8' position='4 0 4'/>
+        <Billboard axisOfRotation='0 0 0'>
+          <Shape USE='MovieShapeHighDefinition'/>
+        </Billboard>
+      </Transform>
+      <TouchSensor DEF='MovieTouchHighDefinition' description='click to start movie, high definition'/>
+      <ROUTE fromField='touchTime' fromNode='MovieTouchHighDefinition' toField='startTime' toNode='X3dQuipMovieHighDefinition'/>
+    </Group>
+    <Transform DEF='BottomGroupTextureLaunch' translation='6 -3 0'>
+      <!-- Launch movie into external browser -->
+      <Viewpoint description='Image #6 launches movie externally, high definition' position='0 0 5'/>
+      <Anchor description='Click to launch in external browser, high definition' parameter='"target=_blank"' url='"X3dQuipBrutzmanH264MPEG1Mash.mpg" "X3dQuipBrutzmanH264.mov" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264MPEG1Mash.mpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264.mov"'>
+        <Shape>
+          <IndexedFaceSet USE='Quadrilateral480x270'/>
+          <Appearance>
+            <ImageTexture repeatS='false' repeatT='false' url='"X3dQuipBrutzmanH264InitialFrame.png" "X3dQuipBrutzmanH264InitialFrame.gif" "X3dQuipBrutzmanH264InitialFrame.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264InitialFrame.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264InitialFrame.gif" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/X3dQuipBrutzmanH264InitialFrame.jpg"'/>
+          </Appearance>
+        </Shape>
+      </Anchor>
+    </Transform>
+    <Transform DEF='Backdrop' translation='0 0 -3'>
+      <Shape>
+        <Box size='22 16 0.5'/>
+        <Appearance>
+          <Material diffuseColor='0 0.501961 0.27451'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

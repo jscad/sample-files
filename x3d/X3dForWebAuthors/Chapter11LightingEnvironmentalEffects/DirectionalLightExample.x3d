@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='DirectionalLightExample.x3d' name='title'/>
+    <meta content='An example of the DirectionalLight node showing no shadows on the lit geometry.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='24 April 2006' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='DirectionalLightFigure.png' name='Image'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter11LightingEnvironmentalEffects/DirectionalLightExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='DirectionalLight.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Book Viewpoint' orientation='0.627 -0.707 -0.326 -0.93' position='6.03 6.69 9.25'/>
+    <NavigationInfo headlight='false'/>
+    <DirectionalLight/>
+    <Transform translation='0 1.5 7'>
+      <Group DEF='Arrow'>
+        <Transform rotation='1 0 0 1.57'>
+          <Shape>
+            <Appearance DEF='ArrowApp'>
+              <Material DEF='ArrowColor'/>
+            </Appearance>
+            <Cylinder radius='.1'/>
+          </Shape>
+        </Transform>
+        <Transform rotation='1 0 0 -1.57' translation='0 0 -1'>
+          <Shape>
+            <Appearance USE='ArrowApp'/>
+            <Cone bottomRadius='.25' height='.5'/>
+          </Shape>
+        </Transform>
+      </Group>
+    </Transform>
+    <Transform translation='0 .5 7'>
+      <Group USE='Arrow'/>
+    </Transform>
+    <Transform translation='0 -.5 7'>
+      <Group USE='Arrow'/>
+    </Transform>
+    <Transform translation='0 -1.5 7'>
+      <Group USE='Arrow'/>
+    </Transform>
+    <Transform>
+      <Transform DEF='Box' translation='0 0 4'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='1 0 0'/>
+          </Appearance>
+          <Box size='2 2 .2'/>
+        </Shape>
+      </Transform>
+      <Transform DEF='rod' translation='0 0 1'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0 .8 0'/>
+          </Appearance>
+          <Cylinder height='4'/>
+        </Shape>
+      </Transform>
+      <Transform DEF='hat' rotation='0 0 1 1.57' translation='1 0 -2'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0 0 1'/>
+          </Appearance>
+          <Cone height='4'/>
+        </Shape>
+      </Transform>
+      <Transform DEF='ball' translation='3 0 -5'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0 1 1'/>
+          </Appearance>
+          <Sphere radius='2'/>
+        </Shape>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>

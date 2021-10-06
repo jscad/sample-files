@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='DolphinSwitcher.x3d' name='title'/>
+    <meta content='Switch animation among three different dolphin poses in a freeze-frame style.' name='description'/>
+    <meta content='Chris Lang' name='creator'/>
+    <meta content='1 August 2007' name='created'/>
+    <meta content='1 April 2020' name='modified'/>
+    <meta content='DolphinMorpher.x3d' name='reference'/>
+    <meta content='DolphinPose01.x3d' name='reference'/>
+    <meta content='DolphinPose02.x3d' name='reference'/>
+    <meta content='DolphinPose03.x3d' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Biologics/Dolphin/DolphinSwitcher.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/DolphinSwitcher.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='DolphinSwitcher.x3d'/>
+    <Background groundColor='1 1 1' skyColor='1 1 1'/>
+    <Viewpoint description='Dolphin switcher, 2m away' position='0 0 2'/>
+    <!-- Modify the whichChoice value in this Switch to 0, 1 or 2 to see the various versions of the model. Select whichChoice= -1 to show nothing. -->
+    <Switch DEF='Switch' whichChoice='2'>
+      <!-- whichChoice values are 0, 1, 2 for these three children -->
+      <Group DEF='CurvedUpwardPose'>
+        <Inline url='"DolphinPose02.x3d" "https://savage.nps.edu/Savage/Biologics/Dolphin/DolphinPose02.x3d"'/>
+      </Group>
+      <Group DEF='NeutralPose'>
+        <Inline url='"DolphinPose01.x3d" "https://savage.nps.edu/Savage/Biologics/Dolphin/DolphinPose01.x3d"'/>
+      </Group>
+      <Group DEF='CurvedDownwardPose'>
+        <Inline url='"DolphinPose03.x3d" "https://savage.nps.edu/Savage/Biologics/Dolphin/DolphinPose03.x3d"'/>
+      </Group>
+    </Switch>
+    <IntegerSequencer DEF='Sequencer' key='0 0.25 0.5 0.75 1' keyValue='0 1 2 1 0'/>
+    <TimeSensor DEF='Time' cycleInterval='4' loop='true'/>
+    <ROUTE fromField='value_changed' fromNode='Sequencer' toField='whichChoice' toNode='Switch'/>
+    <ROUTE fromField='fraction_changed' fromNode='Time' toField='set_fraction' toNode='Sequencer'/>
+  </Scene>
+</X3D>

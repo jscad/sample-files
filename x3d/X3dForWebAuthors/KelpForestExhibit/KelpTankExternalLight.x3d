@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='KelpTankExternalLight.x3d' name='title'/>
+    <meta content='Topside light for Kelp Forest Exhibit.' name='description'/>
+    <meta content='Todd Gagnon and Mark A. Boyd' name='creator'/>
+    <meta content='Xeena VRML importer, X3D-Edit 3.1, https://www.web3d.org/x3d/content/README.X3D-Edit.html' name='translator'/>
+    <meta content='17 May 1998' name='created'/>
+    <meta content='20 December 2002' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='KelpTankExternalLights.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpTankExternalLight.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='Vrml97ToX3dNist, http://ovrt.nist.gov/v2_x3d.html' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo info='"Model of light from top floor of the Monterey Bay Aquarium Kelp Forest DTG of last updated: 172230May98 Added: Updated: Modeled by: Todd Gagnon and Mark A. Boyd"' title='light1.0.wrl'/>
+    <Group>
+      <Shape>
+        <Appearance DEF='Structure'>
+          <Material diffuseColor='0.21569 0.21176 0.19608'/>
+        </Appearance>
+        <Cylinder bottom='false' radius='0.05' top='false'/>
+      </Shape>
+      <Transform DEF='Arm' rotation='0.0 0.0 1.0 -1.57' translation='0.3 0.25 0.0'>
+        <Shape>
+          <Appearance USE='Structure'/>
+          <Cylinder bottom='false' height='0.6' radius='0.05' top='false'/>
+        </Shape>
+        <Transform translation='0.0 0.31 0.0'>
+          <Shape>
+            <Appearance USE='Structure'/>
+            <Sphere radius='0.05'/>
+          </Shape>
+        </Transform>
+        <Transform rotation='0.0 0.0 1.0 1.57' translation='-0.13 0.31 0.0'>
+          <Shape>
+            <Appearance USE='Structure'/>
+            <Cylinder bottom='false' height='0.25' radius='0.05' top='false'/>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Transform rotation='0.0 1.0 0.0 3.14'>
+        <Transform USE='Arm'/>
+      </Transform>
+      <Transform translation='0.0 -1.0 0.0'>
+        <Shape>
+          <Appearance USE='Structure'/>
+          <Box size='0.4 0.3 0.4'/>
+        </Shape>
+      </Transform>
+      <Transform DEF='Light' rotation='1.0 0.0 0.0 0.7' translation='0.0 1.1 0.1'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.7843 0.8078 0.7922'/>
+          </Appearance>
+          <Box size='0.5 0.35 0.2'/>
+        </Shape>
+      </Transform>
+      <Transform translation='0.6 -0.5 0.0'>
+        <Transform USE='Light'/>
+      </Transform>
+      <Transform translation='-0.6 -0.5 0.0'>
+        <Transform USE='Light'/>
+      </Transform>
+    </Group>
+  </Scene>
+</X3D>

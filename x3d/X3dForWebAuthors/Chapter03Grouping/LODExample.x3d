@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='LODExample.x3d' name='title'/>
+    <meta content='Example for LOD node' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='14 November 2005' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='https://github.com/create3000/x_ite/issues/38' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/LODExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <Background skyColor='1 1 1'/>
+    <NavigationInfo type='"FLY" "ANY"'/>
+    <Viewpoint description='Book View - Near, all shapes shown' orientation='0.866 -0.497 0.058 -0.59' position='1.2 1.98 3.4'/>
+    <Viewpoint description='Book View - Farther, texture shown' orientation='0.866 -0.497 0.058 -0.59' position='1.47 2.43 4.18'/>
+    <Viewpoint description='Book View - Farthest, nothing shown' position='0 0 12'/>
+    <LOD range='5 9'>
+      <Group DEF='View3dModelAtCloseRange'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='1 0 0'/>
+          </Appearance>
+          <Box/>
+        </Shape>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0 0 1'/>
+          </Appearance>
+          <Sphere radius='1.4'/>
+        </Shape>
+      </Group>
+      <Group DEF='View2dImageAtLongerRange'>
+        <Shape>
+          <Appearance>
+            <Material/>
+            <!-- https://github.com/create3000/x_ite/issues/38 -->
+            <ImageTexture url='"LOD.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/LOD.jpg"'/>
+          </Appearance>
+          <Box/>
+        </Shape>
+      </Group>
+      <WorldInfo info='"Not visible at farthest range"'/>
+    </LOD>
+  </Scene>
+</X3D>

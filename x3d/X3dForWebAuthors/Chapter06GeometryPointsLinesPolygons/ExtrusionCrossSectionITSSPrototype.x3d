@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ExtrusionCrossSectionITSSPrototype.x3d' name='title'/>
+    <meta content='Don Brutzman and Sungmin Kwon' name='creator'/>
+    <meta content='23 October 2017' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Shape prototype for Enclosing IndexedTriangleStripSet that also draws spine line plus oriented, scaled cross sections at each spine point.' name='description'/>
+    <meta content='Utilize ExtrusionCrossSectionITSS ProtoInstance as if it is a Shape node (with containerField="children") rather than an Extrusion node (with containerField="geometry") under a Shape.' name='hint'/>
+    <meta content='VRML 97 Specification, 6.18 Extrusion' name='reference'/>
+    <meta content='https://www.web3d.org/technicalinfo/specifications/vrml97/part1/nodesRef.html#Extrusion' name='reference'/>
+    <meta content='VRML 97 Specification, Figure 6.6' name='Image'/>
+    <meta content='https://www.web3d.org/technicalinfo/specifications/vrml97/Images/Extrusion.gif' name='Image'/>
+    <meta content='http://realism.com/x3d/examples/Extrusion/_frame.html' name='reference'/>
+    <meta content='http://www.cs.brown.edu/~gss/vrml/drawpoly.html' name='reference'/>
+    <meta content='ExtrusionXj3dGoldberg1999.java' name='reference'/>
+    <meta content='http://web3d.metrolink.com/cgi-bin/cvsweb.cgi/x3d/src/com/sun/j3d/loaders/vrml97/impl/Attic/Extrusion.java' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter06GeometryPointsLinesPolygons/ExtrusionCrossSectionPrototype.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ExtrusionCrossSectionITSSPrototype.x3d'/>
+    <ProtoDeclare appinfo='Shape prototype for Extrusion node that also draws spine line plus oriented scaled cross sections at each spine point' documentation='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter06GeometryPointsLinesPolygons/ExtrusionCrossSectionPrototype.x3d' name='ExtrusionCrossSectionITSS'>
+      <ProtoInterface>
+        <field accessType='initializeOnly' appinfo='Extrusion name' name='name' type='SFString'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='crossSection' type='MFVec2f' value='1 1 1 -1 -1 -1 -1 1 1 1'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='spine' type='MFVec3f' value='0 0 0 0 1 0'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='scale' type='MFVec2f' value='1 1'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='orientation' type='MFRotation' value='0 0 1 0'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='beginCap' type='SFBool' value='false'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='endCap' type='SFBool' value='false'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='ccw' type='SFBool' value='true'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='convex' type='SFBool' value='true'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='creaseAngle' type='SFFloat' value='0'/>
+        <field accessType='initializeOnly' appinfo='Extrusion field' name='solid' type='SFBool' value='true'/>
+        <field accessType='inputOutput' appinfo='emissiveColor of spine' name='spineColor' type='SFColor' value='0 0.9 0.8'/>
+        <field accessType='inputOutput' appinfo='diffuseColor of crossSection' name='crossSectionColor' type='SFColor' value='0.2 0.8 0.3'/>
+        <field accessType='inputOutput' appinfo='transparency of crossSection' name='crossSectionTransparency' type='SFFloat' value='0.2'/>
+        <field accessType='inputOutput' appinfo='diffuseColor of extrusion hull' name='extrusionColor' type='SFColor' value='0.3 0.3 0.3'/>
+        <field accessType='inputOutput' appinfo='transparency of extrusion hull' name='extrusionTransparency' type='SFFloat' value='0.7'/>
+        <field accessType='initializeOnly' appinfo='Image to apply to Extrusion' name='extrusionImageTexture' type='SFNode'>
+          <!-- initialization node (if any) goes here -->
+        </field>
+        <field accessType='initializeOnly' appinfo='TextureTransform coordinates of image applied to Extrusion' name='extrusionTextureTransform' type='SFNode'>
+          <!-- initialization node (if any) goes here -->
+        </field>
+        <field accessType='inputOnly' appinfo='Extrusion field' name='set_crossSection' type='MFVec2f'/>
+        <field accessType='inputOnly' appinfo='Extrusion field' name='set_spine' type='MFVec3f'/>
+        <field accessType='inputOnly' appinfo='Extrusion field' name='set_scale' type='MFVec2f'/>
+        <field accessType='inputOnly' appinfo='Extrusion field' name='set_orientation' type='MFRotation'/>
+        <field accessType='initializeOnly' appinfo='Whether to provide initialization trace statements showing node construction' name='traceEnabled' type='SFBool' value='false'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Group>
+          <Shape DEF='Spine'>
+            <IndexedLineSet DEF='SpineLine' colorPerVertex='false'>
+              <Coordinate DEF='SpineCoordinates'>
+                <IS>
+                  <connect nodeField='point' protoField='spine'/>
+                  <connect nodeField='point' protoField='set_spine'/>
+                </IS>
+              </Coordinate>
+            </IndexedLineSet>
+            <Appearance>
+              <Material DEF='SpineMaterial'>
+                <IS>
+                  <connect nodeField='emissiveColor' protoField='spineColor'/>
+                </IS>
+              </Material>
+            </Appearance>
+          </Shape>
+          <Shape DEF='InternalCrossSections'>
+            <IndexedTriangleFanSet DEF='CrossSectionFaces' ccw='true' colorPerVertex='true' normalPerVertex='true' solid='false'>
+              <Coordinate DEF='CrossSectionFacesCoordinates'/>
+            </IndexedTriangleFanSet>
+            <Appearance>
+              <Material DEF='CrossSectionMaterial'>
+                <IS>
+                  <connect nodeField='diffuseColor' protoField='crossSectionColor'/>
+                  <connect nodeField='transparency' protoField='crossSectionTransparency'/>
+                </IS>
+              </Material>
+            </Appearance>
+          </Shape>
+          <Shape DEF='ExternalExtrusion2'>
+            <Appearance DEF='ExtrusionAppearance2'>
+              <IS>
+                <connect nodeField='texture' protoField='extrusionImageTexture'/>
+                <connect nodeField='textureTransform' protoField='extrusionTextureTransform'/>
+              </IS>
+              <Material DEF='ExtrusionMaterial2'>
+                <IS>
+                  <connect nodeField='diffuseColor' protoField='extrusionColor'/>
+                  <connect nodeField='transparency' protoField='extrusionTransparency'/>
+                </IS>
+              </Material>
+            </Appearance>
+            <IndexedTriangleStripSet DEF='EnclosingExtrusion2' ccw='true' colorPerVertex='true' index='0 1 2' normalPerVertex='true' solid='true'>
+              <Coordinate DEF='ExtrusionCoordinates2'/>
+            </IndexedTriangleStripSet>
+          </Shape>
+          <!-- <Shape DEF='ExternalExtrusion'> <Extrusion DEF='EnclosingExtrusion' convex='false' solid='false'> <IS> <connect nodeField='crossSection' protoField='crossSection'/> <connect nodeField='spine' protoField='spine'/> <connect nodeField='scale' protoField='scale'/> <connect nodeField='orientation' protoField='orientation'/> <connect nodeField='set_crossSection' protoField='set_crossSection'/> <connect nodeField='set_spine' protoField='set_spine'/> <connect nodeField='set_scale' protoField='set_scale'/> <connect nodeField='set_orientation' protoField='set_orientation'/> <connect nodeField='beginCap' protoField='beginCap'/> <connect nodeField='endCap' protoField='endCap'/> <connect nodeField='ccw' protoField='ccw'/> <connect nodeField='convex' protoField='convex'/> <connect nodeField='creaseAngle' protoField='creaseAngle'/> <connect nodeField='solid' protoField='solid'/> </IS> </Extrusion> <Appearance DEF='ExtrusionAppearance'> <IS> <connect nodeField='texture' protoField='extrusionImageTexture'/> <connect nodeField='textureTransform' protoField='extrusionTextureTransform'/> </IS> <Material DEF='ExtrusionMaterial'> <IS> <connect nodeField='diffuseColor' protoField='extrusionColor'/> <connect nodeField='transparency' protoField='extrusionTransparency'/> </IS> </Material> </Appearance> </Shape> -->
+        </Group>
+        <!-- TODO hardwired local Script path to workaround BS Contact bug -->
+        <Script DEF='CrossSectionScript' url='"ExtrusionCrossSectionITSSPrototype.js" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter06GeometryPointsLinesPolygons/ExtrusionCrossSectionITSSPrototype.js"'>
+          <field accessType='initializeOnly' name='name' type='SFString'/>
+          <field accessType='initializeOnly' name='crossSection' type='MFVec2f'/>
+          <field accessType='initializeOnly' name='spine' type='MFVec3f'/>
+          <field accessType='initializeOnly' name='scale' type='MFVec2f'/>
+          <field accessType='initializeOnly' name='orientation' type='MFRotation'/>
+          <field accessType='inputOutput' name='spineColor' type='SFColor'/>
+          <field accessType='inputOutput' name='crossSectionColor' type='SFColor'/>
+          <field accessType='inputOutput' name='crossSectionTransparency' type='SFFloat'/>
+          <field accessType='inputOutput' name='extrusionColor' type='SFColor'/>
+          <field accessType='inputOutput' name='extrusionTransparency' type='SFFloat'/>
+          <field accessType='inputOnly' name='set_crossSection' type='MFVec2f'/>
+          <field accessType='inputOnly' name='set_spine' type='MFVec3f'/>
+          <field accessType='inputOnly' name='set_scale' type='MFVec2f'/>
+          <field accessType='inputOnly' name='set_orientation' type='MFRotation'/>
+          <field accessType='outputOnly' name='spineIndex' type='MFInt32'/>
+          <field accessType='outputOnly' name='facesIndex' type='MFInt32'/>
+          <field accessType='outputOnly' name='facePoints' type='MFVec3f'/>
+          <field accessType='outputOnly' name='triStripIndex' type='MFInt32'/>
+          <field accessType='initializeOnly' name='traceEnabled' type='SFBool'/>
+          <!-- local variables -->
+          <field accessType='initializeOnly' name='computedFacesIndex' type='MFInt32'/>
+          <field accessType='initializeOnly' name='computedFacePoints' type='MFVec3f'/>
+          <field accessType='initializeOnly' name='computedTriStripIndex' type='MFInt32'/>
+          <IS>
+            <connect nodeField='name' protoField='name'/>
+            <connect nodeField='crossSection' protoField='crossSection'/>
+            <connect nodeField='spine' protoField='spine'/>
+            <connect nodeField='scale' protoField='scale'/>
+            <connect nodeField='spineColor' protoField='spineColor'/>
+            <connect nodeField='crossSectionColor' protoField='crossSectionColor'/>
+            <connect nodeField='crossSectionTransparency' protoField='crossSectionTransparency'/>
+            <connect nodeField='extrusionColor' protoField='extrusionColor'/>
+            <connect nodeField='extrusionTransparency' protoField='extrusionTransparency'/>
+            <connect nodeField='orientation' protoField='orientation'/>
+            <connect nodeField='set_crossSection' protoField='set_crossSection'/>
+            <connect nodeField='set_spine' protoField='set_spine'/>
+            <connect nodeField='set_scale' protoField='set_scale'/>
+            <connect nodeField='set_orientation' protoField='set_orientation'/>
+            <connect nodeField='traceEnabled' protoField='traceEnabled'/>
+          </IS>
+        </Script>
+        <ROUTE fromField='spineIndex' fromNode='CrossSectionScript' toField='set_coordIndex' toNode='SpineLine'/>
+        <ROUTE fromField='facesIndex' fromNode='CrossSectionScript' toField='set_index' toNode='CrossSectionFaces'/>
+        <ROUTE fromField='facePoints' fromNode='CrossSectionScript' toField='point' toNode='CrossSectionFacesCoordinates'/>
+        <ROUTE fromField='triStripIndex' fromNode='CrossSectionScript' toField='set_index' toNode='EnclosingExtrusion2'/>
+        <Group>
+          <!-- ======= ROUTE Trace ============================================== -->
+          <Script DEF='Trace_ROUTE_CrossSectionScript.triStripIndex_TO_EnclosingExtrusion2.set_index' mustEvaluate='true'>
+            <!-- Trace ROUTEd event values on X3D browser console -->
+            <field accessType='initializeOnly' appinfo='Sampling frequency in seconds (0 means all values)' name='reportInterval' type='SFTime' value='1.0'/>
+            <field accessType='inputOnly' name='traceValue' type='MFInt32'/>
+            <field accessType='initializeOnly' name='timeStampPreviousReport' type='SFTime' value='-1'/>
+            <![CDATA[
+ecmascript:
+    function traceValue (eventValue, timeStamp) {
+      // input eventValue received for trace field
+      if (timeStamp - timeStampPreviousReport >= reportInterval) {
+        Browser.print ('Trace_ROUTE_CrossSectionScript.triStripIndex_TO_EnclosingExtrusion2.set_index type=MFInt32 value=' + eventValue.toString() + '\n');
+        timeStampPreviousReport = timeStamp;
+      }
+    }
+    function timeOfDay (someTime) {
+      hh = Math.floor (someTime /(60*60)) % 24;
+      mm = Math.floor (someTime / 60)     % 60;
+      ss = Math.floor (someTime)          % 60;
+      if (hh < 9) hour   = '0' + hh;
+      else        hour   =       hh;
+      if (mm < 9) minute = '0' + mm;
+      else        minute =       mm;
+      if (ss < 9) second = '0' + ss;
+      else        second =       ss;
+      return '(' + hour + ':' + minute + ':' + second + ' GMT)';
+    }
+]]>
+          </Script>
+          <ROUTE fromField='triStripIndex' fromNode='CrossSectionScript' toField='traceValue' toNode='Trace_ROUTE_CrossSectionScript.triStripIndex_TO_EnclosingExtrusion2.set_index'/>
+          <!-- ======= ROUTE Trace block complete ===================================================== -->
+        </Group>
+        <ROUTE fromField='facePoints' fromNode='CrossSectionScript' toField='point' toNode='ExtrusionCoordinates2'/>
+        <!-- -->
+      </ProtoBody>
+    </ProtoDeclare>
+    <!-- ==================== -->
+    <!-- Example instance adapted from Figure15.12Torus.x3d -->
+    <!-- https://www.web3d.org/x3d/content/examples/Basic/Vrml2Sourcebook/Chapter15-Extrusion/Figure15.12Torus.x3d -->
+    <!-- Redirection text in case a user examines this PROTO file via a 3D browser: -->
+    <Group>
+      <Transform translation='0 0.5 0'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0 1 1' emissiveColor='0 1 1'/>
+          </Appearance>
+          <Text string='"ExtrusionCrossSectionITSS" "is a Prototype definition scene"'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.7'/>
+          </Text>
+        </Shape>
+      </Transform>
+    </Group>
+  </Scene>
+</X3D>

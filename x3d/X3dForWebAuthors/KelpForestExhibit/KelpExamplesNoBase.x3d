@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='KelpExamplesNoBase.x3d' name='title'/>
+    <meta content='Creates 3 instances of Kelp that sway.' name='description'/>
+    <meta content='Joseph Cannon, Dan DeVos, Don Brutzman' name='creator'/>
+    <meta content='25 September 1998' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://faculty.nps.edu/brutzman/kelp' name='reference'/>
+    <meta content='KelpForestDesignPaperWeb3dSymposiumFebruary2002.pdf' name='reference'/>
+    <meta content='http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpForestDesignPaperWeb3dSymposiumFebruary2002.pdf' name='reference'/>
+    <meta content='http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/Teaching3d-KelpForestCaseStudy.pdf' name='reference'/>
+    <meta content='All content has permissions for free use. Please provide credit to the Naval Postgraduate School (NPS) Modeling Virtual Environments and Simulation (MOVES) Institute.' name='accessRights'/>
+    <meta content='http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpExamplesNoBase.x3d' name='identifier'/>
+    <meta content='Vrml97ToX3dNist, http://ovrt.nist.gov/v2_x3d.html' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='KelpExamplesNoBase.x3d'/>
+    <ExternProtoDeclare appinfo='Kelp strands and bulbs with no base' name='Kelp' url='"KelpPrototype.x3d#Kelp" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpPrototype.x3d#Kelp" "KelpPrototype.wrl#Kelp" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpPrototype.wrl#Kelp"'>
+      <field accessType='inputOutput' name='frontBladeSize' type='SFVec3f'/>
+      <field accessType='inputOutput' name='rearSideBladeHeight' type='SFVec3f'/>
+      <field accessType='inputOutput' name='frontSideBladeHeight' type='SFVec3f'/>
+      <field accessType='inputOutput' name='rightBladeSize' type='SFVec3f'/>
+      <field accessType='inputOutput' name='rightSideBladeHeight' type='SFVec3f'/>
+      <field accessType='inputOutput' name='leftBladeSize' type='SFVec3f'/>
+      <field accessType='inputOutput' name='rearBladeSize' type='SFVec3f'/>
+      <field accessType='inputOutput' name='leftSideBladeHeight' type='SFVec3f'/>
+    </ExternProtoDeclare>
+    <Group>
+      <Transform DEF='KelpTransform0' scale='0.3 0.3 0.3'>
+        <ProtoInstance name='Kelp'/>
+      </Transform>
+      <Transform DEF='KelpTransform1' rotation='0.0 1.0 0.0 5.5' scale='0.29 0.29 0.29' translation='-0.5 0.0 0.0'>
+        <ProtoInstance name='Kelp'>
+          <fieldValue name='rearSideBladeHeight' value='0.0 15.0 0.0'/>
+          <fieldValue name='frontBladeSize' value='0.4 0.4 0.4'/>
+          <fieldValue name='frontSideBladeHeight' value='0.0 23.0 0.0'/>
+          <fieldValue name='rightBladeSize' value='0.4 0.4 0.4'/>
+          <fieldValue name='rightSideBladeHeight' value='0.0 20.0 0.0'/>
+          <fieldValue name='leftBladeSize' value='0.7 0.7 0.7'/>
+          <fieldValue name='rearBladeSize' value='0.7 0.7 0.7'/>
+          <fieldValue name='leftSideBladeHeight' value='0.0 6.0 0.0'/>
+        </ProtoInstance>
+      </Transform>
+      <Transform DEF='KelpTransform2' scale='0.3 0.3 0.3' translation='0.5 0.0 0.5'>
+        <ProtoInstance name='Kelp'>
+          <fieldValue name='rearSideBladeHeight' value='0.0 18.0 0.0'/>
+          <fieldValue name='frontBladeSize' value='0.7 0.7 0.7'/>
+          <fieldValue name='frontSideBladeHeight' value='0.0 8.0 0.0'/>
+          <fieldValue name='rightBladeSize' value='0.7 0.7 0.7'/>
+          <fieldValue name='rightSideBladeHeight' value='0.0 16.0 0.0'/>
+          <fieldValue name='leftBladeSize' value='0.7 0.7 0.7'/>
+          <fieldValue name='rearBladeSize' value='0.4 0.4 0.4'/>
+          <fieldValue name='leftSideBladeHeight' value='0.0 13.0 0.0'/>
+        </ProtoInstance>
+      </Transform>
+    </Group>
+    <Group>
+      <!-- ==================== -->
+      <TimeSensor DEF='Clock0' cycleInterval='5.5' loop='true'/>
+      <!-- ==================== -->
+      <OrientationInterpolator DEF='KelpPath0' key='0.0 0.05 0.25 0.45 0.5 0.55 0.75 0.95 1.0' keyValue='0 0 1 0.1 0 0 1 0.095 0 0 1 0 0 0 1 -0.095 0 0 1 -0.1 0 0 1 -0.095 0 0 1 0 0 0 1 0.095 0 0 1 0.1'/>
+      <ROUTE fromField='fraction_changed' fromNode='Clock0' toField='set_fraction' toNode='KelpPath0'/>
+      <ROUTE fromField='value_changed' fromNode='KelpPath0' toField='set_rotation' toNode='KelpTransform0'/>
+      <!-- ==================== -->
+      <Script DEF='TimeDelay1'>
+        <field accessType='inputOnly' name='set_fraction' type='SFFloat'/>
+        <field accessType='outputOnly' name='value_changed' type='SFFloat'/>
+        <![CDATA[
+ecmascript:
+
+function set_fraction (value, timestamp)
+{
+	delay = 0.25;
+	delayedValue = value + (delay/5.5); // delay/interval, seconds
+	if (delayedValue > 1) delayedValue--;
+	value_changed = delayedValue;
+
+//	Browser.print ('TimeDelay1 value=' + value + ', value_changed=' + value_changed);
+}
+]]>
+      </Script>
+      <OrientationInterpolator DEF='KelpPath1' key='0.0 0.05 0.25 0.45 0.5 0.55 0.75 0.95 1.0' keyValue='0 0 1 0.1 0 0 1 0.095 0 0 1 0 0 0 1 -0.095 0 0 1 -0.1 0 0 1 -0.095 0 0 1 0 0 0 1 0.095 0 0 1 0.1'/>
+      <ROUTE fromField='fraction_changed' fromNode='Clock0' toField='set_fraction' toNode='TimeDelay1'/>
+      <ROUTE fromField='value_changed' fromNode='TimeDelay1' toField='set_fraction' toNode='KelpPath1'/>
+      <ROUTE fromField='value_changed' fromNode='KelpPath1' toField='set_rotation' toNode='KelpTransform1'/>
+      <!-- ==================== -->
+      <Script DEF='TimeDelay2'>
+        <field accessType='inputOnly' name='set_fraction' type='SFFloat'/>
+        <field accessType='outputOnly' name='value_changed' type='SFFloat'/>
+        <![CDATA[
+ecmascript:
+
+function set_fraction (value, timestamp)
+{
+	delay = 0.5;
+	delayedValue = value + (delay/5.5); // delay/interval, seconds
+	if (delayedValue > 1) delayedValue--;
+	value_changed = delayedValue;
+
+//	Browser.print ('TimeDelay2 value=' + value + ', value_changed=' + value_changed);
+}
+]]>
+      </Script>
+      <OrientationInterpolator DEF='KelpPath2' key='0.0 0.05 0.25 0.45 0.5 0.55 0.75 0.95 1.0' keyValue='0 0 1 0.1 0 0 1 0.095 0 0 1 0 0 0 1 -0.095 0 0 1 -0.1 0 0 1 -0.095 0 0 1 0 0 0 1 0.095 0 0 1 0.1'/>
+      <ROUTE fromField='fraction_changed' fromNode='Clock0' toField='set_fraction' toNode='TimeDelay2'/>
+      <ROUTE fromField='value_changed' fromNode='TimeDelay2' toField='set_fraction' toNode='KelpPath2'/>
+      <ROUTE fromField='value_changed' fromNode='KelpPath2' toField='set_rotation' toNode='KelpTransform2'/>
+    </Group>
+  </Scene>
+</X3D>

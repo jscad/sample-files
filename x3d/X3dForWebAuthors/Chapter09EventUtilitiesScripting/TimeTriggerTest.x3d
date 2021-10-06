@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='TimeTriggerTest.x3d' name='title'/>
+    <meta content='Test of TimeTrigger node.' name='description'/>
+    <meta content='8 October 2007' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/TimeTriggerTest.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='TimeTriggerTest.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='TimeTrigger test' position='0 0 7'/>
+    <Transform>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='.6 0 .8'/>
+        </Appearance>
+        <Text string='"Touch text to print" "output values on console"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+      </Shape>
+      <!-- Selectable Text design pattern has transparent Box and TouchSensor description as a tooltip -->
+      <Shape>
+        <Box size='9 2 .001'/>
+        <Appearance>
+          <Material transparency='1'/>
+        </Appearance>
+      </Shape>
+      <!-- This TouchSensor only reacts to user clicking on the sibling Shape and Text, because it is under a parent Transform grouping node -->
+      <TouchSensor DEF='TextTouched' description='touch to activate'/>
+    </Transform>
+    <BooleanFilter DEF='Filter'/>
+    <ROUTE fromField='isActive' fromNode='TextTouched' toField='set_boolean' toNode='Filter'/>
+    <TimeTrigger DEF='Trigger'/>
+    <ROUTE fromField='inputTrue' fromNode='Filter' toField='set_boolean' toNode='Trigger'/>
+    <Script DEF='TraceScript'>
+      <field accessType='inputOnly' name='printBoolean' type='SFBool'/>
+      <field accessType='inputOnly' name='printTimestamp' type='SFTime'/>
+      <![CDATA[
+ecmascript:
+    function printBoolean (value) {
+      Browser.print ('TouchSensor isActive="' + value + '"\n');
+    }
+    function printTimestamp (value) {
+      Browser.print ('====================================' +  '\n');
+      Browser.print ('Trigger triggerTime="' + value + '"\n');
+    }
+]]>
+    </Script>
+    <ROUTE fromField='triggerTime' fromNode='Trigger' toField='printTimestamp' toNode='TraceScript'/>
+    <ROUTE fromField='isActive' fromNode='TextTouched' toField='printBoolean' toNode='TraceScript'/>
+  </Scene>
+</X3D>

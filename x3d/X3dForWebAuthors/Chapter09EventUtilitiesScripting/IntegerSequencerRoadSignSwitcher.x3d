@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interactive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='IntegerSequencerRoadSignSwitcher.x3d' name='title'/>
+    <meta content='Switch among different road signs using IntegerSequencer' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='2 January 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/IntegerSequencerRoadSignSwitcher.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='IntegerSequencerRoadSignSwitcher.x3d'/>
+    <Background groundColor='0.2 0.2 0.2' skyColor='0.2 0.2 0.2'/>
+    <Viewpoint description='Road sign switcher, 6m away' position='0 0 6'/>
+    <Shape DEF='Frame'>
+      <!-- Box framee scaled to be wider, taller and thinner than Box holding image -->
+      <Box size='3.5 2.7 0.05'/>
+      <Appearance>
+        <Material ambientIntensity='0' diffuseColor='0 0 0' emissiveColor='1 0.442751 0' shininess='0.05102' specularColor='0.475676 0.475676 0.475676'>
+          <!-- Universal Media Library: Neon 13 -->
+        </Material>
+      </Appearance>
+    </Shape>
+    <!-- Modify the whichChoice value in this Switch to 0, 1, 2 or 3 to see the various versions of the model. Select whichChoice= -1 to show nothing. -->
+    <Switch DEF='Switch' whichChoice='0'>
+      <!-- whichChoice values are 0, 1, 2, 3 for these four children -->
+      <Shape>
+        <!-- Box size scaled to match aspect ratio of original images -->
+        <Box DEF='SignHolder' size='3.072 2.304 0.1'/>
+        <Appearance>
+          <!-- each image size reduced from 1-1.5M down to 150-200KB using GIMP for faster downloading, quality still looks good -->
+          <ImageTexture url='"RoadSignRoadWorkAhead.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/RoadSignRoadWorkAhead.jpg"'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box USE='SignHolder'/>
+        <Appearance>
+          <ImageTexture url='"RoadSignExpectDelays.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/RoadSignExpectDelays.jpg"'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box USE='SignHolder'/>
+        <Appearance>
+          <ImageTexture url='"RoadSignMondayThruFriday.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/RoadSignMondayThruFriday.jpg"'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box USE='SignHolder'/>
+        <Appearance>
+          <ImageTexture url='"RoadSign7amTo5pm.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/RoadSign7amTo5pm.jpg"'/>
+        </Appearance>
+      </Shape>
+    </Switch>
+    <IntegerSequencer DEF='Sequencer' key='0 0.25 0.5 0.75 1' keyValue='0 1 2 3 0'/>
+    <TimeSensor DEF='Time' cycleInterval='8' loop='true'/>
+    <ROUTE fromField='value_changed' fromNode='Sequencer' toField='whichChoice' toNode='Switch'/>
+    <ROUTE fromField='fraction_changed' fromNode='Time' toField='set_fraction' toNode='Sequencer'/>
+  </Scene>
+</X3D>

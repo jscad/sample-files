@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='AmbientIntensity.x3d' name='title'/>
+    <meta content='This example illustrates the effect of an ambientIntensity field from a Sphere on a Cone. Note that navigation reports of user position and orientation from the WhereAmI prototype appear in the player console.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='2 February 2006' name='created'/>
+    <meta content='2 February 2006' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright (c) 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/AmbientIntensity.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='AmbientIntensity.x3d'/>
+    <Viewpoint description='Default Viewpoint' position='0 0 10.00'/>
+    <Viewpoint description='Book Viewpoint' orientation='-1. 0.04 0.008 0.2406' position='-0.036 2.17 8.89'/>
+    <Transform>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='1 0 0' specularColor='0 1 0' transparency='.8'/>
+        </Appearance>
+        <Cone/>
+      </Shape>
+    </Transform>
+    <Transform translation='0 0 -6'>
+      <Shape>
+        <Appearance>
+          <Material ambientIntensity='.8' diffuseColor='0 0 1'/>
+        </Appearance>
+        <Sphere/>
+      </Shape>
+    </Transform>
+    <ExternProtoDeclare name='WhereAmI' url='"../Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI" "../Chapter14Prototypes/WhereAmIPrototype.wrl#WhereAmI" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmI.wrl#WhereAmI"'/>
+    <ProtoInstance name='WhereAmI'/>
+    <Background skyColor='1 1 1'/>
+  </Scene>
+</X3D>

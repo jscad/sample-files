@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='RubberLipGroup.x3d' name='title'/>
+    <meta content='A group of RubberLip fish, instanced using the CircleFish prototype.' name='description'/>
+    <meta content='Circular fish behavior is embedded in prototype, instead the circular path needs to be used in external files or possibly parameterized.' name='warning'/>
+    <meta content='Ildeniz Duman' name='creator'/>
+    <meta content='1 June 1998' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLipGroup.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='RubberLipGroup.x3d'/>
+    <ExternProtoDeclare name='CircleFish' url='"CircleFishPrototype.wrl#CircleFish" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CircleFishPrototype.wrl#CircleFish" "CircleFishPrototype.x3d#CircleFish" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CircleFishPrototype.x3d#CircleFish"'>
+      <field accessType='inputOutput' name='skinTextureUrl' type='MFString'/>
+      <field accessType='inputOutput' name='fishScale' type='SFVec3f'/>
+      <field accessType='inputOutput' name='fishColor' type='SFColor'/>
+      <field accessType='inputOutput' name='finColor' type='SFColor'/>
+      <field accessType='inputOutput' name='positionKey' type='MFFloat'/>
+      <field accessType='inputOutput' name='positionKeyValue' type='MFVec3f'/>
+      <field accessType='inputOutput' name='orientationKey' type='MFFloat'/>
+      <field accessType='inputOutput' name='orientationKeyValue' type='MFRotation'/>
+      <field accessType='inputOutput' name='orbitTime' type='SFTime'/>
+    </ExternProtoDeclare>
+    <ProtoInstance name='CircleFish'>
+      <fieldValue name='skinTextureUrl' value='"RubberLip.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLip.jpg"'/>
+      <fieldValue name='fishScale' value='1.0 4.0 1.0'/>
+    </ProtoInstance>
+    <Transform translation='-4.0 1.0 0.0'>
+      <ProtoInstance name='CircleFish'>
+        <fieldValue name='skinTextureUrl' value='"RubberLip.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLip.jpg"'/>
+        <fieldValue name='fishScale' value='1.0 4.0 1.0'/>
+        <fieldValue name='positionKey' value='0.0 0.5 1.0'/>
+        <fieldValue name='positionKeyValue' value='0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0'/>
+        <fieldValue name='orientationKey' value='0.0 0.5 0.5 1.0'/>
+        <fieldValue name='orientationKeyValue' value='0.0 1.0 0.0 -180.0 0.0 1.0 0.0 -180.0 0.0 1.0 0.0 0.0 0.0 1.0 0.0 0.0'/>
+        <fieldValue name='orbitTime' value='60.0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0.0 1.0 0.0 -90.0' translation='0.0 2.0 0.0'>
+      <ProtoInstance name='CircleFish'>
+        <fieldValue name='skinTextureUrl' value='"RubberLip.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLip.jpg"'/>
+        <fieldValue name='fishScale' value='1.0 4.0 1.0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0.0 1.0 0.0 -180.0' translation='0.0 1.0 -4.0'>
+      <ProtoInstance name='CircleFish'>
+        <fieldValue name='skinTextureUrl' value='"RubberLip.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLip.jpg"'/>
+        <fieldValue name='fishScale' value='1.0 4.0 1.0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0.0 1.0 0.0 90.0' translation='0.0 4.0 0.0'>
+      <ProtoInstance name='CircleFish'>
+        <fieldValue name='skinTextureUrl' value='"RubberLip.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLip.jpg"'/>
+        <fieldValue name='fishScale' value='1.0 4.0 1.0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0.0 1.0 0.0 -50.0' translation='-1.0 -2.0 0.0'>
+      <ProtoInstance name='CircleFish'>
+        <fieldValue name='skinTextureUrl' value='"RubberLip.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RubberLip.jpg"'/>
+        <fieldValue name='fishScale' value='1.0 4.0 1.0'/>
+      </ProtoInstance>
+    </Transform>
+  </Scene>
+</X3D>

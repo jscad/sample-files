@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='HelloTriangle.x3d' name='title'/>
+    <meta content='Simplest possible triangle definition. Note that head metadata is optional. Provides interesting comparison to OpenGL definitions.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='5 August 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter01TechnicalOverview/HelloTriangle.x3d' name='identifier'/>
+    <meta content='HelloWorld.x3d' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/HelloWorld.x3d' name='reference'/>
+    <meta content='create corresponding shader-based example' name='TODO'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='HelloTriangle.x3d'/>
+    <WorldInfo title='HelloTriangle.x3d'/>
+    <Shape>
+      <IndexedFaceSet coordIndex='0 1 2'>
+        <Coordinate point='0 0 0 1 0 0 0.5 1 0'/>
+      </IndexedFaceSet>
+      <!-- default polygons are single-sided, applies default Appearance and Material -->
+    </Shape>
+  </Scene>
+</X3D>

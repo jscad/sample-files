@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='IntegerTriggerExample.x3d' name='title'/>
+    <meta content='An IntegerTrigger node controls the display of colored text.' name='description'/>
+    <meta content='Don Brutzman and Leonard Daly' name='creator'/>
+    <meta content='1 March 2008' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='KelpTank.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/IntegerTriggerExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='IntegerTrigger.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Select text to change color' position='0 0 6'/>
+    <Switch DEF='SwitchColoredTextGroups' whichChoice='0'>
+      <Group>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='1 0 0'/>
+          </Appearance>
+          <Text DEF='MessageText' string='"Select these words" "to change color"'>
+            <FontStyle justify='"MIDDLE" "BEGIN"'/>
+          </Text>
+        </Shape>
+        <!-- TransparentBox makes selection of Text using TouchSensor easier for user -->
+        <Shape DEF='TransparentBox'>
+          <Box size='6 2 0.02'/>
+          <Appearance>
+            <Material transparency='1'/>
+          </Appearance>
+        </Shape>
+        <TouchSensor DEF='Touch1' description='touch to activate'/>
+      </Group>
+      <!-- Reuse Text geoemetry, paired with different Material colors -->
+      <Group>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0 1 1'/>
+          </Appearance>
+          <Text USE='MessageText'/>
+        </Shape>
+        <Shape USE='TransparentBox'/>
+        <TouchSensor DEF='Touch2' description='touch to activate'/>
+      </Group>
+      <Group>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.7 0.7 0'/>
+          </Appearance>
+          <Text USE='MessageText'/>
+        </Shape>
+        <Shape USE='TransparentBox'/>
+        <TouchSensor DEF='Touch3' description='touch to activate'/>
+      </Group>
+    </Switch>
+    <!-- IntegerTrigger nodes used to switch child shapes, must use separate one for each output value -->
+    <IntegerTrigger DEF='Filter1' integerKey='1'/>
+    <IntegerTrigger DEF='Filter2' integerKey='2'/>
+    <IntegerTrigger DEF='Filter3' integerKey='0'/>
+    <ROUTE fromField='isActive' fromNode='Touch1' toField='set_boolean' toNode='Filter1'/>
+    <ROUTE fromField='isActive' fromNode='Touch2' toField='set_boolean' toNode='Filter2'/>
+    <ROUTE fromField='isActive' fromNode='Touch3' toField='set_boolean' toNode='Filter3'/>
+    <ROUTE fromField='triggerValue' fromNode='Filter1' toField='whichChoice' toNode='SwitchColoredTextGroups'/>
+    <ROUTE fromField='triggerValue' fromNode='Filter2' toField='whichChoice' toNode='SwitchColoredTextGroups'/>
+    <ROUTE fromField='triggerValue' fromNode='Filter3' toField='whichChoice' toNode='SwitchColoredTextGroups'/>
+  </Scene>
+</X3D>

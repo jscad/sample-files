@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interactive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='StripedSurfPerchPlaque.x3d' name='title'/>
+    <meta content='Michael Collins' name='creator'/>
+    <meta content='18 February 2001' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='under development' name='warning'/>
+    <meta content='One fish plaque with lithograph on one side and actual picture on the back. Click on plaque to go to picture or click on buttons to change picture.' name='description'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/StripedSurfPerchPlaque.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='StripedSurfPerchPatch.jpg' name='Image'/>
+    <meta content='RainbowSurfPerch002.jpg' name='Image'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='StripedSurfPerchPlaque.x3d'/>
+    <Viewpoint DEF='stripedsurfperch' description='Striped Surf Perch' position='0 0 4'/>
+    <!-- Fish Plaques -->
+    <Group>
+      <TouchSensor DEF='BlueRockfishTouchSensor' description='touch to rotate'/>
+      <TimeSensor DEF='BLUEROCKFISHCLOCK' cycleInterval='2'/>
+      <OrientationInterpolator DEF='BlueRockfishPathInterpolator' key='0.0 0.50 1.0' keyValue='0.0 1.0 0.0 0.0 0.0 1.0 0.0 1.57 0.0 1.0 0.0 3.14'/>
+      <Transform DEF='BLUEROCKFISH_TRANSFORM'>
+        <Shape>
+          <Box size='4 2 .1'/>
+          <Appearance>
+            <ImageTexture url='"StripedSurfPerchPatch.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/StripedSurfPerchPatch.jpg"'/>
+          </Appearance>
+        </Shape>
+        <Transform translation='0 0 -.1'>
+          <Shape>
+            <Box size='4 2 .2'/>
+            <Appearance>
+              <ImageTexture url='"RainbowSurfPerch002.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/RainbowSurfPerch002.jpg"'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+      </Transform>
+      <Group>
+        <Transform DEF='BUTTON_TRANSFORM' translation='1 2 0'>
+          <Shape>
+            <Sphere radius='.5'/>
+            <Appearance>
+              <Material diffuseColor='0 1 0'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <TouchSensor DEF='FrontTouchSensor' description='front TouchSensor'/>
+        <TimeSensor DEF='FRONTTOUCHSENSORCLOCK' cycleInterval='2'/>
+        <OrientationInterpolator DEF='PlaqueToPictureInterpolator' key='0.0 0.50 1.0' keyValue='0.0 1.0 0.0 3.14 0.0 1.0 0.0 1.57 0.0 1.0 0.0 0.00'/>
+      </Group>
+      <Group>
+        <Transform DEF='BUTTON_TRANSFORM2' translation='-1 2 0'>
+          <Shape>
+            <Sphere radius='.5'/>
+            <Appearance>
+              <Material diffuseColor='1 0 0'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <TouchSensor DEF='PictureTouchSensor' description='picture TouchSensor'/>
+      </Group>
+      <Group>
+        <Transform DEF='BASE_TRANSFORM' translation='0 0 -.3'>
+          <Shape>
+            <Box size='8 6 .3'/>
+            <Appearance>
+              <Material diffuseColor='.3 .3 .6'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <TouchSensor DEF='BaseTouchSensor' description='touch to rotate'/>
+        <Group>
+          <Transform translation='0 -2.6 0'>
+            <Shape>
+              <Box size='8 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform translation='0 2.6 0'>
+            <Shape>
+              <Box size='8 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform rotation='0 0 1 1.58' translation='3.6 0 0'>
+            <Shape>
+              <Box size='6.2 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform rotation='0 0 1 1.58' translation='-3.6 0 0'>
+            <Shape>
+              <Box size='6.2 1 1'/>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+            </Shape>
+          </Transform>
+        </Group>
+      </Group>
+    </Group>
+    <ROUTE fromField='touchTime' fromNode='BlueRockfishTouchSensor' toField='set_startTime' toNode='BLUEROCKFISHCLOCK'/>
+    <ROUTE fromField='fraction_changed' fromNode='BLUEROCKFISHCLOCK' toField='set_fraction' toNode='BlueRockfishPathInterpolator'/>
+    <ROUTE fromField='value_changed' fromNode='BlueRockfishPathInterpolator' toField='set_rotation' toNode='BLUEROCKFISH_TRANSFORM'/>
+    <ROUTE fromField='touchTime' fromNode='FrontTouchSensor' toField='set_startTime' toNode='FRONTTOUCHSENSORCLOCK'/>
+    <ROUTE fromField='fraction_changed' fromNode='FRONTTOUCHSENSORCLOCK' toField='set_fraction' toNode='PlaqueToPictureInterpolator'/>
+    <ROUTE fromField='value_changed' fromNode='PlaqueToPictureInterpolator' toField='set_rotation' toNode='BLUEROCKFISH_TRANSFORM'/>
+    <!-- Picture touch sensor only has to tie into the BLUEROCKFISHCLOCK so that it will turn picture. -->
+    <ROUTE fromField='touchTime' fromNode='PictureTouchSensor' toField='set_startTime' toNode='BLUEROCKFISHCLOCK'/>
+  </Scene>
+</X3D>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='WhereAmIPrototype.x3d' name='title'/>
+    <meta content='Prototype node declaration for displaying current viewpoint location and orientation in the player console.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='1 January 1999' name='created'/>
+    <meta content='5 May 2006' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='WhereAmIExample.x3d' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationExample.x3d' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='Copyright 1999, 2006, Daly Realism, Inc.' name='rights'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIPrototype.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='WhereAmIPrototype.x3d'/>
+    <ProtoDeclare appinfo='Prototype node for displaying current viewpoint location and orientation' name='WhereAmI'>
+      <!-- No ProtoInterface fields are needed for this prototype -->
+      <ProtoBody>
+        <ProximitySensor DEF='WhereSensor' size='100000 100000 100000'/>
+        <!-- no geometry is rendered in the current scene by the prototype -->
+        <Script DEF='WhereDump' url='"WhereAmIPrototypeScript.js" "../Chapter14Prototypes/WhereAmIPrototypeScript.js" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIPrototypeScript.js"'>
+          <field accessType='inputOnly' name='position' type='SFVec3f'/>
+          <field accessType='inputOnly' name='orientation' type='SFRotation'/>
+        </Script>
+        <ROUTE fromField='orientation_changed' fromNode='WhereSensor' toField='orientation' toNode='WhereDump'/>
+        <ROUTE fromField='position_changed' fromNode='WhereSensor' toField='position' toNode='WhereDump'/>
+      </ProtoBody>
+    </ProtoDeclare>
+    <!-- ProtoInstance instantiates (creates) a new node using the ProtoDeclare prototype definition -->
+    <ProtoInstance name='WhereAmI'/>
+    <Viewpoint description='WhereAmI prototype test'/>
+    <Shape>
+      <Text string='"Check X3D console" "while navigating for" "current viewpoint" "position, orientation"'>
+        <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+      </Text>
+      <Appearance>
+        <Material ambientIntensity='0.23' diffuseColor='0.5 0.243312 0.127417' emissiveColor='0.015957 0.015957 0.015957' shininess='0.03' specularColor='0.276596 0.055086 0.01524'/>
+      </Appearance>
+    </Shape>
+  </Scene>
+</X3D>

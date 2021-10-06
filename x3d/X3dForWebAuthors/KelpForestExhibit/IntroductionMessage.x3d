@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='IntroductionMessage.x3d' name='title'/>
+    <meta content='Welcome text message (positioned high and low) that introduces visitor to Kelp Forest Exhibit upon initial entry - zoom camera back beyond 40m range to make this text visible.' name='description'/>
+    <meta content='Todd Gagnon and Mark A. Boyd' name='creator'/>
+    <meta content='1 June 1998' name='created'/>
+    <meta content='17 December 2002' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://faculty.nps.edu/brutzman/kelp' name='reference'/>
+    <meta content='Kelp Forest 3D models' name='subject'/>
+    <meta content='All content has permissions for free use. Please provide credit to the Naval Postgraduate School (NPS) Modeling Virtual Environments and Simulation (MOVES) Institute.' name='accessRights'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/IntroductionMessage.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo info='"Level of detail introduction message for model of the Monterey Bay Aquarium Kelp Forest" "DTG of last Update: 021900Jun98" "Added: " "Updated: messageTwo1.2.wrl" "Modeled by: Todd Gagnon and Mark A. Boyd"' title='introductionMessage1.2.wrl'/>
+    <!-- This is a sort of "reverse" LOD: text is hidden at close range to avoid distraction, but becomes visible when seen from entry viewpoint (behond LOD range 40m). -->
+    <NavigationInfo speed='10' type='"FLY" "ANY"'/>
+    <LOD forceTransitions='true' range='30'>
+      <WorldInfo info='"null node"'/>
+      <Group>
+        <Transform translation='0.0 30.0 -60.0'>
+          <Shape>
+            <Appearance DEF='WordsAppearance'>
+              <Material diffuseColor='0.9 0.9 0.9'/>
+            </Appearance>
+            <Text string='"Welcome to the NPS simulation of the" "Monterey Bay Aquarium Kelp Forest"'>
+              <FontStyle justify='"MIDDLE" "MIDDLE"' size='6.0' style='BOLD'/>
+            </Text>
+          </Shape>
+        </Transform>
+        <Transform translation='0.0 -30.0 -60.0'>
+          <Shape>
+            <Appearance USE='WordsAppearance'/>
+            <Text string='"Find sharks!  See new viewpoints!" "Press PageDown, wait and watch."'>
+              <FontStyle justify='"MIDDLE" "MIDDLE"' size='5.0' style='BOLD'/>
+            </Text>
+          </Shape>
+        </Transform>
+      </Group>
+    </LOD>
+  </Scene>
+</X3D>

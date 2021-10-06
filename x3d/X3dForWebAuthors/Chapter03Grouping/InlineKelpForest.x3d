@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='InlineKelpForest.x3d' name='title'/>
+    <meta content='Inline example that loads the Kelp Forest world.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='19 October 2005' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='X3D profile must be Immersive, rather than Interactive, in order to set up the X3D player to properly support the contained Inline scene KelpForestMain.x3d which has profile Immersive.' name='info'/>
+    <meta content='../KelpForestExhibit/KelpForestMain.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright Don Brutzman and Leonard Daly 2007' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/InlineKelpForest.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- The following url is an ordered list of multiple addresses that support the following use cases. -->
+    <!-- Use case: (1a) .x3d on local disk or (1b) web server query looks on local server -->
+    <!-- Use case: (2) Older VRML97 browser unable to read X3D, reads .wrl version instead (backwards compatibility) -->
+    <!-- Use case: (3) local copy not available, retrieve from permanent server address -->
+    <!-- Use case: (4) combination of cases (2) and (3), VRML97 on remote server -->
+    <!-- TODO consider simpler scene to illustrate Inline, also consider adding Viewpoint -->
+    <WorldInfo title='InlineKelpForest.x3d'/>
+    <Inline url='"../KelpForestExhibit/KelpForestMain.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpForestMain.x3d" "../KelpForestExhibit/KelpForestMain.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpForestMain.wrl"'/>
+  </Scene>
+</X3D>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='WhereAmIExample.x3d' name='title'/>
+    <meta content='Example use of prototype node for displaying current viewpoint location and orientation in the player console.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='28 March 2016' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='WhereAmIPrototype.x3d' name='reference'/>
+    <meta content='WhereAmIExample.console.txt' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationExample.x3d' name='reference'/>
+    <meta content='https://savage.nps.edu/Savage/Tools/Authoring/ViewPositionOrientationPrototype.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- ==================== -->
+    <!-- Only one copy of a given ExternProtoDeclare is needed in a scene. -->
+    <WorldInfo title='WhereAmIExample.x3d'/>
+    <ExternProtoDeclare name='WhereAmI' url='"../Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmIPrototype.x3d#WhereAmI" "../Chapter14Prototypes/WhereAmIPrototype.wrl#WhereAmI" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/WhereAmI.wrl#WhereAmI"'/>
+    <ProtoInstance name='WhereAmI'/>
+    <!-- ==================== -->
+    <Viewpoint description='WhereAmI prototype test'/>
+    <Viewpoint description='Viewpoint 2' orientation='0 1 0 1.570796' position='10 0 0'/>
+    <Viewpoint description='Viewpoint 3' orientation='0 1 0 -3.141593' position='0 0 -10'/>
+    <Viewpoint description='Viewpoint 4' orientation='0 1 0 -1.570796' position='-10 0 0'/>
+    <Shape>
+      <Text string='"Check X3D console" "while navigating to see" "current viewpoint values"'>
+        <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.9' spacing='0.9'/>
+      </Text>
+      <Appearance>
+        <Material ambientIntensity='0.23' diffuseColor='0.5 0.243312 0.127417' emissiveColor='0.015957 0.015957 0.015957' shininess='0.03' specularColor='0.276596 0.055086 0.01524'/>
+      </Appearance>
+    </Shape>
+    <Shape>
+      <Box size='8.5 3 0.5'/>
+      <Appearance>
+        <Material diffuseColor='0.9 0.9 0.9' transparency='0.8'/>
+      </Appearance>
+    </Shape>
+  </Scene>
+</X3D>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='TextLengthMaxExtent.x3d' name='title'/>
+    <meta content='Simple Text node, illustrating length array and maxExtent field' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='25 January 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='TextLengthMaxExtent.png' name='reference'/>
+    <meta content='Copyright (c) Don Brutzman and Leonard Daly, 2005' name='rights'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter02GeometryPrimitives/TextLengthMaxExtent.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='TextLengthMaxExtent.x3d'/>
+    <Viewpoint description='Default View' position='0 0 6'/>
+    <Viewpoint description='Book View' position='0.89 -1.11 2.33'/>
+    <Transform translation='-2 0 0'>
+      <Shape>
+        <Text DEF='LengthText' length='2 3 4' string='"length=&apos;2 3 4&apos;" "Second line 25 characters" "Line 3 shortest"'>
+          <FontStyle DEF='CenteredFontStyle' justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material DEF='BlueMaterial' diffuseColor='0.219608 0.345098 1'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='2 0 0'>
+      <Shape>
+        <Text DEF='maxExtentText' maxExtent='2.5' string='"maxExtent=&apos;2.5&apos;" "Second line 25 characters" "Line 3 shortest"'>
+          <FontStyle USE='CenteredFontStyle'/>
+        </Text>
+        <Appearance>
+          <Material/>
+        </Appearance>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

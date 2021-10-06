@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='MaterialModulatorExamples.x3d' name='title'/>
+    <meta content='Demonstrate multiple instances of an external prototype.' name='description'/>
+    <meta content='Learning suggestion for authors: try changing the modulation script so that it goes from [0 ... 1] and then [1 ... 0] alternating, rather than abruptly shifting from 1 immediately back to 0.' name='hint'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='7 September 2017' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='X3D prototype instances DEF USE' name='subject'/>
+    <meta content='MaterialModulator.png' name='Image'/>
+    <meta content='MaterialModulatorExamples.png' name='Image'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulatorExamples.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='MaterialModulatorExamples.x3d'/>
+    <ExternProtoDeclare appinfo='mimic a Material node and modulate the diffuseColor field as an animation effect' documentation='http://x3dgraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulatorIndex.html' name='MaterialModulator' url='"MaterialModulator.x3d#MaterialModulator" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulator.x3d#MaterialModulator"'>
+      <field accessType='inputOutput' appinfo='default value true' name='enabled' type='SFBool'/>
+      <field accessType='inputOutput' appinfo='default value 0.8 0.8 0.8' name='diffuseColor' type='SFColor'/>
+      <field accessType='inputOutput' appinfo='default value 0 0 0' name='emissiveColor' type='SFColor'/>
+      <field accessType='inputOutput' appinfo='default value 0 0 0' name='specularColor' type='SFColor'/>
+      <field accessType='inputOutput' appinfo='default value 0.0' name='transparency' type='SFFloat'/>
+      <field accessType='inputOutput' appinfo='default value 0.2' name='shininess' type='SFFloat'/>
+      <field accessType='inputOutput' appinfo='default value 0.2' name='ambientIntensity' type='SFFloat'/>
+    </ExternProtoDeclare>
+    <!-- Rendered geometry for the ProtoInstance now follows external prototype declaration -->
+    <Transform rotation='-0.8 0.93923 0.18785 5.759586' translation='-2 1 0'>
+      <Shape DEF='ModulatingBoxShape'>
+        <Box/>
+        <Appearance>
+          <ProtoInstance DEF='MaterialModulatorInstance' containerField='material' name='MaterialModulator'>
+            <fieldValue name='enabled' value='true'/>
+            <fieldValue name='diffuseColor' value='0.5 0.1 0.1'/>
+            <!-- fieldValue declarations for other Material attributes can appear here -->
+          </ProtoInstance>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform rotation='1 0 0 0.523599' translation='2 1 0'>
+      <Shape>
+        <Cylinder/>
+        <Appearance>
+          <!-- note that ProtoInstance USE does not require name='MaterialModulator' -->
+          <ProtoInstance USE='MaterialModulatorInstance' containerField='material'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='-2 3.5 0'>
+      <Shape>
+        <Text string='"DEF original"'>
+          <FontStyle family='"SANS"' justify='"MIDDLE" "MIDDLE"' size='0.5' style='BOLD'/>
+        </Text>
+        <Appearance DEF='TextAppearance'>
+          <Material diffuseColor='0.9 0.9 0.9'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='2 3.5 0'>
+      <Shape>
+        <Text string='"USE copy"'>
+          <FontStyle family='"SANS"' justify='"MIDDLE" "MIDDLE"' size='0.5' style='BOLD'/>
+        </Text>
+        <Appearance USE='TextAppearance'/>
+      </Shape>
+    </Transform>
+    <Transform translation='0 -2 0'>
+      <Shape>
+        <Text string='"enable/disable" "MaterialModulator"'>
+          <FontStyle family='"SANS"' justify='"MIDDLE" "MIDDLE"' style='BOLD'/>
+        </Text>
+        <Appearance USE='TextAppearance'/>
+      </Shape>
+      <!-- Selectable Text design pattern has transparent Box and TouchSensor description as a tooltip -->
+      <Shape>
+        <Box size='8 2 .001'/>
+        <Appearance>
+          <Material transparency='1'/>
+        </Appearance>
+      </Shape>
+      <!-- Toggle text to enable/disable MaterialModulator -->
+      <TouchSensor DEF='TouchTextInterface' description='Select text to enable/disable MaterialModulator'/>
+      <BooleanToggle DEF='EventToggler'/>
+      <ROUTE fromField='isActive' fromNode='TouchTextInterface' toField='set_boolean' toNode='EventToggler'/>
+      <ROUTE fromField='toggle' fromNode='EventToggler' toField='enabled' toNode='MaterialModulatorInstance'/>
+    </Transform>
+  </Scene>
+</X3D>

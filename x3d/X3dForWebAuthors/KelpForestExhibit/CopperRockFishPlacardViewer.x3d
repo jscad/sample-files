@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interactive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='CopperRockfishPlacardViewer.x3d' name='title'/>
+    <meta content='Viewer for tank placards - needs photo on one side, placard on other, and conversion into prototype once ready.' name='description'/>
+    <meta content='1 April 2002' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Todd Gagnon and Mark A. Boyd' name='creator'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CopperRockfishPlacardViewer.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='CopperRockfishPlacardViewer.x3d'/>
+    <Viewpoint DEF='CopperRockfish' description='Copper Rockfish' position='0.0 0.0 4.0'/>
+    <Group>
+      <TouchSensor DEF='BlueRockfishTouchSensor' description='touch to rotate'/>
+      <TimeSensor DEF='BLUEROCKFISHCLOCK' cycleInterval='2.0'/>
+      <OrientationInterpolator DEF='BlueRockfishPathInterpolator' key='0.0 0.5 1.0' keyValue='0.0 1.0 0.0 0.0 0.0 1.0 0.0 1.57 0.0 1.0 0.0 3.14'/>
+      <Transform DEF='BLUEROCKFISH_TRANSFORM'>
+        <Shape>
+          <Appearance>
+            <ImageTexture DEF='CopperRockfishImage' url='"CopperRockfishPlacard.jpg" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CopperRockfishPlacard.jpg"'/>
+            <TextureTransform scale='1 2'/>
+          </Appearance>
+          <IndexedFaceSet coordIndex='0 1 2 3 0 -1'>
+            <Coordinate point='-2 -1 0 2 -1 0 2 1 0 -2 1 0'/>
+          </IndexedFaceSet>
+        </Shape>
+      </Transform>
+      <Group>
+        <Transform DEF='BUTTON_TRANSFORM' translation='1.0 2.0 0.0'>
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='0.0 1.0 0.0'/>
+            </Appearance>
+            <Sphere radius='0.5'/>
+          </Shape>
+        </Transform>
+        <TouchSensor DEF='FrontTouchSensor' description='touch to rotate'/>
+        <TimeSensor DEF='FRONTTOUCHSENSORCLOCK' cycleInterval='2.0'/>
+        <OrientationInterpolator DEF='PlaqueToPictureInterpolator' key='0.0 0.5 1.0' keyValue='0.0 1.0 0.0 3.14 0.0 1.0 0.0 1.57 0.0 1.0 0.0 0.0'/>
+      </Group>
+      <Group>
+        <Transform DEF='BUTTON_TRANSFORM2' translation='-1.0 2.0 0.0'>
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='1.0 0.0 0.0'/>
+            </Appearance>
+            <Sphere radius='0.5'/>
+          </Shape>
+        </Transform>
+        <TouchSensor DEF='PictureTouchSensor' description='touch to rotate'/>
+      </Group>
+      <Group>
+        <Transform DEF='BASE_TRANSFORM' translation='0.0 0.0 -0.3'>
+          <Shape>
+            <Appearance>
+              <Material diffuseColor='0.3 0.3 0.6'/>
+            </Appearance>
+            <Box size='8.0 6.0 0.3'/>
+          </Shape>
+        </Transform>
+        <Group>
+          <Transform translation='0.0 -2.6 0.0'>
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+              <Box size='8.0 1.0 1.0'/>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform translation='0.0 2.6 0.0'>
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+              <Box size='8.0 1.0 1.0'/>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform rotation='0.0 0.0 1.0 1.58' translation='3.6 0.0 0.0'>
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+              <Box size='6.2 1.0 1.0'/>
+            </Shape>
+          </Transform>
+        </Group>
+        <Group>
+          <Transform rotation='0.0 0.0 1.0 1.58' translation='-3.6 0.0 0.0'>
+            <Shape>
+              <Appearance>
+                <Material diffuseColor='0.8 0.8 0.2'/>
+              </Appearance>
+              <Box size='6.2 1.0 1.0'/>
+            </Shape>
+          </Transform>
+        </Group>
+      </Group>
+    </Group>
+    <ROUTE fromField='touchTime' fromNode='BlueRockfishTouchSensor' toField='set_startTime' toNode='BLUEROCKFISHCLOCK'/>
+    <ROUTE fromField='fraction_changed' fromNode='BLUEROCKFISHCLOCK' toField='set_fraction' toNode='BlueRockfishPathInterpolator'/>
+    <ROUTE fromField='value_changed' fromNode='BlueRockfishPathInterpolator' toField='set_rotation' toNode='BLUEROCKFISH_TRANSFORM'/>
+    <ROUTE fromField='touchTime' fromNode='FrontTouchSensor' toField='set_startTime' toNode='FRONTTOUCHSENSORCLOCK'/>
+    <ROUTE fromField='fraction_changed' fromNode='FRONTTOUCHSENSORCLOCK' toField='set_fraction' toNode='PlaqueToPictureInterpolator'/>
+    <ROUTE fromField='value_changed' fromNode='PlaqueToPictureInterpolator' toField='set_rotation' toNode='BLUEROCKFISH_TRANSFORM'/>
+    <ROUTE fromField='touchTime' fromNode='PictureTouchSensor' toField='set_startTime' toNode='BLUEROCKFISHCLOCK'/>
+  </Scene>
+</X3D>

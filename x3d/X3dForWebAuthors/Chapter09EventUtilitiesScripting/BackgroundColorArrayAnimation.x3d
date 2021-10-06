@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='BackgroundColorArrayAnimation.x3d' name='title'/>
+    <meta content='Design pattern demonstrating type conversion from single SFColor value (sent from a ColorInterpolator node) to an MFColor array (in a Background node).' name='description'/>
+    <meta content='Don Brutzman and MV3204 class' name='creator'/>
+    <meta content='8 September 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='also create a new prototype ColorArrayInterpolator in Chapter 14' name='TODO'/>
+    <meta content='http://openclipart.org/media/tags/smiley' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/BackgroundColorArrayAnimation.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='BackgroundColorArrayAnimation.x3d'/>
+    <TimeSensor DEF='Clock' cycleInterval='10' loop='true'/>
+    <ColorInterpolator DEF='ColorChanger' key='0 0.333333 0.666667 1' keyValue='1 0 0 0 1 0 0 0 1 1 0 0'/>
+    <ROUTE fromField='fraction_changed' fromNode='Clock' toField='set_fraction' toNode='ColorChanger'/>
+    <Script DEF='ColorTypeConversionScript'>
+      <field accessType='inputOnly' name='colorValueInput' type='SFColor'/>
+      <field accessType='outputOnly' name='colorArrayOutput' type='MFColor'/>
+      <![CDATA[
+ecmascript:
+
+function colorValueInput (inputValue) // input event received for inputOnly field
+{
+   colorArrayOutput[0] =  inputValue; // perform type conversion, result is sent as output event
+}
+]]>
+    </Script>
+    <ROUTE fromField='value_changed' fromNode='ColorChanger' toField='colorValueInput' toNode='ColorTypeConversionScript'/>
+    <Background DEF='SingleColorBackground'/>
+    <ROUTE fromField='colorArrayOutput' fromNode='ColorTypeConversionScript' toField='skyColor' toNode='SingleColorBackground'/>
+  </Scene>
+</X3D>

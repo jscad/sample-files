@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ViewFrustumExample.x3d' name='title'/>
+    <meta content='Display view frustum associated with a given pair of Viewpoint and NavigationInfo nodes, illustrating ProtoInstance reuse of a separately declared prototype.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='16 August 2008' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='ViewFrustumPrototype.x3d' name='reference'/>
+    <meta content='ViewFrustumComputation.png' name='drawing'/>
+    <meta content='ViewFrustumOverheadView.png' name='Image'/>
+    <meta content='ViewFrustumObliqueView.png' name='Image'/>
+    <meta content='ViewpointCalculator.png' name='Image'/>
+    <meta content='ViewpointCalculatorComposed.png' name='Image'/>
+    <meta content='view culling frustum' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ViewFrustumExample.x3d'/>
+    <Viewpoint description='ViewFrustum from above, looking down' orientation='1 0 0 -1.57' position='0 40 0'/>
+    <Viewpoint description='ViewFrustum from point of view'/>
+    <Viewpoint description='ViewFrustum behind point of view' position='0 0 15'/>
+    <Viewpoint description='ViewFrustum oblique side view' orientation='0.8005 0.5926 0.0898 -0.3743' position='-5 5 20'/>
+    <NavigationInfo type='"EXAMINE" "FLY" "ANY"'/>
+    <ExternProtoDeclare appinfo='Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes' name='ViewFrustum' url='"ViewFrustumPrototype.x3d#ViewFrustum" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d#ViewFrustum" "ViewFrustumPrototype.wrl#ViewFrustum" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.wrl#ViewFrustum"'>
+      <field accessType='initializeOnly' appinfo='required: insert Viewpoint DEF or USE node for view of interest' name='ViewpointNode' type='SFNode'/>
+      <field accessType='initializeOnly' appinfo='required: insert NavigationInfo DEF or USE node of interest' name='NavigationInfoNode' type='SFNode'/>
+      <field accessType='inputOutput' appinfo='whether or not frustum geometry is rendered' name='visible' type='SFBool'/>
+      <field accessType='inputOutput' appinfo='RGB color of ViewFrustum outline, default value 0.9 0.9 0.9' name='lineColor' type='SFColor'/>
+      <field accessType='inputOutput' appinfo='RGB color of ViewFrustum hull geometry, default value 0.8 0.8 0.8' name='frustumColor' type='SFColor'/>
+      <field accessType='inputOutput' appinfo='transparency of ViewFrustum hull geometry, default value 0.5' name='transparency' type='SFFloat'/>
+      <field accessType='inputOutput' appinfo='assumed ratio height/width, default value 0.75' name='aspectRatio' type='SFFloat'/>
+      <field accessType='initializeOnly' appinfo='debug support, default false' name='trace' type='SFBool'/>
+    </ExternProtoDeclare>
+    <!-- Example use -->
+    <ProtoInstance name='ViewFrustum'>
+      <fieldValue name='ViewpointNode'>
+        <!-- prefer empty description to prevent entry in player's ViewpointList -->
+        <Viewpoint description='ViewFrustum ViewpointNode'/>
+      </fieldValue>
+      <fieldValue name='NavigationInfoNode'>
+        <NavigationInfo visibilityLimit='15'/>
+      </fieldValue>
+      <fieldValue name='visible' value='true'/>
+      <fieldValue name='lineColor' value='0.9 0.9 0.9'/>
+      <fieldValue name='frustumColor' value='0.8 0.8 0.8'/>
+      <fieldValue name='transparency' value='0.75'/>
+      <fieldValue name='trace' value='true'/>
+    </ProtoInstance>
+    <!-- Visualization assists -->
+    <Inline DEF='GridXZ' url='"../../Savage/Tools/Authoring/GridXZ_20x20Fixed.x3d" "https://savage.nps.edu/Savage/Tools/Authoring/GridXZ_20x20Fixed.x3d"'/>
+    <Transform scale='5 5 5'>
+      <Inline DEF='CoordinateAxes' url='"../Chapter03Grouping/CoordinateAxes.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/CoordinateAxes.x3d"'/>
+    </Transform>
+  </Scene>
+</X3D>
