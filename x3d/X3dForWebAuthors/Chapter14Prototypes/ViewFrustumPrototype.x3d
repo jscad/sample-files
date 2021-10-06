@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ViewFrustumPrototype.x3d' name='title'/>
+    <meta content='Define a view frustum associated with a given pair of Viewpoint and NavigationInfo nodes, provided as a reusable prototype.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='16 August 2008' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='ViewFrustumExample.x3d' name='reference'/>
+    <meta content='ViewFrustumComputation.png' name='drawing'/>
+    <meta content='ViewFrustumOverheadView.png' name='Image'/>
+    <meta content='ViewFrustumObliqueView.png' name='Image'/>
+    <meta content='view culling frustum' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototype.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ViewFrustumPrototype.x3d'/>
+    <ProtoDeclare appinfo='Display view frustum associated with a given pair of Viewpoint NavigationInfo nodes' name='ViewFrustum'>
+      <ProtoInterface>
+        <field accessType='initializeOnly' appinfo='required: insert Viewpoint DEF or USE node for view of interest' name='ViewpointNode' type='SFNode'>
+          <!-- NULL node, ProtoInstance must provide -->
+        </field>
+        <field accessType='initializeOnly' appinfo='required: insert NavigationInfo DEF or USE node of interest' name='NavigationInfoNode' type='SFNode'>
+          <!-- NULL node, ProtoInstance must provide -->
+        </field>
+        <field accessType='inputOutput' appinfo='whether or not frustum geometry is rendered' name='visible' type='SFBool' value='true'/>
+        <field accessType='inputOutput' appinfo='RGB color of ViewFrustum outline, default value 0.9 0.9 0.9' name='lineColor' type='SFColor' value='0.9 0.9 0.9'/>
+        <field accessType='inputOutput' appinfo='RGB color of ViewFrustum hull geometry, default value 0.8 0.8 0.8' name='frustumColor' type='SFColor' value='0.8 0.8 0.8'/>
+        <field accessType='inputOutput' appinfo='transparency of ViewFrustum hull geometry, default value 0.5' name='transparency' type='SFFloat' value='0.5'/>
+        <field accessType='inputOutput' appinfo='assumed ratio height/width, default value 0.75' name='aspectRatio' type='SFFloat' value='0.75'/>
+        <field accessType='initializeOnly' appinfo='debug support, default false' name='trace' type='SFBool' value='false'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Switch DEF='VisibilitySwitch' whichChoice='-1'>
+          <Transform DEF='PositionTransform' rotation='0 1 0 3.14159'>
+            <Transform DEF='OrientationTransform'>
+              <Shape>
+                <IndexedLineSet DEF='FrustumLines' coordIndex='0 1 2 3 0 -1 4 5 6 7 4 -1 0 4 -1 1 5 -1 2 6 -1 3 7 -1'>
+                  <Coordinate DEF='FrustumCoordinate' point='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0'/>
+                </IndexedLineSet>
+                <Appearance>
+                  <Material>
+                    <IS>
+                      <connect nodeField='emissiveColor' protoField='lineColor'/>
+                    </IS>
+                  </Material>
+                </Appearance>
+              </Shape>
+              <Shape>
+                <Extrusion DEF='FrustumExtrusion'/>
+                <Appearance DEF='FrustumAppearance'>
+                  <Material>
+                    <IS>
+                      <connect nodeField='diffuseColor' protoField='frustumColor'/>
+                      <connect nodeField='transparency' protoField='transparency'/>
+                    </IS>
+                  </Material>
+                </Appearance>
+              </Shape>
+              <Shape>
+                <Sphere radius='0.08'/>
+                <Appearance USE='FrustumAppearance'/>
+              </Shape>
+            </Transform>
+          </Transform>
+        </Switch>
+        <Script DEF='GeometryComputationScript' directOutput='true' url='"ViewFrustumPrototypeScript.js" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumPrototypeScript.js"'>
+          <field accessType='inputOutput' appinfo='Whether or not frustum geometry is rendered' name='visible' type='SFBool'/>
+          <field accessType='outputOnly' appinfo='Adjust Switch selection to make geometry visible or not' name='visibilitySwitchSelection' type='SFInt32'/>
+          <field accessType='initializeOnly' name='ViewpointNode' type='SFNode'>
+            <!-- initialization node (if any) goes here -->
+          </field>
+          <field accessType='initializeOnly' name='NavigationInfoNode' type='SFNode'>
+            <!-- initialization node (if any) goes here -->
+          </field>
+          <field accessType='initializeOnly' name='FrustumCoordinate' type='SFNode'>
+            <Coordinate USE='FrustumCoordinate'/>
+          </field>
+          <field accessType='initializeOnly' name='FrustumExtrusion' type='SFNode'>
+            <Extrusion USE='FrustumExtrusion'/>
+          </field>
+          <field accessType='inputOnly' name='recompute' type='SFBool'/>
+          <field accessType='inputOutput' appinfo='assumed ratio height/width' name='aspectRatio' type='SFFloat'/>
+          <field accessType='outputOnly' name='position_changed' type='SFVec3f'/>
+          <field accessType='outputOnly' name='orientation_changed' type='SFRotation'/>
+          <field accessType='outputOnly' name='spine_changed' type='MFVec3f'/>
+          <field accessType='outputOnly' name='scale_changed' type='MFVec2f'/>
+          <field accessType='outputOnly' name='point_changed' type='MFVec3f'/>
+          <field accessType='initializeOnly' name='trace' type='SFBool'/>
+          <IS>
+            <connect nodeField='visible' protoField='visible'/>
+            <connect nodeField='ViewpointNode' protoField='ViewpointNode'/>
+            <connect nodeField='NavigationInfoNode' protoField='NavigationInfoNode'/>
+            <connect nodeField='aspectRatio' protoField='aspectRatio'/>
+            <connect nodeField='trace' protoField='trace'/>
+          </IS>
+        </Script>
+        <ROUTE fromField='visibilitySwitchSelection' fromNode='GeometryComputationScript' toField='whichChoice' toNode='VisibilitySwitch'/>
+        <ROUTE fromField='position_changed' fromNode='GeometryComputationScript' toField='translation' toNode='PositionTransform'/>
+        <ROUTE fromField='orientation_changed' fromNode='GeometryComputationScript' toField='rotation' toNode='OrientationTransform'/>
+        <ROUTE fromField='spine_changed' fromNode='GeometryComputationScript' toField='set_spine' toNode='FrustumExtrusion'/>
+        <ROUTE fromField='scale_changed' fromNode='GeometryComputationScript' toField='set_scale' toNode='FrustumExtrusion'/>
+        <ROUTE fromField='point_changed' fromNode='GeometryComputationScript' toField='point' toNode='FrustumCoordinate'/>
+      </ProtoBody>
+    </ProtoDeclare>
+    <!-- Example use is in separate scene -->
+    <Anchor description='ViewFrustum Example' url='"ViewFrustumExample.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumExample.x3d" "ViewFrustumExample.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/ViewFrustumExample.wrl"'>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0.8 0.4 0'/>
+        </Appearance>
+        <Text string='"ViewFrustumPrototype.x3d" "is a Prototype declaration file." "For an example scene using the prototype," "click this text and view" "ViewFrustumExample.x3d"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.8'/>
+        </Text>
+      </Shape>
+    </Anchor>
+  </Scene>
+</X3D>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='TransformCenterOffsetForRotation.x3d' name='title'/>
+    <meta content='Use Transform center field to compare original Cylinder (left) to rotation about middle of object (middle Cylinder) to rotation about bottom of object (right Cylinder).' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='28 January 2008' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright Don Brutzman and Leonard Daly 2007' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter03Grouping/TransformCenterOffsetForRotation.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- leftmost cylinder is vertical -->
+    <WorldInfo title='TransformCenterOffsetForRotation.x3d'/>
+    <Transform translation='-3.5 0 0'>
+      <Shape DEF='TallCylinder'>
+        <Cylinder height='4'/>
+        <Appearance>
+          <Material diffuseColor='0.941176 0.027451 0'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <!-- center cylinder rotated -45 degrees about center -->
+    <Transform rotation='0 0 1 -0.78'>
+      <Shape USE='TallCylinder'/>
+    </Transform>
+    <!-- rightmost cylinder rotated -45 degrees about base -->
+    <Transform center='0 -2 0' rotation='0 0 1 -0.78' translation='3.5 0 0'>
+      <Shape USE='TallCylinder'/>
+    </Transform>
+    <Shape DEF='FlatBox'>
+      <Box size='7 0.1 2'/>
+      <Appearance>
+        <Material diffuseColor='0 0.643137 0.960784'/>
+      </Appearance>
+    </Shape>
+    <Transform translation='0 -2 0'>
+      <Shape USE='FlatBox'/>
+    </Transform>
+  </Scene>
+</X3D>

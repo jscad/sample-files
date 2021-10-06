@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='MorphingTriangleSetExample.x3d' name='title'/>
+    <meta content='Animated example of a morphing TriangleSet' name='description'/>
+    <meta content='1 January 2007' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright Don Brutzman and Leonard Daly 2007' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter13GeometryTrianglesQuadrilaterals/MorphingTriangleSetExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='MorphingTriangleSet.x3d'/>
+    <Viewpoint description='Book View - Cube' orientation='-0.742 0.635 0.215 0.81' position='5.71 6.54 7.99'/>
+    <Viewpoint description='Book View - Pyramid' orientation='-0.044 0.998 0.037 0.72' position='5.5 1.68 4.41'/>
+    <Background skyColor='1 1 1'/>
+    <Transform rotation='1 0 0 0'>
+      <Shape>
+        <TriangleSet ccw='true' colorPerVertex='true' normalPerVertex='true' solid='false'>
+          <Coordinate DEF='Points' point='0 0 0 4 0 0 2 1.15 0 4 0 0 2 3.46 0 2 1.15 0 2 3.46 0 0 0 0 2 1.15 0 0 0 0 4 0 0 2 1.15 1.15 4 0 0 2 1.73 3 2 1.15 1.15 2 1.73 3 0 0 0 2 1.15 1.15 4 0 0 2 3.46 0 3 2.31 1.15 2 3.46 0 2 1.73 3 3 2.31 1.15 2 1.73 3 4 0 0 3 2.31 1.15 2 3.46 0 0 0 0 1 2.31 1.15 0 0 0 2 1.73 3 1 2.31 1.15 2 1.73 3 2 3.46 0 1 2.31 1.15'/>
+          <Color color='1 0. 0 0 .8 0 1 .5 0 0 .8 0 0 0. 1 1 .5 0 0 0. 1 1 0. 0 1 .5 0 1. 0. 0. 0. .8 0. 1 0 1 0. .8 0. .7 .3 .4 1 0 1 .7 .3 .4 1. 0. 0. 1 0 1 0. .8 0. 0. 0. 1. 0 1 1 0. 0. 1. .7 .3 .4 0 1 1 .7 .3 .4 0. .8 0. 0 1 1 0. 0. 1. 1. 0. 0. 1 1 0 1. 0. 0. .7 .3 .4 1 1 0 .7 .3 .4 0. 0. 1. 1 1 0'/>
+        </TriangleSet>
+      </Shape>
+    </Transform>
+    <TimeSensor DEF='Timer' cycleInterval='30' loop='true' startTime='1'/>
+    <CoordinateInterpolator DEF='Mover' key='0 .2 .5 .7' keyValue='0 0 0 4 0 0 2 1.15 0 4 0 0 2 3.46 0 2 1.15 0 2 3.46 0 0 0 0 2 1.15 0 0 0 0 4 0 0 2 0.58 0.58 4 0 0 2 1.73 3 2 0.58 0.58 2 1.73 3 0 0 0 2 0.58 0.58 4 0 0 2 3.46 0 3 2.31 0.58 2 3.46 0 2 1.73 3 3 2.31 0.58 2 1.73 3 4 0 0 3 2.31 0.58 2 3.46 0 0 0 0 1 2.31 0.58 0 0 0 2 1.73 3 1 2.31 0.58 2 1.73 3 2 3.46 0 1 2.31 0.58 0 0 0 4 0 0 0 4 0 4 0 0 4 4 0 0 4 0 0 0 4 0 0 0 0 4 0 0 0 0 4 0 0 0 0 4 4 0 0 4 0 4 0 0 4 4 0 4 0 0 4 4 4 4 4 0 0 4 4 0 4 4 4 4 4 0 0 4 4 4 4 4 4 0 4 4 0 0 4 4 4 0 4 4 0 0 4 4 4 4 0 0 4 0 4 4 0 4 0 0 4 4 4 4 0 0 4 0 0 0 0 4 0 0 0 4 0 4 0 0 4 4 0 0 4 0 0 0 4 0 0 0 0 4 0 0 0 0 4 0 0 0 0 4 4 0 0 4 0 4 0 0 4 4 0 4 0 0 4 4 4 4 4 0 0 4 4 0 4 4 4 4 4 0 0 4 4 4 4 4 4 0 4 4 0 0 4 4 4 0 4 4 0 0 4 4 4 4 0 0 4 0 4 4 0 4 0 0 4 4 4 4 0 0 4 0 0 0 0 4 0 0 2 1.15 0 4 0 0 2 3.46 0 2 1.15 0 2 3.46 0 0 0 0 2 1.15 0 0 0 0 4 0 0 2 0.58 0.58 4 0 0 2 1.73 3 2 0.58 0.58 2 1.73 3 0 0 0 2 0.58 0.58 4 0 0 2 3.46 0 3 2.31 0.58 2 3.46 0 2 1.73 3 3 2.31 0.58 2 1.73 3 4 0 0 3 2.31 0.58 2 3.46 0 0 0 0 1 2.31 0.58 0 0 0 2 1.73 3 1 2.31 0.58 2 1.73 3 2 3.46 0 1 2.31 0.58'/>
+    <ROUTE fromField='fraction_changed' fromNode='Timer' toField='set_fraction' toNode='Mover'/>
+    <ROUTE fromField='value_changed' fromNode='Mover' toField='point' toNode='Points'/>
+  </Scene>
+</X3D>

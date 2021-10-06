@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ProximitySensorExample.x3d' name='title'/>
+    <meta content='Demonstrates use of a ProximitySensor in building a HUD' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='15 July 2006' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='ProximitySensorVisualization.png' name='Image'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter12EnvironmentSensorSound/ProximitySensorExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- HUD = Heads-Up Display, which stays on screen in same relative location even while user navigates -->
+    <!-- TODO: authors should use X3D-Edit editing pane to try out the ProximitySensor Visualize capability -->
+    <WorldInfo title='ProximitySensor.x3d'/>
+    <ProximitySensor DEF='HereIAm' size='100 100 100'/>
+    <Inline url='"../KelpForestExhibit/KelpForestMain.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpForestMain.x3d" "../KelpForestExhibit/KelpForestMain.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpForestMain.wrl"'/>
+    <Transform DEF='HUD'>
+      <Transform DEF='PushBack' translation='-.8 1. -3'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='1 1 0'/>
+          </Appearance>
+          <Box size='1.5 .4 .1'/>
+        </Shape>
+        <Transform DEF='HudContents' translation='-.7 .3 .1'>
+          <Transform DEF='TopText' translation='0 -.2 0'>
+            <Shape>
+              <Appearance DEF='Text_app'>
+                <Material diffuseColor='0 0 0'/>
+              </Appearance>
+              <Text DEF='TopTextLine' string='"Position 0.00 0.00 10.00"'>
+                <FontStyle DEF='TextStyle' family='"SANS" "SERIF"' justify='"BEGIN" "BEGIN"' size='0.1'/>
+              </Text>
+            </Shape>
+          </Transform>
+          <Transform DEF='BottomText' translation='0 -.4 0'>
+            <Shape>
+              <Appearance USE='Text_app'/>
+              <Text DEF='BottomTextLine' string='"Orientation: 0.000 1.000 0.000 0.00"'>
+                <FontStyle USE='TextStyle'/>
+              </Text>
+            </Shape>
+          </Transform>
+        </Transform>
+      </Transform>
+    </Transform>
+    <Script DEF='CnvText' url='"ProximitySensorScriptConvertText.js" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter12EnvironmentSensorSound/ProximitySensorScriptConvertText.js"'>
+      <field accessType='inputOnly' name='position' type='SFVec3f'/>
+      <field accessType='inputOnly' name='orientation' type='SFRotation'/>
+      <field accessType='outputOnly' name='positionText' type='MFString'/>
+      <field accessType='outputOnly' name='orientationText' type='MFString'/>
+    </Script>
+    <ROUTE fromField='orientation_changed' fromNode='HereIAm' toField='rotation' toNode='HUD'/>
+    <ROUTE fromField='position_changed' fromNode='HereIAm' toField='translation' toNode='HUD'/>
+    <ROUTE fromField='position_changed' fromNode='HereIAm' toField='position' toNode='CnvText'/>
+    <ROUTE fromField='orientation_changed' fromNode='HereIAm' toField='orientation' toNode='CnvText'/>
+    <ROUTE fromField='positionText' fromNode='CnvText' toField='string' toNode='TopTextLine'/>
+    <ROUTE fromField='orientationText' fromNode='CnvText' toField='string' toNode='BottomTextLine'/>
+  </Scene>
+</X3D>

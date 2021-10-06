@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='BackgroundSelector.x3d' name='title'/>
+    <meta content='Select one of four Background nodes to show a time-of-day effect.' name='description'/>
+    <meta content='Dale Tourtelotte, Don Brutzman and MV4205 class' name='creator'/>
+    <meta content='20 April 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter11LightingEnvironment/BackgroundColorsOnly.x3d' name='reference'/>
+    <meta content='X3D Background example' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter11LightingEnvironmentalEffects/BackgroundSelector.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='BackgroundSelector.x3d'/>
+    <Transform translation='0 3 0'>
+      <Shape>
+        <Text string='"Background Selector"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <TimeSensor DEF='TimeOfDayClock' cycleInterval='6' loop='true'/>
+    <IntegerSequencer DEF='BackgroundSequencer' key='0 0.25 0.5 0.75 1' keyValue='0 1 2 3 0'/>
+    <ROUTE fromField='fraction_changed' fromNode='TimeOfDayClock' toField='set_fraction' toNode='BackgroundSequencer'/>
+    <Script DEF='SelectorScript'>
+      <field accessType='inputOnly' name='whichBackground' type='SFInt32'/>
+      <field accessType='outputOnly' name='bind0' type='SFBool'/>
+      <field accessType='outputOnly' name='bind1' type='SFBool'/>
+      <field accessType='outputOnly' name='bind2' type='SFBool'/>
+      <field accessType='outputOnly' name='bind3' type='SFBool'/>
+      <![CDATA[
+ecmascript:
+function whichBackground (inputValue)
+{
+    if      (whichBackground == 0) bind0 = true;
+    else if (whichBackground == 1) bind1 = true;
+    else if (whichBackground == 2) bind2 = true;
+    else if (whichBackground == 3) bind3 = true;
+}
+]]>
+    </Script>
+    <ROUTE fromField='value_changed' fromNode='BackgroundSequencer' toField='whichBackground' toNode='SelectorScript'/>
+    <Background DEF='SunRiseSky' groundAngle='0.75 1.2 1.25 1.26 1.5 1.57' groundColor='0.133333 0.419608 0 0.36 0.1 0 1 0.74 0.4 1 0.74 0.4 0 0 0.5 0 0 0.2 0 0.231373 0.380392' skyAngle='0.5 0.7 1.35 1.45 1.57' skyColor='0 0.035 0.34 0 0.015 0.44 0 0.05 0.5 0 0.1 0.6 0.44 0.8 1 1 1 0.7'/>
+    <Background DEF='HighNoonSky' groundAngle='0.75 1.2 1.25 1.26 1.57' groundColor='0.133333 0.419608 0 0.36 0.1 0 1 0.74 0.4 1 0.74 0.4 0 0.2 0.75 0 0.1 0.5' skyAngle='0.05 0.07 1.57' skyColor='1 1 0.2 1 1 0 0.36 0.63 1 0 0.4 1'/>
+    <Background DEF='SunsetSky' groundAngle='0.75 1.2 1.25 1.26 1.57' groundColor='0.133333 0.419608 0 0.36 0.1 0 1 0.74 0.4 1 0.74 0.4 0 0 0.5 0 0 0.2' skyAngle='0.5 0.7 1.2 1.4 1.57' skyColor='0 0 0.38 0 0 0.68 0.5 0.2 1 0.5 0.2 1 1 0.3 0 1 0.2 0.8'/>
+    <Background DEF='NightSky' groundAngle='0.75 1.2 1.25 1.26 1.57' groundColor='0.133333 0.419608 0 0.36 0.1 0 1 0.74 0.4 1 0.74 0.4 0 0 0.5 0 0 0.2' skyAngle='0.03 0.05 1.57' skyColor='1 1 1 0.8 0.8 0.8 0.1 0.1 0.1 0 0 0'/>
+    <ROUTE fromField='bind0' fromNode='SelectorScript' toField='set_bind' toNode='SunRiseSky'/>
+    <ROUTE fromField='bind1' fromNode='SelectorScript' toField='set_bind' toNode='HighNoonSky'/>
+    <ROUTE fromField='bind2' fromNode='SelectorScript' toField='set_bind' toNode='SunsetSky'/>
+    <ROUTE fromField='bind3' fromNode='SelectorScript' toField='set_bind' toNode='NightSky'/>
+  </Scene>
+</X3D>

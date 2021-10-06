@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ElevationGridSimpleWaveAnimation.x3d' name='title'/>
+    <meta content='Simple Javascript animation of ElevationGrid' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='2 December 2012' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='ElevationGridSimpleWaveAnimation.png' name='Image'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/ElevationGridSimpleWaveAnimation.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ElevationGridSimpleWaveAnimation.x3d'/>
+    <Viewpoint description='Wave view' orientation='1 0 0 -0.358771' position='0 3 8'/>
+    <Background groundColor='1 1 1' skyColor='1 1 1'/>
+    <!-- Shift zero-based ElevationGrid to left, centering it -->
+    <Transform translation='-4 0 0'>
+      <Shape>
+        <ElevationGrid DEF='GridSurface' height='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0' solid='false' xDimension='9' zDimension='3'/>
+        <Appearance>
+          <Material diffuseColor='0 0.5 1'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <TimeSensor DEF='Clock' cycleInterval='5' loop='true'/>
+    <Script DEF='WaveGenerationScript'>
+      <field accessType='inputOnly' appinfo='provide value and trigger new computation' name='newInputValue' type='SFFloat'/>
+      <field accessType='outputOnly' appinfo='provide values to ElevationGrid' name='gridOutput' type='MFFloat'/>
+      <field accessType='initializeOnly' appinfo='wave variation' name='waveStep' type='SFTime' value='0.1'/>
+      <![CDATA[
+ecmascript:
+
+function newInputValue (eventValue)
+{
+   fraction = eventValue; // connected by ROUTE, receives values from TimeSensor Clock fraction_changed
+   
+   value0 = 0.2 * Math.sin (2 * Math.PI * (fraction - 4*waveStep));
+   value1 = 0.2 * Math.sin (2 * Math.PI * (fraction - 3*waveStep));
+   value2 = 0.2 * Math.sin (2 * Math.PI * (fraction - 2*waveStep));
+   value3 = 0.2 * Math.sin (2 * Math.PI * (fraction -   waveStep));
+   value4 = 0.2 * Math.sin (2 * Math.PI * (fraction             ));
+   value5 = 0.2 * Math.sin (2 * Math.PI * (fraction +   waveStep));
+   value6 = 0.2 * Math.sin (2 * Math.PI * (fraction + 2*waveStep));
+   value7 = 0.2 * Math.sin (2 * Math.PI * (fraction + 3*waveStep));
+   value8 = 0.2 * Math.sin (2 * Math.PI * (fraction + 4*waveStep));
+   
+   // setting the gridOutput value creates an output event that is connected via ROUTE to the ElevationGrid set_height field.
+   // note that types match (MFFloat) and accessTypes also match (output_only connects to inputOnly).
+   gridOutput = new MFFloat (
+		value0, value1, value2, value3, value4, value5, value6, value7, value8,
+		value0, value1, value2, value3, value4, value5, value6, value7, value8,
+		value0, value1, value2, value3, value4, value5, value6, value7, value8 );
+}
+]]>
+    </Script>
+    <ROUTE fromField='fraction_changed' fromNode='Clock' toField='newInputValue' toNode='WaveGenerationScript'/>
+    <ROUTE fromField='gridOutput' fromNode='WaveGenerationScript' toField='set_height' toNode='GridSurface'/>
+  </Scene>
+</X3D>

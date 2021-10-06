@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ExtrusionRoomWalls.x3d' name='title'/>
+    <meta content='Wall definition for a room, defined as a cross section and extruded vertically.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='U.S. Naval Postgraduate School (NPS)' name='organization'/>
+    <meta content='3 September 2005' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Extrusion example' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter06GeometryPointsLinesPolygons/ExtrusionRoomWalls.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ExtrusionRoomWalls.x3d'/>
+    <Viewpoint description='Extrusion Room Walls' orientation='1 0 0 -0.2' position='5 4 15'/>
+    <Viewpoint description='Oblique view from above' orientation='1 0 0 -0.78' position='5 10 13'/>
+    <Viewpoint description='Overhead view' orientation='1 0 0 -1.57' position='5 12 3'/>
+    <Background skyColor='1 1 1'/>
+    <Transform>
+      <Shape>
+        <!-- be sure to order cross-section points so that normal is upward -->
+        <Extrusion convex='false' crossSection='0 0 0 6 3 6 3 5 1 5 1 1 9 1 9 5 5 5 5 6 10 6 10 0 0 0' spine='0 0 0 0 2.5 0'>
+          <!-- spine is open, crossSection is closed -->
+        </Extrusion>
+        <Appearance>
+          <Material diffuseColor='0.8 0.8 0.3'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

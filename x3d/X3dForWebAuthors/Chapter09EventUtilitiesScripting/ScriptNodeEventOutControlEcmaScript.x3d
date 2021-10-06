@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='ScriptNodeEventOutControlEcmaScript.x3d' name='title'/>
+    <meta content='Script node interface between X3D and EcmaScript: this conformance example tests event-based X3D-EcmaScript functionality.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='30 November 1997' name='created'/>
+    <meta content='13 May 2001' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Basic/ScriptConformance/ScriptNodeEventOutControlEcmaScript.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/ScriptNodeEventOutControlEcmaScript.x3d' name='identifier'/>
+    <meta content='VRML 97 Specification, Annex C, ECMAScript scripting reference' name='reference'/>
+    <meta content='https://www.web3d.org/technicalinfo/specifications/vrml97/part1/javascript.html' name='reference'/>
+    <meta content='https://www.web3d.org/technicalinfo/specifications/vrml97/part1/javascript.html#AccessingFields' name='reference'/>
+    <meta content='Makefile' name='reference'/>
+    <meta content='Makefile.out' name='reference'/>
+    <meta content='ScriptNodeEventOutControlEcmaScript-VrmlConsoleOutput.txt' name='reference'/>
+    <meta content='ScriptNodeEventOutControlEcmaScriptSnapshots.html' name='reference'/>
+    <meta content='ScriptNodeEventOutControl-Java.x3d' name='reference'/>
+    <meta content='VRML X3D EcmaScript Script conformance' name='subject'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='ScriptNodeEventOutControlEcmaScript.x3d'/>
+    <Viewpoint description='View test' position='0 0 12'/>
+    <Group>
+      <TouchSensor DEF='ClickTextToTest' description='Click text to test'/>
+      <Transform DEF='TextPosition'>
+        <!-- TextPosition translation is modified by InterfaceScriptNode. -->
+        <Shape>
+          <!-- note "" means empty string, which skips a line and pushes the other text upwards by a line -->
+          <Text DEF='MessageToUser' string='"Default text in X3D scene will be replaced by" "Java initialize() in Script using EventOut control." "This text appears first, if Java initialization fails." ""'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.8'/>
+          </Text>
+          <Appearance>
+            <Material DEF='TextMaterial' diffuseColor='0.8 0.2 0.2' shininess='0.9'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Script DEF='InterfaceScriptNode'>
+        <!-- No default values are allowed for eventIn or eventOut. -->
+        <field accessType='inputOnly' name='startTime' type='SFTime'/>
+        <field accessType='outputOnly' name='changedText' type='MFString'/>
+        <field accessType='outputOnly' name='changedPosition' type='SFVec3f'/>
+        <field accessType='outputOnly' name='changedColor' type='SFColor'/>
+        <![CDATA[
+ecmascript:
+
+function initialize ()
+{
+	DEBUG = true;
+	mode  = 1;
+	if (DEBUG) Browser.print ('initialize ():');
+
+	changedText = new MFString (
+	'EcmaScript initialize () with eventOut control',
+ 	'has reinitialized the changedText node.',
+ 	'',
+ 	'Please click text for additional results.');
+	changedPosition = new SFVec3f ( 0, 3, 0 );
+	changedColor    = new SFColor ( 0.8, 0.8, 0.2 );
+	if (DEBUG) Browser.print ('changedText =' + changedText);
+	if (DEBUG) Browser.print ('changedPosition =' + changedPosition);
+	if (DEBUG) Browser.print ('changedColor =' + changedColor);
+}
+function startTime (value, timestamp)
+{
+	if (DEBUG) Browser.print ('==============================');
+	if (DEBUG) Browser.print ('touchEvent startTime =' + value);
+
+	mode = (mode + 1) % 3;
+	if (DEBUG) Browser.print ('mode =' + mode);
+	switch (mode)
+	{
+	  case 0:	// pre-initialize error messsage
+		changedText = new MFString (
+		'Default text in X3D scene will be replaced by',
+ 		'EcmaScript initialize() in Script using EventOut control.',
+ 		'This text appears first, if EcmaScript initialization fails.',
+ 		'');
+ 		changedPosition = new SFVec3f ( 0, 1, 0 );
+		changedColor    = new SFColor ( 0.8, 0.2, 0.2 ); 
+	  	break;
+
+	  case 1:	// post-initialize ready-to-click message
+		initialize ();
+		break;
+
+	  case 2:	// post-click all-done message
+		changedText = new MFString (
+		'User click on text seen by EcmaScript',
+ 		'function via Script node eventIn.',
+ 		'Text & position successfully changed',
+ 		'via EventOut control.  Test passed.');
+	 	changedPosition = new SFVec3f ( 0, -1, 0 );
+	 	changedColor    = new SFColor ( 0.2, 0.8, 0.2 );
+		break;
+	}
+		
+	if (mode != 1)
+	{
+	 	if (DEBUG) Browser.print ('changedText     =' + changedText);
+	 	if (DEBUG) Browser.print ('changedPosition =' + changedPosition);
+	 	if (DEBUG) Browser.print ('changedColor    =' + changedColor);
+	 	if (DEBUG) Browser.print ();
+ 	}
+}
+function shutdown()
+{
+	if (DEBUG) Browser.print ('==============================');
+  	if (DEBUG) Browser.print ('script shutdown.');
+	if (DEBUG) Browser.print ('==============================');
+}
+]]>
+      </Script>
+    </Group>
+    <ROUTE fromField='touchTime' fromNode='ClickTextToTest' toField='startTime' toNode='InterfaceScriptNode'/>
+    <ROUTE fromField='changedText' fromNode='InterfaceScriptNode' toField='set_string' toNode='MessageToUser'/>
+    <ROUTE fromField='changedPosition' fromNode='InterfaceScriptNode' toField='set_translation' toNode='TextPosition'/>
+    <ROUTE fromField='changedColor' fromNode='InterfaceScriptNode' toField='set_diffuseColor' toNode='TextMaterial'/>
+  </Scene>
+</X3D>

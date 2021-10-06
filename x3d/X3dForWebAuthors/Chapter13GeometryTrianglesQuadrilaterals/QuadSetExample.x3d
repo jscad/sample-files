@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <component level='1' name='CADGeometry'/>
+    <meta content='QuadSet.x3d' name='title'/>
+    <meta content='A simple example of the use of the QuadSet node.' name='description'/>
+    <meta content='31 August 2008' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2008, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter13GeometryTrianglesQuadrilaterals/QuadSetExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='QuadSet.x3d'/>
+    <Viewpoint description='QuadSet'/>
+    <Background skyColor='1 1 1'/>
+    <Transform>
+      <Shape>
+        <QuadSet ccw='true' colorPerVertex='true' normalPerVertex='true' solid='false'>
+          <Coordinate point='-6 -2 0 -1 -2 0 -1 2 0 -6 2 0 1 -2 0 6 -2 0 6 2 0 1 2 0'/>
+          <Color color='0.2 0.2 0.2 1 0.058824 0.227451 0.4 1 0.121569 0 0.007843 0.960784 0.6 0.235294 0 0.94902 1 0.380392 0.239216 1 0.886275 1 0.121569 0.964706'/>
+        </QuadSet>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

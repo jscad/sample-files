@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <!-- local, master and online versions of script template -->
+    <meta content='newECMAscriptTest.x3d' name='title'/>
+    <meta content='Example scene providing a unit test for newECMAscript template javascript source code, first load this scene and then see console for test output.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='3 November 2013' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='newECMAscriptTestConsole.txt' name='reference'/>
+    <meta content='newECMAscript.js' name='reference'/>
+    <meta content='../newECMAscript.js' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/newECMAscript.js' name='reference'/>
+    <meta content='../../build.xml#commonSetup' name='reference'/>
+    <meta content='X3D javascript ECMAscript' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/newECMAscriptTest.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='newECMAscriptTest.x3d'/>
+    <Background skyColor='1 0.5 0'/>
+    <Viewpoint description='Check X3D console to see output' position='0 0 8'/>
+    <Transform scale='0.4 0.4 0.4'>
+      <Shape>
+        <Text string='"newECMAscriptTest.x3d" "" "to check newECMAscript.js" "" "(see browser console for output)"'>
+          <FontStyle family='"SANS"' justify='"MIDDLE" "MIDDLE"' style='BOLD'/>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='1 1 1'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Script DEF='TestScript' url='"newECMAscript.js" "../newECMAscript.js" "https://www.web3d.org/x3d/content/examples/newECMAscript.js"'>
+      <!-- initialize() method includes unit test with output on browser console -->
+      <!-- authors adding field definitions put them here -->
+    </Script>
+  </Scene>
+</X3D>

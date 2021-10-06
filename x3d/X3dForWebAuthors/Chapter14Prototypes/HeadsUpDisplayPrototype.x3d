@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='HeadsUpDisplayPrototype.x3d' name='title'/>
+    <meta content='Reusable Prototype definition that applies a ProximitySensor for a simple HeadsUpDisplay (HUD) prototype that maintains a stable position for its children on the screen.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='15 July 2006' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='HeadsUpDisplayExample.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='HeadsUpDisplayPrototype.x3d'/>
+    <ProtoDeclare appinfo='Heads-up display (HUD) keeps child geometry aligned on screen in a consistent location' name='HeadsUpDisplay'>
+      <ProtoInterface>
+        <field accessType='inputOutput' appinfo='offset position for HUD relative to current view location, default 0 0 -5' name='screenOffset' type='SFVec3f' value='0 0 -5'/>
+        <field accessType='inputOutput' appinfo='X3D content positioned at HUD offset' name='children' type='MFNode'>
+          <!-- initialization nodes (if any) go here -->
+        </field>
+        <field accessType='outputOnly' appinfo='HUD position update (in world coordinates) relative to original location' name='position_changed' type='SFVec3f'/>
+        <field accessType='outputOnly' appinfo='HUD orientation update relative to original location' name='orientation_changed' type='SFRotation'/>
+      </ProtoInterface>
+      <ProtoBody>
+        <Group>
+          <Transform DEF='HudContainer'>
+            <Transform>
+              <IS>
+                <connect nodeField='translation' protoField='screenOffset'/>
+              </IS>
+              <Group>
+                <IS>
+                  <connect nodeField='children' protoField='children'/>
+                </IS>
+              </Group>
+            </Transform>
+          </Transform>
+          <ProximitySensor DEF='HereIAm' size='10000000 10000000 10000000'>
+            <IS>
+              <connect nodeField='position_changed' protoField='position_changed'/>
+              <connect nodeField='orientation_changed' protoField='orientation_changed'/>
+            </IS>
+          </ProximitySensor>
+          <ROUTE fromField='orientation_changed' fromNode='HereIAm' toField='rotation' toNode='HudContainer'/>
+          <ROUTE fromField='position_changed' fromNode='HereIAm' toField='translation' toNode='HudContainer'/>
+        </Group>
+      </ProtoBody>
+    </ProtoDeclare>
+    <Viewpoint description='Heads-up display (HUD)'/>
+    <!-- ProtoDeclare is the "cookie cutter" template, ProtoInstance creates an actual occurrence -->
+    <!-- Example use is in separate scene -->
+    <Anchor description='HeadsUpDisplay Example' parameter='"target=_blank"' url='"HeadsUpDisplayExample.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayExample.x3d" "HeadsUpDisplayExample.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayExample.wrl"'>
+      <Shape>
+        <Appearance>
+          <Material diffuseColor='0.8 0.4 0'/>
+        </Appearance>
+        <Text string='"HeadsUpDisplayExample.x3d" "is a Prototype declaration file." "" "For an example scene using this node," "click this text and view" "HeadsUpDisplayExample.x3d"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.8'/>
+        </Text>
+      </Shape>
+    </Anchor>
+  </Scene>
+</X3D>

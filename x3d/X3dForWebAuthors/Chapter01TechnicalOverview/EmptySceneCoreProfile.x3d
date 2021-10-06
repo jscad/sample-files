@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Core' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='EmptySceneCoreProfile.x3d' name='title'/>
+    <meta content='Illustrate a minimalist scene using only Core profile nodes. Root nodes must either be allowed children nodes of a Grouping node, or a LayerSet node. Note that DOCTYPE, head/meta and Group/Metadata* elements can be deleted without losing scene validity.' name='description'/>
+    <meta content='Leonard Daly, Don Brutzman' name='creator'/>
+    <meta content='24 February 2014' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='EmptyScene.x3d' name='reference'/>
+    <meta content='should Metadata nodes inherit from X3DNode or X3DChildNode?' name='TODO'/>
+    <meta content='https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/concepts.html#Rootnodes' name='reference'/>
+    <meta content='Increase X3D profile (or add component statements) to match if any other X3D nodes are added to this scene.' name='info'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/EmptySceneCoreProfile.x3d' name='identifier'/>
+    <meta content='http://x3dgraphics.com/chapters/Chapter15MetadataInformation.html' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- Core profile can only contain WorldInfo and Metadata nodes. -->
+    <WorldInfo title='EmptySceneCoreProfile.x3d'/>
+    <WorldInfo title='EmptySceneCoreProfile.x3d'>
+      <MetadataSet name='NodeSet'>
+        <MetadataBoolean containerField='value' name='BooleanData' value='true false'/>
+        <MetadataDouble containerField='value' name='DoubleData' value='1 2 3'/>
+        <MetadataFloat containerField='value' name='FloatData' value='4 5 6'/>
+        <MetadataInteger containerField='value' name='IntegerData' value='7 8 9'/>
+        <MetadataString containerField='value' name='StringData' value='"Empty Scene" "Core Profile"'/>
+      </MetadataSet>
+    </WorldInfo>
+  </Scene>
+</X3D>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <component level='4' name='Shape'/>
+    <meta content='TwoSidedMaterialExample.x3d' name='title'/>
+    <meta content='A Sphere colored red on outside and orange on inside using TwoSidedMaterial' name='description'/>
+    <meta content='Don Brutzman and MV3204 class' name='creator'/>
+    <meta content='18 February 2009' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright (c) 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/TwoSidedMaterialExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='TwoSidedMaterial.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Outside, front face material' position='0 0 4'/>
+    <Viewpoint description='Inside, back face material' position='0 0 0'/>
+    <Viewpoint description='Above, looking down on two shapes' orientation='1 0 0 -1.57' position='0 8 -2'/>
+    <NavigationInfo type='"WALK" "ANY"'/>
+    <!-- Disable collision between viewpoint and sphere to facilitate viewing -->
+    <Collision enabled='false'>
+      <Shape DEF='RedOutsideOrangeInside'>
+        <Appearance>
+          <TwoSidedMaterial backDiffuseColor='1 0.5 0' backTransparency='0.5' diffuseColor='1 0 0' separateBackColor='true' transparency='0.5'/>
+        </Appearance>
+        <!-- Must have solid='false' to see inside of Sphere -->
+        <Sphere solid='false'/>
+      </Shape>
+    </Collision>
+    <Transform translation='0 0 -4'>
+      <Shape>
+        <Box DEF='BackgroundBox'/>
+        <Appearance>
+          <Material diffuseColor='0 0.007843 0.839216'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

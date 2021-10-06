@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='NormalInterpolatorExample.x3d' name='title'/>
+    <meta content='Example normal (perpendicular vector) animation, where orange vectors show normal direction at each polygon vertex.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='3 May 2008' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Vrml2Sourcebook/Chapter19-NormalsShading/Figure19.27SquareFaceAnimatingNormals.x3d' name='reference'/>
+    <meta content='X3D NormalInterpolator example' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/NormalInterpolatorExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='NormalInterpolator.x3d'/>
+    <Viewpoint description='Animating normals on right vertices of a quadrilateral' position='0 0 8'/>
+    <Viewpoint description='Other side - note difference in animated shading' orientation='0 1 0 3.14159' position='0 0 -7'/>
+    <Shape>
+      <IndexedFaceSet DEF='FlatSquare' coordIndex='0 1 2 3' normalIndex='0 1 2 3' solid='false'>
+        <Coordinate point='-2 -2 0 2 -2 0 2 2 0 -2 2 0'/>
+        <!-- Normal vector with 4 SFVec3f triplet values, one for each corner of quadrilateral -->
+        <Normal DEF='AnimatedNormalNode' vector='0 0 1 0 0 1 0 0 1 0 0 1'/>
+      </IndexedFaceSet>
+      <Appearance>
+        <Material DEF='LightBlue' diffuseColor='0.3 0.6 0.9'/>
+      </Appearance>
+    </Shape>
+    <!-- NormalInterpolator keyValue array must match sizes of target Normal vector and key arrays -->
+    <!-- Thus this keyValue array has 4 * 3 = 12 total SFVec3f triplet values -->
+    <NormalInterpolator DEF='NormalPath' key='0 0.5 1' keyValue='0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 1 0 0 1 0 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1'/>
+    <ROUTE fromField='value_changed' fromNode='NormalPath' toField='set_vector' toNode='AnimatedNormalNode'/>
+    <TimeSensor DEF='Clock' cycleInterval='8' loop='true'/>
+    <ROUTE fromField='fraction_changed' fromNode='Clock' toField='set_fraction' toNode='NormalPath'/>
+    <!-- This block above completes the primary functionality of this scene. More to follow, however! -->
+    <!-- ============================================================================================================== -->
+    <!-- Note that a Normal is not rendered - it is invisible. So this scene adds some lines to visualize what is happening. -->
+    <Shape>
+      <IndexedLineSet coordIndex='0 1 -1 2 3 -1 4 5 -1 6 7 -1'>
+        <Coordinate DEF='NormalVectors' point='-2 -2 0 -2 -2 1 2 -2 0 2 -2 1 2 2 0 2 2 1 -2 2 0 -2 2 1'/>
+      </IndexedLineSet>
+      <Appearance>
+        <Material emissiveColor='0.9 0.6 0.1'/>
+      </Appearance>
+    </Shape>
+    <CoordinateInterpolator DEF='NormalVectorsAnimation' key='0 0.5 1' keyValue='-2 -2 0 -2 -2 1 2 -2 0 2 -2 1 2 2 0 2 2 1 -2 2 0 -2 2 1 -2 -2 0 -2 -2 1 2 -2 0 3 -2 0 2 2 0 3 2 0 -2 2 0 -2 2 1 -2 -2 0 -2 -2 1 2 -2 0 2 -2 1 2 2 0 2 2 1 -2 2 0 -2 2 1'/>
+    <ROUTE fromField='value_changed' fromNode='NormalVectorsAnimation' toField='point' toNode='NormalVectors'/>
+    <ROUTE fromField='fraction_changed' fromNode='Clock' toField='set_fraction' toNode='NormalVectorsAnimation'/>
+  </Scene>
+</X3D>

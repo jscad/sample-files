@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='WorldInfoExample.x3d' name='title'/>
+    <meta content='Simple examples of meta statements, comments, WorldInfo node and a MetadataString node.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='3 March 2018' name='created'/>
+    <meta content='16 June 2020' name='modified'/>
+    <meta content='Information in head and meta elements is retained after a scene is parsed and loaded, and can be referenced via the Scene Access Interface (SAI) or Document Object Model (DOM)' name='info'/>
+    <meta content='The following referenced chapter is published online but was not included in the printed book.' name='reference'/>
+    <meta content='Chapter15MetadataInformation.html' name='reference'/>
+    <meta content='http://x3dgraphics.com/chapters/Chapter15MetadataInformation.html' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2018, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter15Metadata/WorldInfoExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- Comments can appear between nodes (XML elements) but are not retained after a scene is parsed, loaded and playing -->
+    <WorldInfo DEF='MyWorldInfo' info='"Metadata strings" "can go here" "as string array values"' title='WorldInfo.x3d Example Scene'>
+      <!-- WorldInfo can contain Metadata nodes in X3D but not in VRML97. -->
+      <MetadataString DEF='MyMetadataStringNode' name='TestNode' reference='X3D' value='"Hello" "WorldInfo"'/>
+    </WorldInfo>
+    <Background skyColor='0 0.439216 0.760784'/>
+    <Viewpoint description='View scene source to see metadata examples' position='0 0 9'/>
+    <Anchor description='Load scene index page' parameter='"target=_blank"' url='"WorldInfoIndex.html" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter15Metadata/WorldInfoIndex.html"'>
+      <Shape>
+        <Text string='"View scene source" "to see" "WorldInfo example"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='1 0.992157 0.039216'/>
+        </Appearance>
+      </Shape>
+    </Anchor>
+  </Scene>
+</X3D>

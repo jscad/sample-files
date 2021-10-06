@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='FishModelComparison.x3d' name='title'/>
+    <meta content='This file compares all of the fish prototypes.' name='description'/>
+    <meta content='Scott Tufts' name='creator'/>
+    <meta content='17 December 2001' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/FishModelComparison.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='FishModelComparison.x3d'/>
+    <ExternProtoDeclare name='SeaStar' url='"SeaStarPrototype.x3d#SeaStar" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/SeaStarPrototype.x3d#SeaStar" "SeaStarPrototype.wrl#SeaStar" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/SeaStarPrototype.wrl#SeaStar"'>
+      <field accessType='inputOutput' name='skinDifColor' type='SFColor'/>
+    </ExternProtoDeclare>
+    <ExternProtoDeclare appinfo='HalfMoon fish' name='HalfMoon' url='"HalfMoonPrototype.x3d#HalfMoon" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonPrototype.x3d#HalfMoon" "HalfMoonPrototype.wrl#HalfMoon" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonPrototype.wrl#HalfMoon"'>
+      <field accessType='inputOutput' name='skinTextureUrl' type='MFString'/>
+      <field accessType='inputOutput' name='fishScale' type='SFVec3f'/>
+      <field accessType='inputOutput' name='fishColor' type='SFColor'/>
+    </ExternProtoDeclare>
+    <Transform rotation='1 0 0 3.14'>
+      <Transform translation='2 0 0'>
+        <ProtoInstance name='SeaStar'/>
+      </Transform>
+      <Transform translation='1 0 0'>
+        <Inline url='"BlackSurfPerch.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/BlackSurfPerch.x3d" "BlackSurfPerch.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/BlackSurfPerch.wrl"'/>
+      </Transform>
+      <Transform>
+        <ProtoInstance name='HalfMoon'/>
+      </Transform>
+      <Transform rotation='1 0 0 3.14' translation='-1 0 0'>
+        <Inline url='"CircleFish.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CircleFish.x3d" "CircleFish.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/CircleFish.wrl"'/>
+      </Transform>
+      <Transform translation='-2 0 0'>
+        <Inline url='"Garibaldi.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/Garibaldi.x3d" "Garibaldi.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/Garibaldi.wrl"'/>
+      </Transform>
+      <Transform rotation='1 0 0 3.14' translation='0 1 0'>
+        <Inline url='"HalfMoonGroup.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonGroup.x3d" "HalfMoonGroup.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonGroup.wrl"'/>
+      </Transform>
+      <Transform translation='0 -1 0'>
+        <Inline url='"KelpBass.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpBass.x3d" "KelpBass.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpBass.wrl"'/>
+      </Transform>
+      <Transform translation='0 0 1'>
+        <Inline url='"KelpSurfPerch.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpSurfPerch.x3d" "KelpSurfPerch.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/KelpSurfPerch.wrl"'/>
+      </Transform>
+    </Transform>
+  </Scene>
+</X3D>

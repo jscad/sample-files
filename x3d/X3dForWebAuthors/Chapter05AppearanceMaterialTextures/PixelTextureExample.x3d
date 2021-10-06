@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Interchange' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='PixelTextureExample.x3d' name='title'/>
+    <meta content='This example shows a colorful PixelTexture applied to the standard primitive shapes.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='2 February 2006' name='created'/>
+    <meta content='2 February 2006' name='translated'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright (c) 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/PixelTextureExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='PixelTexture.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Book Viewpoint' orientation='0.736 0.615 -0.284 -0.32' position='-2.9 1.64 9.33'/>
+    <Transform translation='2 2 0'>
+      <Shape>
+        <Appearance>
+          <PixelTexture DEF='PixelColors' image='2 4 3 0xff0000 0xffff00 0x007700 0xff0077 0x0000ff 0xff7700 0x00ff77 0x888888' repeatS='false' repeatT='false'/>
+        </Appearance>
+        <Box/>
+      </Shape>
+    </Transform>
+    <Transform translation='-2 2 0'>
+      <Shape>
+        <Appearance>
+          <PixelTexture USE='PixelColors'/>
+        </Appearance>
+        <Cone/>
+      </Shape>
+    </Transform>
+    <Transform translation='2 -2 0'>
+      <Shape>
+        <Appearance>
+          <PixelTexture USE='PixelColors'/>
+        </Appearance>
+        <Cylinder/>
+      </Shape>
+    </Transform>
+    <Transform translation='-2 -2 0'>
+      <Shape>
+        <Appearance>
+          <PixelTexture USE='PixelColors'/>
+        </Appearance>
+        <Sphere/>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='MoodSelector.x3d' name='title'/>
+    <meta content='Design pattern demonstrating multiple TouchSensor, IntegerTrigger, Shape and ROUTE combinations for selecting a Switch' name='description'/>
+    <meta content='Jason Nelson and MV4205 class' name='creator'/>
+    <meta content='6 April 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='smiley images are open source' name='license'/>
+    <meta content='http://openclipart.org/media/tags/smiley' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/MoodSelector.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='MoodSelector.x3d'/>
+    <Viewpoint description='How do you feel today?' position='0 0 15'/>
+    <Transform translation='0 3 0'>
+      <TouchSensor DEF='howFeelText' description='Touch to select your mood face'/>
+      <Shape>
+        <Text string='"How do you feel today?"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='-5 0 0'>
+      <TouchSensor DEF='happyText' description='I feel happy I feel happy...'/>
+      <Shape>
+        <Text string='"Happy"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='0.129412 1 0.019608'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box size='2.5 1 0.1'/>
+        <Appearance DEF='TransparentAppearance'>
+          <Material transparency='1'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='-1.3 0 0'>
+      <TouchSensor DEF='notBadText' description='OK mediocre just plain average no comment'/>
+      <Shape>
+        <Text string='"Average"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='1 0.960784 0.019608'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box size='3 1 0.1'/>
+        <Appearance USE='TransparentAppearance'/>
+      </Shape>
+    </Transform>
+    <Transform translation='2.2 0 0'>
+      <TouchSensor DEF='sadText' description='Poor poor pitiful me'/>
+      <Shape>
+        <Text string='"Sad"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='0.180392 0.705882 1'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box size='2 1 0.1'/>
+        <Appearance USE='TransparentAppearance'/>
+      </Shape>
+    </Transform>
+    <Transform translation='5 0 0'>
+      <TouchSensor DEF='badText' description='Look out below!'/>
+      <Shape>
+        <Text string='"Bad"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"'/>
+        </Text>
+        <Appearance>
+          <Material diffuseColor='1 0.019608 0.05098'/>
+        </Appearance>
+      </Shape>
+      <Shape>
+        <Box size='4.5 1 0.1'/>
+        <Appearance USE='TransparentAppearance'/>
+      </Shape>
+    </Transform>
+    <Switch DEF='display' whichChoice='-1'>
+      <Transform translation='-5 -3 0'>
+        <Shape DEF='happyimg'>
+          <Box/>
+          <Appearance>
+            <Material diffuseColor='0 0.819608 0.156863'/>
+            <ImageTexture url='"images/nicubunu_Emoticons_Laughing_face.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/images/nicubunu_Emoticons_Laughing_face.png"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='-1.3 -3 0'>
+        <Shape DEF='nbimg'>
+          <Box/>
+          <Appearance>
+            <Material diffuseColor='0 0.066667 0.941176'/>
+            <ImageTexture url='"images/nicubunu_Emoticons_Worried_face.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/images/nicubunu_Emoticons_Worried_face.png"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='2.2 -3 0'>
+        <Shape DEF='sadimg'>
+          <Box/>
+          <Appearance>
+            <Material diffuseColor='0.980392 0.968627 0'/>
+            <ImageTexture url='"images/nicubunu_Emoticons_Crying_face.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/images/nicubunu_Emoticons_Crying_face.png"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='4.7 -3 0'>
+        <Shape DEF='bullimg'>
+          <Box/>
+          <Appearance>
+            <Material diffuseColor='1 0.101961 0.180392'/>
+            <ImageTexture url='"images/nicubunu_Emoticons_Devil_face.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter09EventUtilitiesScripting/images/nicubunu_Emoticons_Devil_face.png"'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Switch>
+    <IntegerTrigger DEF='nodisplay'/>
+    <IntegerTrigger DEF='happydisplay' integerKey='0'/>
+    <IntegerTrigger DEF='nbdisplay' integerKey='1'/>
+    <IntegerTrigger DEF='saddisplay' integerKey='2'/>
+    <IntegerTrigger DEF='bulldisplay' integerKey='3'/>
+    <ROUTE fromField='isActive' fromNode='howFeelText' toField='set_boolean' toNode='nodisplay'/>
+    <ROUTE fromField='isActive' fromNode='happyText' toField='set_boolean' toNode='happydisplay'/>
+    <ROUTE fromField='isActive' fromNode='notBadText' toField='set_boolean' toNode='nbdisplay'/>
+    <ROUTE fromField='isActive' fromNode='sadText' toField='set_boolean' toNode='saddisplay'/>
+    <ROUTE fromField='isActive' fromNode='badText' toField='set_boolean' toNode='bulldisplay'/>
+    <!-- Note that Switch "which choice" has FAN IN -->
+    <ROUTE fromField='triggerValue' fromNode='nodisplay' toField='whichChoice' toNode='display'/>
+    <ROUTE fromField='triggerValue' fromNode='happydisplay' toField='whichChoice' toNode='display'/>
+    <ROUTE fromField='triggerValue' fromNode='nbdisplay' toField='whichChoice' toNode='display'/>
+    <ROUTE fromField='triggerValue' fromNode='saddisplay' toField='whichChoice' toNode='display'/>
+    <ROUTE fromField='triggerValue' fromNode='bulldisplay' toField='whichChoice' toNode='display'/>
+  </Scene>
+</X3D>

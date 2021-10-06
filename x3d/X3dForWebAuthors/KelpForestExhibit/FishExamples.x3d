@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='FishExamples.x3d' name='title'/>
+    <meta content='Example instances of the Fish prototype.' name='description'/>
+    <meta content='Ildeniz Duman' name='creator'/>
+    <meta content='Scott Tufts' name='translator'/>
+    <meta content='1 June 1998' name='created'/>
+    <meta content='8 December 2001' name='translated'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/FishExamples.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='FishExamples.x3d'/>
+    <ExternProtoDeclare name='Fish' url='"FishPrototype.wrl#Fish" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/FishPrototype.wrl#Fish" "FishPrototype.x3d#Fish" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/FishPrototype.x3d#Fish"'>
+      <field accessType='inputOutput' name='skinTextureUrl' type='MFString'/>
+      <field accessType='inputOutput' name='fishScale' type='SFVec3f'/>
+      <field accessType='inputOutput' name='fishColor' type='SFColor'/>
+    </ExternProtoDeclare>
+    <ProtoInstance name='Fish'/>
+    <Transform rotation='0 1 0 -1.57' translation='0 2 0'>
+      <ProtoInstance name='Fish'>
+        <fieldValue name='fishScale' value='0.5 0.5 0.5'/>
+        <fieldValue name='fishColor' value='1 0 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0 1 0 -3.14' translation='0 1 -4'>
+      <ProtoInstance name='Fish'>
+        <fieldValue name='fishScale' value='1 0.5 0.5'/>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0 1 0 1.57' translation='0 1 -4'>
+      <ProtoInstance name='Fish'>
+        <fieldValue name='fishScale' value='0.5 1 0.5'/>
+        <fieldValue name='fishColor' value='0 0 1'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform rotation='0 1 0 -0.872' translation='-1 -2 0'>
+      <ProtoInstance name='Fish'>
+        <fieldValue name='fishScale' value='0.5 0.5 1'/>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+  </Scene>
+</X3D>

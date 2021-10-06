@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='UserInteractivitySensorNodes.x3d' name='title'/>
+    <meta content='A collection of all of the user interactivity sensor nodes: TouchSensor, PlaceSensor, CylinderSensor, SphereSensor, KeySensor, and StringSensor.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='30 April 2005' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='UserInteractivitySensorNodes.png' name='Image'/>
+    <meta content='UserInteractivitySensorNodesModified.png' name='Image'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter08UserInteractivity/UserInteractivitySensorNodes.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='UserInteractivitySensorNodes.x3d'/>
+    <Viewpoint description='User interactivity sensor nodes' position='0 0 12'/>
+    <Background DEF='BackgroundDefault' groundColor='0.2 0.4 0.6' skyColor='0.2 0.4 0.6'/>
+    <Background DEF='BackgroundTouchCone' skyColor='0.5 0.7 0.9'/>
+    <Transform translation='0 4 0'>
+      <Shape>
+        <Text string='"Sensor node examples"'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size='1.5'/>
+        </Text>
+        <Appearance>
+          <Material DEF='DefaultMaterial' diffuseColor='0.8 0.6 0.4'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='0 1 0'>
+      <Transform translation='-6 0 0'>
+        <TouchSensor DEF='DefaultTouchSensor' description='click to activate TouchSensor bind alternate Background'/>
+        <Shape>
+          <Cone/>
+          <Appearance DEF='RedAppearance'>
+            <Material diffuseColor='1 0.2 0.2'/>
+          </Appearance>
+        </Shape>
+        <Transform translation='0 -2 0'>
+          <Shape>
+            <Text string='"Touch" "Sensor"'>
+              <FontStyle DEF='JustifyMiddle' justify='"MIDDLE" "MIDDLE"'/>
+            </Text>
+            <Appearance USE='RedAppearance'/>
+          </Shape>
+        </Transform>
+        <ROUTE fromField='isActive' fromNode='DefaultTouchSensor' toField='set_bind' toNode='BackgroundTouchCone'/>
+      </Transform>
+      <Transform DEF='TransformBox' translation='-2 0 0'>
+        <PlaneSensor DEF='DefaultPlaneSensor' description='drag Box to activate PlaneSensor'/>
+        <Shape>
+          <Box/>
+          <Appearance DEF='GreenAppearance'>
+            <Material diffuseColor='0.2 1 0.2'/>
+          </Appearance>
+        </Shape>
+        <Transform translation='0 -2 0'>
+          <Shape>
+            <Text string='"Plane" "Sensor"'>
+              <FontStyle USE='JustifyMiddle'/>
+            </Text>
+            <Appearance USE='GreenAppearance'/>
+          </Shape>
+        </Transform>
+        <ROUTE fromField='offset' fromNode='DefaultPlaneSensor' toField='set_translation' toNode='TransformBox'/>
+      </Transform>
+      <Transform DEF='TransformCylinder' translation='2 0 0'>
+        <CylinderSensor DEF='DefaultCylinderSensor' description='drag to activate CylinderSensor'/>
+        <Shape>
+          <Cylinder/>
+          <Appearance>
+            <ImageTexture DEF='ReferenceTexture' url='"../Chapter05AppearanceMaterialTextures/ImageTextureFigure18.1X3dSpecification.png" "../Chapter05AppearanceMaterialTextures/ImageTextureFigure18.1X3dSpecification.gif" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/ImageTextureFigure18.1X3dSpecification.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter05AppearanceMaterialTextures/ImageTextureFigure18.1X3dSpecification.gif"'/>
+            <Material DEF='DarkBlue' diffuseColor='0 0 0.9'/>
+          </Appearance>
+        </Shape>
+        <Transform translation='0 -2 0'>
+          <Shape>
+            <Text string='"Cylinder" "Sensor"'>
+              <FontStyle USE='JustifyMiddle'/>
+            </Text>
+            <Appearance>
+              <Material USE='DarkBlue'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <ROUTE fromField='rotation_changed' fromNode='DefaultCylinderSensor' toField='set_rotation' toNode='TransformCylinder'/>
+      </Transform>
+      <Transform DEF='TransformSphere' translation='6 0 0'>
+        <SphereSensor DEF='DefaultSphereSensor' description='click to activate SphereSensor'/>
+        <Shape>
+          <Sphere/>
+          <Appearance>
+            <ImageTexture USE='ReferenceTexture'/>
+          </Appearance>
+        </Shape>
+        <Transform DEF='SphereSensorText' translation='0 -2 0'>
+          <Shape>
+            <Text string='"Sphere" "Sensor"'>
+              <FontStyle USE='JustifyMiddle'/>
+            </Text>
+            <Appearance>
+              <Material DEF='GreyMaterial'/>
+            </Appearance>
+          </Shape>
+        </Transform>
+        <ROUTE fromField='rotation_changed' fromNode='DefaultSphereSensor' toField='set_rotation' toNode='TransformSphere'/>
+      </Transform>
+    </Transform>
+    <Group>
+      <Transform translation='-4 -3 0'>
+        <Shape>
+          <Text DEF='KeyText' string='"?"'>
+            <FontStyle USE='JustifyMiddle'/>
+          </Text>
+          <Appearance DEF='LightBrownAppearance'>
+            <Material diffuseColor='1 0.862745 0.141176'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+      <Transform translation='-2 -3 0'>
+        <Shape>
+          <Text DEF='StringText' string='"Press keys then &lt;Enter>"'>
+            <FontStyle justify='"BEGIN" "MIDDLE"'/>
+          </Text>
+          <Appearance USE='LightBrownAppearance'/>
+        </Shape>
+      </Transform>
+      <KeySensor DEF='DefaultKeySensor'/>
+      <StringSensor DEF='DefaultStringSensor'/>
+      <Script DEF='KeyboardProcessor'>
+        <field accessType='inputOnly' name='keyInput' type='SFString'/>
+        <field accessType='inputOnly' name='finalTextInput' type='SFString'/>
+        <field accessType='inputOnly' name='enteredTextInput' type='SFString'/>
+        <field accessType='outputOnly' name='keyOutput' type='MFString'/>
+        <field accessType='outputOnly' name='stringOutput' type='MFString'/>
+        <![CDATA[
+ecmascript:
+
+function keyInput (inputValue)
+{
+//  Browser.print ('keyInput=' + inputValue + '\n'); // console output
+    keyOutput = new MFString (inputValue); // type conversion
+}
+function finalTextInput (inputValue)
+{
+//  Browser.print ('finalText=' + inputValue + '\n'); // console output
+    stringOutput = new MFString (inputValue); // type conversion
+}
+function enteredTextInput (inputValue)
+{
+    Browser.print ('enteredText=' + inputValue + '\n'); // console output
+}
+]]>
+      </Script>
+      <ROUTE fromField='keyPress' fromNode='DefaultKeySensor' toField='keyInput' toNode='KeyboardProcessor'/>
+      <ROUTE fromField='finalText' fromNode='DefaultStringSensor' toField='finalTextInput' toNode='KeyboardProcessor'/>
+      <ROUTE fromField='enteredText' fromNode='DefaultStringSensor' toField='enteredTextInput' toNode='KeyboardProcessor'/>
+      <ROUTE fromField='keyOutput' fromNode='KeyboardProcessor' toField='string' toNode='KeyText'/>
+      <ROUTE fromField='stringOutput' fromNode='KeyboardProcessor' toField='string' toNode='StringText'/>
+    </Group>
+  </Scene>
+</X3D>

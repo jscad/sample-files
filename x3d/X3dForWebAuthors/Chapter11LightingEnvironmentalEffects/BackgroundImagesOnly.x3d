@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='BackgroundImagesOnly.x3d' name='title'/>
+    <meta content='Simple Background node with images only.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='20 April 2009' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Basic/UniversalMediaPanoramas/horizon3.x3d' name='reference'/>
+    <meta content='X3D Background example' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter11LightingEnvironmentalEffects/BackgroundImagesOnly.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='BackgroundImagesOnly.x3d'/>
+    <Background backUrl='"urn:web3d:media:textures/panoramas/horizon_3_back.jpg" "../../Basic/UniversalMediaPanoramas/horizon_3_back.jpg" "https://www.web3d.org/WorkingGroups/media/textures/panoramas/horizon_3_back.jpg" "https://www.web3d.org/x3d/content/examples/UniversalMediaPanoramas/horizon_3_back.jpg" "http://www.web3dmedia.com/UniversalMedia/textures/panoramas/horizon_3_back.jpg" "http://www.officetowers.com/UniversalMedia/textures/panoramas/horizon_3_back.jpg" "http://geometrek.com/UniversalMedia/textures/panoramas/horizon_3_back.jpg" "http://www.sc.ehu.es/ccwgamoa/UniversalMedia/textures/panoramas/horizon_3_back.jpg"' bottomUrl='"urn:web3d:media:textures/panoramas/horizon_3_bottom.jpg" "../../Basic/UniversalMediaPanoramas/horizon_3_bottom.jpg" "https://www.web3d.org/WorkingGroups/media/textures/panoramas/horizon_3_bottom.jpg" "https://www.web3d.org/x3d/content/examples/UniversalMediaPanoramas/horizon_3_bottom.jpg" "http://www.web3dmedia.com/UniversalMedia/textures/panoramas/horizon_3_bottom.jpg" "http://www.officetowers.com/UniversalMedia/textures/panoramas/horizon_3_bottom.jpg" "http://geometrek.com/UniversalMedia/textures/panoramas/horizon_3_bottom.jpg" "http://www.sc.ehu.es/ccwgamoa/UniversalMedia/textures/panoramas/horizon_3_bottom.jpg"' frontUrl='"urn:web3d:media:textures/panoramas/horizon_3_front.jpg" "../../Basic/UniversalMediaPanoramas/horizon_3_front.jpg" "https://www.web3d.org/WorkingGroups/media/textures/panoramas/horizon_3_front.jpg" "https://www.web3d.org/x3d/content/examples/UniversalMediaPanoramas/horizon_3_front.jpg" "http://www.web3dmedia.com/UniversalMedia/textures/panoramas/horizon_3_front.jpg" "http://www.officetowers.com/UniversalMedia/textures/panoramas/horizon_3_front.jpg" "http://geometrek.com/UniversalMedia/textures/panoramas/horizon_3_front.jpg" "http://www.sc.ehu.es/ccwgamoa/UniversalMedia/textures/panoramas/horizon_3_front.jpg"' leftUrl='"urn:web3d:media:textures/panoramas/horizon_3_left.jpg" "../../Basic/UniversalMediaPanoramas/horizon_3_left.jpg" "https://www.web3d.org/WorkingGroups/media/textures/panoramas/horizon_3_left.jpg" "https://www.web3d.org/x3d/content/examples/UniversalMediaPanoramas/horizon_3_left.jpg" "http://www.web3dmedia.com/UniversalMedia/textures/panoramas/horizon_3_left.jpg" "http://www.officetowers.com/UniversalMedia/textures/panoramas/horizon_3_left.jpg" "http://geometrek.com/UniversalMedia/textures/panoramas/horizon_3_left.jpg" "http://www.sc.ehu.es/ccwgamoa/UniversalMedia/textures/panoramas/horizon_3_left.jpg"' rightUrl='"urn:web3d:media:textures/panoramas/horizon_3_right.jpg" "../../Basic/UniversalMediaPanoramas/horizon_3_right.jpg" "https://www.web3d.org/WorkingGroups/media/textures/panoramas/horizon_3_right.jpg" "https://www.web3d.org/x3d/content/examples/UniversalMediaPanoramas/horizon_3_right.jpg" "http://www.web3dmedia.com/UniversalMedia/textures/panoramas/horizon_3_right.jpg" "http://www.officetowers.com/UniversalMedia/textures/panoramas/horizon_3_right.jpg" "http://geometrek.com/UniversalMedia/textures/panoramas/horizon_3_right.jpg" "http://www.sc.ehu.es/ccwgamoa/UniversalMedia/textures/panoramas/horizon_3_right.jpg"' topUrl='"urn:web3d:media:textures/panoramas/horizon_3_top.jpg" "../../Basic/UniversalMediaPanoramas/horizon_3_top.jpg" "https://www.web3d.org/WorkingGroups/media/textures/panoramas/horizon_3_top.jpg" "https://www.web3d.org/x3d/content/examples/UniversalMediaPanoramas/horizon_3_top.jpg" "http://www.web3dmedia.com/UniversalMedia/textures/panoramas/horizon_3_top.jpg" "http://www.officetowers.com/UniversalMedia/textures/panoramas/horizon_3_top.jpg" "http://geometrek.com/UniversalMedia/textures/panoramas/horizon_3_top.jpg" "http://www.sc.ehu.es/ccwgamoa/UniversalMedia/textures/panoramas/horizon_3_top.jpg"'/>
+    <Viewpoint description='Background images view'/>
+    <Shape>
+      <Text string='"Background node using" "image url arrays"'>
+        <FontStyle justify='"MIDDLE" "MIDDLE"' style='BOLD'/>
+      </Text>
+      <Appearance>
+        <Material diffuseColor='1 1 1'/>
+      </Appearance>
+    </Shape>
+  </Scene>
+</X3D>

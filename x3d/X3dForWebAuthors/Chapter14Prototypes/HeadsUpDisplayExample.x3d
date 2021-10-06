@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='HeadsUpDisplayExample.x3d' name='title'/>
+    <meta content='Prototype definition that demonstrates use of a simple HeadsUpDisplay (HUD) prototype that maintains a stable position for its children on the screen.' name='description'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='15 July 2006' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='HeadsUpDisplayPrototype.x3d' name='reference'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- Simple Heads-Up Display (HUD) Prototype\n \n Manages the display of a HUD and maintains its position on the screen.\n Changes to fieldOfView (in Viewpoint node) will change screen position\n \n Fields:\n hudSize Size of HUD (initializeOnly - SFVec3f) default="1 1 .01"\n hudColor Color of HUD (inputOutput - SFColor) default="1 1 1"\n screenOffset Offset of HUD. This field positions the HUD on the display screen (inputOutput - SFVec3f) default="0 0 0"\n hudGeometry Geometry to be placed on the HUD. Origin is center of HUD. (inputOutput - MFNode) default = []\n position_changed Current viewer location (outputOnly - SFVec3f)\n orientation_changed Current viewer orientation (outputOnly - SFRotation)\n \n \n -->
+    <WorldInfo title='HeadsUpDisplayExample.x3d'/>
+    <ExternProtoDeclare appinfo='Heads-up display (HUD) keeps child geometry aligned on screen in a consistent location' name='HeadsUpDisplay' url='"HeadsUpDisplayPrototype.x3d#HeadsUpDisplay" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.x3d#HeadsUpDisplay" "HeadsUpDisplayPrototype.wrl#HeadsUpDisplay" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/HeadsUpDisplayPrototype.wrl#HeadsUpDisplay"'>
+      <field accessType='inputOutput' appinfo='offset position for HUD relative to current view location, default 0 0 -5' name='screenOffset' type='SFVec3f'/>
+      <field accessType='inputOutput' appinfo='X3D content positioned at HUD offset' name='children' type='MFNode'/>
+      <field accessType='outputOnly' appinfo='HUD position update (in world coordinates) relative to original location' name='position_changed' type='SFVec3f'/>
+      <field accessType='outputOnly' appinfo='HUD orientation update relative to original location' name='orientation_changed' type='SFRotation'/>
+    </ExternProtoDeclare>
+    <Background DEF='SandyShallowBottom' groundAngle='0.05 1.52 1.56 1.5707' groundColor='0.2 0.2 0 0.3 0.3 0 0.5 0.5 0.3 0.1 0.3 0.4 0 0.2 0.4' skyAngle='0.04 0.05 0.1 1.309 1.570' skyColor='0.8 0.8 0.2 0.8 0.8 0.2 0.1 0.1 0.6 0.1 0.1 0.6 0.1 0.25 0.8 0.6 0.6 0.9'/>
+    <Viewpoint description='Heads-up display (HUD)'/>
+    <!-- ProtoDeclare is the "cookie cutter" template, ProtoInstance creates an actual occurrence -->
+    <ProtoInstance DEF='HeadsUpDisplayInstance' name='HeadsUpDisplay'>
+      <!-- example: upper left-hand corner of screen (x=-2, y=1) and set back z=-5 from user view -->
+      <fieldValue name='screenOffset' value='-0.75 1 -5'/>
+      <fieldValue name='children'>
+        <Shape>
+          <Text string='"HUD text stays fixed" "while user navigates"'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.3'/>
+          </Text>
+          <Appearance>
+            <Material diffuseColor='0.894118 0.819608 1'/>
+          </Appearance>
+        </Shape>
+      </fieldValue>
+    </ProtoInstance>
+    <Inline url='"../HelloWorld.x3d" "http://X3dGraphics.com/examples/X3dForWebAuthors/HelloWorld.x3d" "../HelloWorld.wrl" "http://X3dGraphics.com/examples/X3dForWebAuthors/HelloWorld.wrl"'/>
+  </Scene>
+</X3D>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='MaterialModulatorPrototypeExpanded.x3d' name='title'/>
+    <meta content='Provide example for expansion of a MaterialModulator as regular X3D nodes, rather than a ProtoDeclare/ProtoInstance combination. MaterialModulator mimics a Material node and modulates diffuseColor field as an animation effect.' name='description'/>
+    <meta content='Don Brutzman, John Carlson, Roy Walmsley' name='creator'/>
+    <meta content='2 July 2016' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='X3D prototype expander, IS/connect, Script inputOutput field' name='subject'/>
+    <meta content='MaterialModulator.png' name='Image'/>
+    <meta content='MaterialModulator.x3d' name='reference'/>
+    <meta content='JSON prototype expander https://github.com/coderextreme/X3DJSONLD' name='reference'/>
+    <meta content='Create corresponding web page describing Prototype Expander design.' name='TODO'/>
+    <meta content='Create stylesheet converter matching this Prototype Expander design pattern.' name='TODO'/>
+    <meta content='Add external ROUTEs to original example as a further test case for Prototype Expander design.' name='TODO'/>
+    <meta content='https://github.com/coderextreme/X3DJSONLD/blob/master/PrototypeExpander.js' name='reference'/>
+    <meta content='https://github.com/coderextreme/X3DJSONLD/blob/master/ServerPrototypeExpander.js' name='reference'/>
+    <meta content='X3D Tooltips: ProtoBody https://www.web3d.org/x3d/content/X3dTooltips.html#ProtoBody' name='reference'/>
+    <meta content='4.4.4.3 PROTO definition semantics https://www.web3d.org/documents/specifications/19775-1/V3.3/Part01/concepts.html#PROTOdefinitionsemantics' name='reference'/>
+    <meta content='[x3d-public] Prototype Expander, Question on design of instance expansions: http://web3d.org/pipermail/x3d-public_web3d.org/2016-July/004982.html' name='reference'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter14Prototypes/MaterialModulatorPrototypeExpanded.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='MaterialModulatorPrototypeExpanded.x3d'/>
+    <Shape>
+      <Sphere/>
+      <Appearance>
+        <!-- Prototype Expander design note: only first node (the node type) of the prototype is substituted here. -->
+        <Material DEF='MaterialModulatorNodeExpanded1' diffuseColor='0.5 0.1 0.1'>
+          <!-- Prototype Expander design note: no children nodes found in originally defined initial ProtoBody node, so no contained child nodes appear here -->
+        </Material>
+      </Appearance>
+    </Shape>
+    <!-- Prototype Expander design note: only first node (the node type) of the prototype is renderable above. when Switch is first allowed -->
+    <Switch DEF='HideAdditionalPrototypeBodyNodesExpanded1' whichChoice='-1'>
+      <!-- Prototype Expander design note: all children inside a Switch continue to receive/send events. -->
+      <Group>
+        <!-- Prototype Expander design note: additional follow-on nodes from the original ProtoBody are placed here. -->
+        <Script DEF='MaterialModulatorScriptExpanded1'>
+          <field accessType='inputOutput' name='enabled' type='SFBool' value='true'/>
+          <field accessType='inputOutput' name='diffuseColor' type='SFColor' value='0.5 0.1 0.1'/>
+          <field accessType='outputOnly' name='newColor' type='SFColor'/>
+          <field accessType='inputOnly' name='clockTrigger' type='SFTime'/>
+          <![CDATA[
+ecmascript:
+function initialize ()
+{
+    newColor = diffuseColor; // start with correct color
+}
+function clockTrigger (timeValue)
+{
+    if (!enabled) return;
+    red   = newColor.r;
+    green = newColor.g;
+    blue  = newColor.b;
+    
+    // note different modulation rates for each color component, % is modulus operator
+    newColor = new SFColor ((red + 0.02) % 1, (green + 0.03) % 1, (blue + 0.04) % 1);   
+    Browser.print ('diffuseColor=(' + red +',' + green + ',' + blue + ') newColor=' + newColor.toString() + '\n');
+}
+]]>
+        </Script>
+        <!-- Clock tickles Script to wake up and compute a new value -->
+        <ROUTE fromField='newColor' fromNode='MaterialModulatorScriptExpanded1' toField='diffuseColor' toNode='MaterialModulatorNodeExpanded1'/>
+        <TimeSensor DEF='ModulationClockExpanded1' cycleInterval='0.1' loop='true'/>
+        <ROUTE fromField='cycleTime' fromNode='ModulationClockExpanded1' toField='clockTrigger' toNode='MaterialModulatorScriptExpanded1'/>
+      </Group>
+    </Switch>
+  </Scene>
+</X3D>

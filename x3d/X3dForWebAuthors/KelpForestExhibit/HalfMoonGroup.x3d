@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='HalfMoonGroup.x3d' name='title'/>
+    <meta content='This is a group of HalfMoon fish implemented as ProtoInstances.' name='description'/>
+    <meta content='Ildeniz Duman' name='creator'/>
+    <meta content='Scott Tufts' name='translator'/>
+    <meta content='1 June 1998' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonGroup.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='HalfMoonGroup.x3d'/>
+    <ExternProtoDeclare name='HalfMoon' url='"HalfMoonPrototype.x3d#HalfMoon" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonPrototype.x3d#HalfMoon" "HalfMoonPrototype.wrl#HalfMoon" "http://x3dgraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/HalfMoonPrototype.wrl#HalfMoon"'>
+      <field accessType='inputOutput' name='skinTextureUrl' type='MFString'/>
+      <field accessType='inputOutput' name='fishScale' type='SFVec3f'/>
+      <field accessType='inputOutput' name='fishColor' type='SFColor'/>
+    </ExternProtoDeclare>
+    <Viewpoint description='HalfMoon Group' orientation='0 1 0 1.57' position='20 0 0'/>
+    <Transform translation='14 1 0'>
+      <ProtoInstance name='HalfMoon'>
+        <fieldValue name='fishColor' value='1 0 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform translation='14.5 0 0'>
+      <ProtoInstance name='HalfMoon'>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform translation='14 -1 0'>
+      <ProtoInstance name='HalfMoon'>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform translation='13.5 0 0'>
+      <ProtoInstance name='HalfMoon'>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform translation='15.5 0 0'>
+      <ProtoInstance name='HalfMoon'>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+    <Transform translation='12.5 0 0'>
+      <ProtoInstance name='HalfMoon'>
+        <fieldValue name='fishColor' value='1 1 0'/>
+      </ProtoInstance>
+    </Transform>
+  </Scene>
+</X3D>

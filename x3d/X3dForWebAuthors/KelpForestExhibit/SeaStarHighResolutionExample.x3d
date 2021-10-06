@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='SeaStarHighResolutionExample.x3d' name='title'/>
+    <meta content='Example instance of a SeaStar high-resolution prototype using default settings.' name='description'/>
+    <meta content='Charles Adams' name='creator'/>
+    <meta content='19 December 2002' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Copyright (c) c h a productions 2002' name='rights'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/SeaStarHighResolutionExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='SeaStarHighResolutionExample.x3d'/>
+    <Viewpoint description='Sea star, high resolution' orientation='1 0 0 -1.57' position='0 0.2 0'/>
+    <!-- note mismatch between filename SeaStarHighResolutionPrototype.x3d and prototype name SeaStar -->
+    <ExternProtoDeclare name='SeaStar' url='"SeaStarHighResolutionPrototype.x3d#SeaStar" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/SeaStarHighResolutionPrototype.x3d#SeaStar" "http://X3dGraphics.com/examples/X3dForWebAuthors/KelpForestExhibit/SeaStarHighResolutionPrototype.wrl#SeaStar" "SeaStarHighResolutionPrototype.wrl#SeaStar"'>
+      <field accessType='inputOutput' name='scale' type='SFVec3f'/>
+      <field accessType='inputOutput' name='Appearance' type='SFNode'/>
+    </ExternProtoDeclare>
+    <ProtoInstance name='SeaStar'>
+      <fieldValue name='Appearance'>
+        <Appearance>
+          <Material diffuseColor='1 0.490196 0.380392'/>
+        </Appearance>
+      </fieldValue>
+    </ProtoInstance>
+  </Scene>
+</X3D>

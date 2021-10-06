@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='HelloX3dAuthorsAnimationChain.x3d' name='title'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='5 October 2000' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Fully developed animation-chain example showing spinning globe and text: Hello!' name='description'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter07EventAnimationInterpolation/HelloX3dAuthorsAnimationChain.x3d' name='identifier'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Basic/course/HelloX3dAuthorsAnimationChain.x3d' name='reference'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo info='"an introductory scene"' title='Hello X3D Authors Animation Chain'/>
+    <Viewpoint description='Hello, world' orientation='0 1 0 3.14159' position='0 0 -8'/>
+    <!-- change TimeSensor loop='true' to enable automatic animation when loaded, rather than TouchSensor trigger to start -->
+    <TimeSensor DEF='OrbitalTimeInterval' cycleInterval='12'/>
+    <OrientationInterpolator DEF='SpinThoseThings' key='0.00 0.25 0.50 0.75 1.00' keyValue='0 1 0 0 0 1 0 1.57079 0 1 0 3.14159 0 1 0 4.7123889 0 1 0 6.2831852'/>
+    <ROUTE fromField='fraction_changed' fromNode='OrbitalTimeInterval' toField='set_fraction' toNode='SpinThoseThings'/>
+    <Transform DEF='EarthCoordinateSystem'>
+      <ROUTE fromField='value_changed' fromNode='SpinThoseThings' toField='set_rotation' toNode='EarthCoordinateSystem'/>
+      <Group DEF='MiniWorld'>
+        <Shape>
+          <Appearance>
+            <ImageTexture url='"../../earth-topo.png" "../../earth-topo.gif" "../../earth-topo-small.gif" "http://X3dGraphics.com/examples/X3dForWebAuthors/earth-topo.png" "http://X3dGraphics.com/examples/X3dForWebAuthors/earth-topo.gif" "http://X3dGraphics.com/examples/X3dForWebAuthors/earth-topo-small.gif"'/>
+          </Appearance>
+          <Sphere/>
+        </Shape>
+      </Group>
+      <Transform DEF='SimpleGeoStationarySatellite' rotation='1 0 0 .3' scale='0.1 0.3 0.1' translation='0 0 5'>
+        <Shape>
+          <Appearance>
+            <Material diffuseColor='0.9 0.1 0.1' emissiveColor='0.9 0.2 0.1'/>
+          </Appearance>
+          <Text string='"Hello X3D Authors !!"'>
+            <FontStyle size='3'/>
+          </Text>
+        </Shape>
+      </Transform>
+      <TouchSensor DEF='ClickTriggerTouchSensor' description='Click to start animation'/>
+      <ROUTE fromField='touchTime' fromNode='ClickTriggerTouchSensor' toField='startTime' toNode='OrbitalTimeInterval'/>
+    </Transform>
+  </Scene>
+</X3D>

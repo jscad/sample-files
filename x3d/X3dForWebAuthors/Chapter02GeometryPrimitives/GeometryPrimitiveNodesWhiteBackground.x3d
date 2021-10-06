@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='GeometryPrimitiveNodesWhiteBackground.x3d' name='title'/>
+    <meta content='Geometry Primitive Nodes: Shape, Box, Cone, Cylinder, Sphere, Text, FontStyle' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='25 March 2005' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='GeometryPrimitiveNodesWhiteBackground.png' name='Image'/>
+    <meta content='GeometryPrimitiveNodesWhiteBackgroundReducedQuality.png' name='Image'/>
+    <meta content='Default values have been added to geometry nodes for clarity, ordinarily default values are omitted.' name='hint'/>
+    <meta content='Copyright (c) Don Brutzman and Leonard Daly, 2005' name='rights'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter02GeometryPrimitives/GeometryPrimitiveNodesWhiteBackground.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='GeometryPrimitiveNodesWhiteBackground.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Transform translation='-5 0 0'>
+      <Shape DEF='DefaultShape'>
+        <Box DEF='DefaultBox'/>
+        <Appearance DEF='DefaultAppearance'>
+          <Material diffuseColor='1 0.2 0.2'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='-2.5 0 0'>
+      <Shape>
+        <Cone DEF='DefaultCone'/>
+        <Appearance>
+          <Material diffuseColor='0.2 1 0.2'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform>
+      <Shape>
+        <Cylinder DEF='DefaultCylinder'/>
+        <Appearance>
+          <Material diffuseColor='0.2 0.2 1'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='2.5 0 0'>
+      <Shape>
+        <Sphere DEF='DefaultSphere'/>
+        <Appearance>
+          <Material diffuseColor='1 1 0.2'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+    <Transform translation='4 0 0'>
+      <Shape>
+        <Text DEF='DefaultText' string='"hello" "X3D!"'>
+          <FontStyle DEF='DefaultFontStyle'/>
+        </Text>
+        <Appearance>
+          <Material DEF='DefaultMaterial' diffuseColor='.2 .2 .2'/>
+        </Appearance>
+      </Shape>
+    </Transform>
+  </Scene>
+</X3D>

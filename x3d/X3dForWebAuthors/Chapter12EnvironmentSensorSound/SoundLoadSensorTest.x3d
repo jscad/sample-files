@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='SoundLoadSensorTest.x3d' name='title'/>
+    <meta content='UsingLoadSensor to test when AudioClip loading is complete' name='description'/>
+    <meta content='19 July 2008' name='created'/>
+    <meta content='20 October 2019' name='modified'/>
+    <meta content='Leonard Daly and Don Brutzman' name='creator'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/X3dResources.html' name='reference'/>
+    <meta content='Copyright 2006, Daly Realism and Don Brutzman' name='rights'/>
+    <meta content='X3D book, X3D graphics, X3D-Edit, http://www.x3dGraphics.com' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter12EnvironmentSensorSound/SoundLoadSensorTest.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <!-- Sound location y-value is 1.6 in order to match typical avatar height (in meters) -->
+    <WorldInfo title='SoundLoadSensorTest.x3d'/>
+    <Sound DEF='SomeSound' location='0 1.6 0' maxBack='100' maxFront='100' minBack='10' minFront='10'>
+      <AudioClip DEF='WaterSounds' description='Running Water' url='"aqua.wav" "http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter12EnvironmentSensorSound/aqua.wav"'/>
+    </Sound>
+    <LoadSensor DEF='ReportWhenLoaded'>
+      <AudioClip USE='WaterSounds' containerField='watchList'/>
+    </LoadSensor>
+    <ROUTE fromField='loadTime' fromNode='ReportWhenLoaded' toField='startTime' toNode='WaterSounds'/>
+    <!-- send completion report to console -->
+    <Script DEF='ConsoleReport'>
+      <field accessType='inputOnly' name='loadComplete' type='SFBool'/>
+      <field accessType='inputOnly' name='loadTime' type='SFTime'/>
+      <![CDATA[
+ecmascript:
+function initialize ()
+{
+	Browser.println ('Script initialize() complete');
+}
+function loadComplete (value)
+{
+	Browser.println ('LoadSensor AudioClip isLoaded=' + value);
+}
+function loadTime (value)
+{
+	Browser.println ('LoadSensor AudioClip loadTime=' + value);
+}
+]]>
+    </Script>
+    <ROUTE fromField='isLoaded' fromNode='ReportWhenLoaded' toField='loadComplete' toNode='ConsoleReport'/>
+    <ROUTE fromField='loadTime' fromNode='ReportWhenLoaded' toField='loadTime' toNode='ConsoleReport'/>
+    <!-- show visible indication of load waiting, complete -->
+    <Transform DEF='PivotTextSigns'>
+      <!-- First sign indicates waiting... -->
+      <Shape>
+        <Text string='"LoadSensor waiting for AudioClip..."'>
+          <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.7' style='ITALIC'/>
+        </Text>
+        <Appearance>
+          <Material emissiveColor='0.878431 0.262745 0'/>
+        </Appearance>
+      </Shape>
+      <!-- Second sign indicates completed, initially rotated 90 degrees out of view -->
+      <Transform rotation='0 1 0 1.57'>
+        <Shape>
+          <Text string='"LoadSensor reports AudioClip loading complete."'>
+            <FontStyle justify='"MIDDLE" "MIDDLE"' size='0.7' style='ITALIC'/>
+          </Text>
+          <Appearance>
+            <Material emissiveColor='0 0.278431 0.027451'/>
+          </Appearance>
+        </Shape>
+      </Transform>
+    </Transform>
+    <OrientationInterpolator DEF='SignRotationInterpolator' key='0 1' keyValue='0 1 0 0 0 1 0 -1.57'/>
+    <TimeSensor DEF='SignRotationClock' cycleInterval='0.8'/>
+    <ROUTE fromField='loadTime' fromNode='ReportWhenLoaded' toField='startTime' toNode='SignRotationClock'/>
+    <ROUTE fromField='fraction_changed' fromNode='SignRotationClock' toField='set_fraction' toNode='SignRotationInterpolator'/>
+    <ROUTE fromField='value_changed' fromNode='SignRotationInterpolator' toField='rotation' toNode='PivotTextSigns'/>
+  </Scene>
+</X3D>

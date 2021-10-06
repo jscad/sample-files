@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <meta content='TextExample.x3d' name='title'/>
+    <meta content='Simple Text node: hello X3D!' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='25 March 2005' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='Copyright (c) Don Brutzman and Leonard Daly, 2005' name='rights'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter02GeometryPrimitives/TextExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='Text.x3d'/>
+    <Background skyColor='1 1 1'/>
+    <Viewpoint description='Text example' position='0 0 3'/>
+    <Viewpoint description='Book view' position='0.89 -1.11 2.33'/>
+    <Shape>
+      <Text DEF='HelloText' string='"hello" "X3D!"'>
+        <FontStyle DEF='CenteredFontStyle' justify='"MIDDLE" "MIDDLE"'/>
+      </Text>
+      <Appearance>
+        <Material DEF='DefaultMaterial' diffuseColor='.2 .2 .2'/>
+      </Appearance>
+    </Shape>
+  </Scene>
+</X3D>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "https://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' version='3.3' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='https://www.web3d.org/specifications/x3d-3.3.xsd'>
+  <head>
+    <component level='3' name='EnvironmentalEffects'/>
+    <meta content='TextureBackgroundExample.x3d' name='title'/>
+    <meta content='Simple TextureBackground node with images only.' name='description'/>
+    <meta content='Don Brutzman' name='creator'/>
+    <meta content='20 April 2009' name='created'/>
+    <meta content='14 June 2020' name='modified'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter11LightingEnvironment/BackgroundImagesOnly.x3d' name='reference'/>
+    <meta content='https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/TestImages.x3d' name='reference'/>
+    <meta content='X3D TextureBackground example' name='subject'/>
+    <meta content='http://X3dGraphics.com/examples/X3dForWebAuthors/Chapter11LightingEnvironmentalEffects/TextureBackgroundExample.x3d' name='identifier'/>
+    <meta content='X3D-Edit 3.3, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='../license.html' name='license'/>
+  </head>
+  <Scene>
+    <WorldInfo title='TextureBackground.x3d'/>
+    <TextureBackground>
+      <ImageTexture containerField='leftTexture' url='"images/left.png" "https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/images/left.png"'/>
+      <ImageTexture containerField='rightTexture' url='"images/right.png" "https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/images/right.png"'/>
+      <ImageTexture containerField='frontTexture' url='"images/front.png" "https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/images/front.png"'/>
+      <ImageTexture containerField='backTexture' url='"images/back.png" "https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/images/back.png"'/>
+      <ImageTexture containerField='topTexture' url='"images/top.png" "https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/images/top.png"'/>
+      <ImageTexture containerField='bottomTexture' url='"images/bottom.png" "https://www.web3d.org/x3d/content/examples/Basic/DistributedInteractiveSimulation/images/bottom.png"'/>
+    </TextureBackground>
+    <Shape>
+      <Text string='"TextureBackground node using" "ImageTexture nodes"'>
+        <FontStyle justify='"MIDDLE" "MIDDLE"' style='BOLD'/>
+      </Text>
+      <Appearance>
+        <Material diffuseColor='1 1 1'/>
+      </Appearance>
+    </Shape>
+  </Scene>
+</X3D>
